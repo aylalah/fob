@@ -127,7 +127,7 @@
 						<div class="header-banner-box post-job">
 							<img src="img/verified.png" alt="">
 
-							<a  href="{{ route('register') }}" class="btn btn-red">Sponsor</a>
+							<a  href="{{ url('register-invest') }}" class="btn btn-red">Sponsor</a>
 						</div>
 					</div>
 				</div>
