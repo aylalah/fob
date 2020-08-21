@@ -34,9 +34,12 @@ class TalentProfile extends Migration
             $table->string('images');
             $table->string('video');
             $table->string('audio');
-            $table->string('skill_rate_1');
-            $table->string('skill_rate_2');
-            $table->string('skill_rate_3');
+            $table->string('rate_1');
+            $table->string('rate_2');
+            $table->string('rate_3');
+             $table->string('skill_1');
+            $table->string('skill_2');
+            $table->string('skill_3');
             $table->string('created_by');
             $table->string('updated_by');
             $table->string('status');

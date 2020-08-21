@@ -31,7 +31,7 @@
 					</a>
 
 
-					<a href="{{ url('/home') }}" class="btn btn-link bookmarks">Home</a>
+					<a href="{{ url('/home') }}" class="btn btn-link bookmarks">Profile</a>
 
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						@csrf
@@ -40,7 +40,7 @@
 					
 				@else
 
-				<a href="{{ route('register') }}" class="btn btn-link bookmarks">Sponsor</a>
+				<a href="{{ url('/register-invest') }}" class="btn btn-link bookmarks">Sponsor</a>
 
 					@if (Route::has('register'))
 						<!-- <a href="{{ route('register') }}">Register</a> -->
@@ -75,7 +75,7 @@
 										</span>
 									@enderror
 
-									<input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Password" required autocomplete="new-password">
+									<input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password " required autocomplete="new-password">
 									
 									<button type="submit" class="btn btn-default">
 										{{ __('Register') }}
