@@ -32,27 +32,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $role_id=Auth::user()->user_category_id;
         
-        //  $id=Auth::id();
-        // $user= DB::table('user_category')->where('id','=',$role_id)->first();
-        // $d=Talent_Profile::join('users','talent__profiles.user_id','=','users.id')
-        //     ->select('talent__profiles.*', 'users.name', 'users.image')->where('user_id','=',$id)->first();
-        // $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
-        //     ->select('investor__profiles.*', 'users.name', 'users.image')->where('user_id','=',$id)->first();
-        // $t_cat_id=$d->talent_category_id;
-        // if ($t_cat_id != ' ') {
-        //    $cat=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
-        //     ->select('talent__profiles.*', 'users.name', 'users.image')->where('talent_category_id','=',$t_cat_id)->simplePaginate(5);
-        // }
-        // else{
-        // $cat=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
-        //     ->select('talent__profiles.*', 'users.name', 'users.image')->simplePaginate(5);      
-        // }
-        
-        // // return $cat;
-        // return view('home')->with('user',$user)->with('d',$d)->with('invest',$invest)->with('cat',$cat);
-
          $role_id=Auth::user()->user_category_id;
         
          $id=Auth::id();
