@@ -26,7 +26,7 @@
 						{{ __('Logout') }}
 					</a>
 
-					<a id="navbarDropdown"  class="btn btn-link bookmarks" href="{{ url('/home') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+					<a id="navbarDropdown"  class="btn btn-link bookmarks" href="{{ url('home/') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 						{{ Auth::user()->name }} <span class="caret"></span>
 					</a>
 
@@ -172,35 +172,35 @@
 					<ul class="primary-nav">
 						<li><a href="{{ url('/') }}">Home</a></li>
 						<li class="has-submenu">
-							<a href="{{ url('/talents') }}">Talents</a>
+							<a href="{{ url('talents/') }}">Talents</a>
 							<ul>
-								<li><a href="{{ url('/talents') }}">Actors </a></li>
-								<li><a href="{{ url('/talents') }}">Extras </a></li>
-								<li><a href="{{ url('/talents') }}">Models</a></li>
-								<li><a href="{{ url('/talents') }}">Influencers </a></li>
-								<li><a href="{{ url('/talents') }}">Presenters </a></li>
-								<li><a href="{{ url('/talents') }}">Musicians</a></li>
-								<li><a href="{{ url('/talents') }}">Photographers</a></li>
-								<li><a href="{{ url('/talents') }}">Dancers </a></li>
-								<li><a href="{{ url('/talents') }}">Film & Stage Crew </a></li>
-								<li><a href="{{ url('/talents') }}">More</a></li>
+								<li><a href="{{ url('talents/') }}">Actors </a></li>
+								<li><a href="{{ url('talents/') }}">Extras </a></li>
+								<li><a href="{{ url('talents/') }}">Models</a></li>
+								<li><a href="{{ url('talents/') }}">Influencers </a></li>
+								<li><a href="{{ url('talents/') }}">Presenters </a></li>
+								<li><a href="{{ url('talents/') }}">Musicians</a></li>
+								<li><a href="{{ url('talents/') }}">Photographers</a></li>
+								<li><a href="{{ url('talents/') }}">Dancers </a></li>
+								<li><a href="{{ url('talents/') }}">Film & Stage Crew </a></li>
+								<li><a href="{{ url('talents/') }}">More</a></li>
 							</ul>
 						</li>
-						<li><a href="{{ url('/candidate') }}">Candidates</a></li>
-						<li><a href="{{ url('/partners') }}">Investors</a></li>
+						<li><a href="{{ url('candidate/') }}">Candidates</a></li>
+						<li><a href="{{ url('partners/') }}">Investors</a></li>
 						<li class="has-submenu">
-							<a href="{{ url('/about') }}">More</a>
+							<a href="{{ url('about/') }}">More</a>
 							<ul>
-								<li><a href="{{ url('/partners') }}">Activities</a></li>
-								<li><a href="{{ url('/partners') }}">News</a></li>								
+								<li><a href="{{ url('partners/') }}">Activities</a></li>
+								<li><a href="{{ url('partners/') }}">News</a></li>								
 							</ul>
 						<li class="has-submenu">
-							<a href="{{ url('/about') }}">About Us</a>
+							<a href="{{ url('about/') }}">About Us</a>
 							<ul>
-								<li><a href="{{ url('/partners') }}">Partners</a></li>								
+								<li><a href="{{ url('partners/') }}">Partners</a></li>								
 							</ul>
 						</li>
-						<li><a href="{{ url('/contact') }}">Contact Us</a></li>					
+						<li><a href="{{ url('contact/') }}">Contact Us</a></li>					
 					</ul>
 				</nav>
 			</div> <!-- end .container -->
