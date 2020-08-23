@@ -50,9 +50,15 @@
 							<a href="#" class="btn btn-link">Register</a>
 							<div>
 							<form method="POST" action="{{ route('register') }}">
-                        		@csrf
+								@csrf
+								<select  id="country" class="form-control @error('user_category_id') is-invalid @enderror" name="user_category_id" value="{{ old('user_category_id') }}" required autocomplete="user_category_id">
+											<option value="">Select Category</option>
+											<option value="2">Member</option>
+											<option value="3">Talent</option>
+											<option value="4">Sponsor</option>
+										</select>
 								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Username" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-								<input name="user_category_id" type="hidden" value="2">
+								<!-- <input name="user_category_id" type="hidden" value="2"> -->
 									@error('name')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>
@@ -147,7 +153,9 @@
 			
 			</div>
 		          		
-		
+<?php 
+$talentCat = \App\TalentCategory::get();
+?>		
 
 			</div> <!-- end .container -->
 		</div> <!-- end .header-top-bar -->
@@ -159,7 +167,7 @@
 				<div class="css-table logo">
 					<div class="css-table-cell">
 						<a  href="{{url('/')}}">
-							<img  src="img/logo4.png" alt="Logo">
+							<img  src="{{ asset('img/logo4.png') }}" alt="Logo">
 						</a> <!-- end .logo -->
 					</div>
 				</div>
@@ -174,16 +182,13 @@
 						<li class="has-submenu">
 							<a href="{{ url('talents/') }}">Talents</a>
 							<ul>
-								<li><a href="{{ url('talents/') }}">Actors </a></li>
-								<li><a href="{{ url('talents/') }}">Extras </a></li>
-								<li><a href="{{ url('talents/') }}">Models</a></li>
-								<li><a href="{{ url('talents/') }}">Influencers </a></li>
-								<li><a href="{{ url('talents/') }}">Presenters </a></li>
-								<li><a href="{{ url('talents/') }}">Musicians</a></li>
-								<li><a href="{{ url('talents/') }}">Photographers</a></li>
-								<li><a href="{{ url('talents/') }}">Dancers </a></li>
-								<li><a href="{{ url('talents/') }}">Film & Stage Crew </a></li>
-								<li><a href="{{ url('talents/') }}">More</a></li>
+								@foreach ($talentCat as $gCat)                                                  
+									            
+								<li><a href="{{ url('candidate-category') }}/{{$gCat->id}}">{{$gCat->talentcategory_name}} </a></li>
+							
+							@endforeach
+								
+								<!-- <li><a href="{{ url('/talents') }}">More</a></li> -->
 							</ul>
 						</li>
 						<li><a href="{{ url('candidate/') }}">Candidates</a></li>

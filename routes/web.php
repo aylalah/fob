@@ -1,7 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Talent_Profile;
+use App\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+// use Auth;
+// use Image;
+use App\Investor_Profile;
+use App\UserCategory;
+use App\TalentCategory;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,15 +22,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.address_1','users.email')->take(6)->get(); 
+     $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
+            ->select('investor__profiles.*', 'users.name', 'users.image','users.email')->take(9)->get();
+    return view('welcome')->with('cand',$cand)->with('invest',$invest);
 });
 
 Route::get('/candidate', function () {
-    return view('pages.candidate');
+    $talentCat = TalentCategory::all(); 
+     $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.email')->paginate(12); 
+    return view('pages.candidate')->with('cand',$cand)->with('talentCat',$talentCat);
 });
 
 Route::get('/partners', function () {
-    return view('pages.partners');
+    $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
+            ->select('investor__profiles.*', 'users.name', 'users.image','users.email')->paginate(1);
+    return view('pages.partners')->with('invest',$invest);
 });
 
 Route::get('/policy', function () {
@@ -65,3 +82,8 @@ Route::POST('/register-user', 'HomeController@registeruser');
 
 Route::get('/register-invest', 'HomeController@register');
 Route::POST('/register-invest', 'HomeController@registerstore');
+
+Route::POST('/search-partner', 'HomeController@searchpartner');
+Route::POST('/search-candidate', 'HomeController@searchcandidate');
+
+Route::get('/candidate-category/{id}', 'HomeController@candidatedetail');

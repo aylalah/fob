@@ -108,7 +108,7 @@
 										  @endif -->
 									</tbody>
 								</table>
-
+					@if(Auth::user()->user_category_id == 2) 
 								<h5 class="bottom-line">Professional Rating</h5>
 
 								<table>
@@ -179,6 +179,22 @@
 										</tr>
 									</tbody>
 								</table>
+
+					@endif
+					
+					<h5 class="bottom-line"></h5>
+					@if(Auth::user()->user_category_id == 4)
+					<aside>
+						<div class="widget sidebar-widget white-container links-widget">
+							<ul>
+								<li class="active"><a href="{{ url('/about') }}">Dashboard</a></li>
+								<li><a href="{{ url('/policy') }}">Favourite</a></li>
+								<li><a href="{{ url('/term-condition') }}">Sponsor</a></li>
+							</ul>
+						</div>
+					</aside>
+
+					@endif
 							</div>
 						</div>
 					</aside>
@@ -317,39 +333,6 @@
 					</div>
 					 @endif	
   @endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					<div class="title-lines">
 						<h3 class="mt0">Similar Candidates</h3>
 					</div>
@@ -421,7 +404,7 @@
 							<hr>
 
 							<div class="clearfix">
-								<a href="mailto:{{Auth::user()->email}}" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
+								<a href="mailto:{{$d->email}}" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
 
 								<ul class="social-icons pull-right">
 									<li><span>Share</span></li>

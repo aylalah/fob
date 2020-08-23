@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['']]);
+        $this->middleware('auth', ['except' => ['searchcandidate','searchpartner','candidatedetail']]);
     }
 
     /**
@@ -39,20 +39,20 @@ class HomeController extends Controller
         $user= DB::table('user_category')->where('id','=',$role_id)->first();
         
             $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
-            ->select('investor__profiles.*', 'users.name', 'users.image')->where('user_id','=',$id)->first();
+            ->select('investor__profiles.*', 'users.name', 'users.image','users.email')->where('user_id','=',$id)->first();
 
            $d=Talent_Profile::join('users','talent__profiles.user_id','=','users.id')
-            ->select('talent__profiles.*', 'users.name', 'users.image')->where('user_id','=',$id)->first();
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.email')->where('user_id','=',$id)->first();
 
          if ($d) {
         $t_cat_id=$d->talent_category_id;
        
            $cat=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
-            ->select('talent__profiles.*', 'users.name', 'users.image')->where('talent_category_id','=',$t_cat_id)->simplePaginate(5);
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.email')->where('talent_category_id','=',$t_cat_id)->simplePaginate(5);
        
         }else{
              $cat=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
-            ->select('talent__profiles.*', 'users.name', 'users.image')->simplePaginate(5); 
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.email')->simplePaginate(5); 
         }
         // return $cat;
         return view('home')->with('user',$user)->with('d',$d)->with('invest',$invest)->with('cat',$cat);
@@ -131,7 +131,7 @@ class HomeController extends Controller
          if ($request->hasFile('file')){
             $file=$request->file('file');
             $filename= time().'.'.$file->getClientOriginalExtension();
-            Image::make($file)->resize(300, 300)->save(public_path('/upload/'.$filename));
+            Image::make($file)->resize(300, 45)->save(public_path('/upload/'.$filename));
            
             $request->merge(['logo' => $filename]);
         }
@@ -156,5 +156,35 @@ class HomeController extends Controller
         else{
              return redirect('home')->with('success','Already Exist. Please,login or register with another email');
         }
+    }
+
+      public function searchpartner(Request $request){
+     $search=$request->search;
+     $invest=Investor_Profile::query()->join('users','investor__profiles.user_id','=','users.id')
+            ->select('investor__profiles.*', 'users.name', 'users.image','users.email')->where('company_industry_category','LIKE', "%{$search}%")
+     // ->orWhere('email','LIKE', "%{$search}%")
+    ->paginate(100);
+    // return $dat;
+    return view('pages.partners')->with('invest',$invest);
+    }
+     public function searchcandidate(Request $request){
+         $talentCat = TalentCategory::all(); 
+     $search=$request->search;
+     $cand=Talent_Profile::query()->join('users','talent__profiles.user_id','=','users.id')
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.email')->where('name','LIKE', "%{$search}%")
+     ->orWhere('skill_1','LIKE', "%{$search}%")
+      ->orWhere('skill_2','LIKE', "%{$search}%")
+       ->orWhere('skill_3','LIKE', "%{$search}%")
+     ->paginate(100);
+    // return $dat;
+   return view('pages.candidate')->with('cand',$cand)->with('talentCat',$talentCat);
+    }
+
+       public function candidatedetail($id)
+    {
+   $talentCat = TalentCategory::all(); 
+     $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.email')->where('talent_category_id','=',$id)->paginate(12); 
+    return view('pages.candidate_category')->with('cand',$cand)->with('talentCat',$talentCat);
     }
 }
