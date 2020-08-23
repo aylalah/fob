@@ -351,7 +351,28 @@
 					<div class="latest-jobs-section white-container">
 						<div class="flexslider clearfix">
 							<ul class="slides">
-								<li>
+									@foreach ($cand as $c)  
+										<li>
+
+									<div class="image">
+										<img src="http://localhost/fob/public/upload/{{ $c->image }}" alt="">
+										<a href="#" class="btn btn-default fa fa-search"></a>
+										<a href="#" class="btn btn-default fa fa-link"></a>
+									</div>
+
+									<div class="content">
+										<h5>{{$c->name}} Talent</h5>
+										<h6>{{$c->skill_1}} @if($c->skill_2 != null),{{$c->skill_2}} @endif @if($c->skill_3 != null),{{$c->skill_3}} @endif </h6>
+										<span class="location">{{$c->address_1}}</span>
+										<p>{{$c->about}}. <a href="{{ url('/candidate') }}" class="read-more">Read More</a></p>
+									</div>
+
+								</li>
+  
+						
+@endforeach
+				
+								<!-- <li>
 									<div class="image">
 										<img src="img/content/face-0.png" alt="">
 										<a href="#" class="btn btn-default fa fa-search"></a>
@@ -363,6 +384,7 @@
 										<span class="location">Sydney, Australia</span>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, hic corrupti nobis consequuntur nam praesentium dolorem quo accusamus laborum ab. <a href="#" class="read-more">Read More</a></p>
 									</div>
+
 								</li>
 
 								<li>
@@ -405,7 +427,7 @@
 										<span class="location">Sydney, Australia</span>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, hic corrupti nobis consequuntur nam praesentium dolorem quo accusamus laborum ab. <a href="#" class="read-more">Read More</a></p>
 									</div>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</div> <!-- end .latest-jobs-section -->
@@ -416,10 +438,27 @@
 
 					<div class="our-partners-section white-container">
 						<ul class="clearfix">
+									@foreach ($invest as $c)    
 							<li>
 								<div class="css-table">
 									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-1.png" alt=""></a>
+										<a href="{{ url('/partners') }}"><img src="http://localhost/fob/public/upload/{{ $c->image }}" alt=""></a>
+									</div>
+								</div>
+							</li>
+@endforeach
+							<!-- <li>
+								<div class="css-table">
+									<div class="css-table-cell">
+										<a href="#"><img src="img/content/logo-2.png" alt=""></a>
+									</div>
+								</div>
+							</li>
+
+							<li>
+								<div class="css-table">
+									<div class="css-table-cell">
+										<a href="#"><img src="img/content/logo-3.png" alt=""></a>
 									</div>
 								</div>
 							</li>
@@ -443,26 +482,10 @@
 							<li>
 								<div class="css-table">
 									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-2.png" alt=""></a>
-									</div>
-								</div>
-							</li>
-
-							<li>
-								<div class="css-table">
-									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-3.png" alt=""></a>
-									</div>
-								</div>
-							</li>
-
-							<li>
-								<div class="css-table">
-									<div class="css-table-cell">
 										<a href="#"><img src="img/content/logo-1.png" alt=""></a>
 									</div>
 								</div>
-							</li>
+							</li> -->
 						</ul>
 					</div> <!-- end .our-partners-section -->
 

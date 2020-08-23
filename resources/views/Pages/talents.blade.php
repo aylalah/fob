@@ -11,22 +11,22 @@
 @section('content')
               
 <div id="page-content">
+		@if(count($cand) > 0)
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-8 page-content">
 					<div class="white-container candidates-search">
 						<div class="row">
-							<div class="col-sm-5 col-md-5">
-								<input type="text" class="form-control" placeholder="Location">
+						<form method="POST" action="{{ url('search-candidate') }}" enctype="multipart/form-data">
+								@csrf
+							<div class="col-sm-6">
+								<input type="text" class="form-control" name="search" placeholder="Search for Talent name or Skill">
 							</div>
 
-							<div class="col-sm-4 col-md-5">
-								<input type="text" class="form-control" placeholder="Industry / Role">
-							</div>
-
-							<div class="col-sm-3 col-md-2">
+							<div class="col-sm-2">
 								<input type="submit" class="btn btn-default btn-block" value="Search">
 							</div>
+						</form>
 						</div>
 					</div>
 
@@ -35,22 +35,20 @@
 					</div>
 
 					<div class="clearfix mb30">
-						<select class="form-control pull-left">
+					<select class="form-control pull-left" onchange="location = this.options[this.selectedIndex].value;">
 							<option value="">Sort By</option>
-							<option value="">1</option>
-							<option value="">2</option>
-							<option value="">3</option>
-							<option value="">4</option>
+									@foreach ($talentCat as $gCat)                                                  
+									            
+								
+							<option   value="candidate-detail/{{$gCat->id}}" >{{$gCat->talentcategory_name}}</option>
+							@endforeach
 						</select>
 
 						<ul class="pagination pull-right">
-							<li><a href="#" class="fa fa-angle-left"></a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#" class="fa fa-angle-right"></a></li>
+							
+							
+							<li>{{ $cand->links() }}</li>
+							
 						</ul>
 					</div>
 
@@ -411,13 +409,9 @@
 
 					<div class="clearfix">
 						<ul class="pagination pull-right">
-							<li><a href="#" class="fa fa-angle-left"></a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#" class="fa fa-angle-right"></a></li>
+													{{ $cand->links() }}
+							
+							
 						</ul>
 					</div>
 				</div> <!-- end .page-content -->
@@ -513,6 +507,7 @@
 				</div> <!-- end .page-sidebar -->
 			</div>
 		</div> <!-- end .container -->
+		@endif
 	</div> <!-- end #page-content -->
 
 @endsection

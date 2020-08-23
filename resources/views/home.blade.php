@@ -421,7 +421,7 @@
 							<hr>
 
 							<div class="clearfix">
-								<a href="mailto:{{Auth::user()->email}}" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
+								<a href="mailto:{{$c->email}}" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
 
 								<ul class="social-icons pull-right">
 									<li><span>Share</span></li>
