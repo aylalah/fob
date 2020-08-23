@@ -5,8 +5,7 @@ use App\Talent_Profile;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
-use Auth;
-use Image;
+
 use App\Investor_Profile;
 use App\UserCategory;
 use App\TalentCategory;
@@ -73,8 +72,8 @@ Route::get('/candidate-d', function () {
 // });
 
 
-Auth::routes();
-
+// Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/register-user', 'HomeController@getTalentCat');

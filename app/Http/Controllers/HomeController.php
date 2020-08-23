@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['searchcandidate','searchpartner','candidatedetail']]);
+        $this->middleware(['auth', 'verified'], ['except' => ['searchcandidate','searchpartner','candidatedetail']]);
     }
 
     /**
