@@ -147,7 +147,9 @@
 			
 			</div>
 		          		
-		
+<?php 
+$talentCat = \App\TalentCategory::get();
+?>		
 
 			</div> <!-- end .container -->
 		</div> <!-- end .header-top-bar -->
@@ -159,7 +161,7 @@
 				<div class="css-table logo">
 					<div class="css-table-cell">
 						<a  href="{{url('/')}}">
-							<img  src="img/logo3.png" alt="Logo">
+							<img  src="{{ asset('img/logo3.png') }}" alt="Logo">
 						</a> <!-- end .logo -->
 					</div>
 				</div>
@@ -174,16 +176,13 @@
 						<li class="has-submenu">
 							<a href="{{ url('/talents') }}">Talents</a>
 							<ul>
-								<li><a href="{{ url('/talents') }}">Actors </a></li>
-								<li><a href="{{ url('/talents') }}">Extras </a></li>
-								<li><a href="{{ url('/talents') }}">Models</a></li>
-								<li><a href="{{ url('/talents') }}">Influencers </a></li>
-								<li><a href="{{ url('/talents') }}">Presenters </a></li>
-								<li><a href="{{ url('/talents') }}">Musicians</a></li>
-								<li><a href="{{ url('/talents') }}">Photographers</a></li>
-								<li><a href="{{ url('/talents') }}">Dancers </a></li>
-								<li><a href="{{ url('/talents') }}">Film & Stage Crew </a></li>
-								<li><a href="{{ url('/talents') }}">More</a></li>
+								@foreach ($talentCat as $gCat)                                                  
+									            
+								<li><a href="{{ url('candidate-category') }}/{{$gCat->id}}">{{$gCat->talentcategory_name}} </a></li>
+							
+							@endforeach
+								
+								<!-- <li><a href="{{ url('/talents') }}">More</a></li> -->
 							</ul>
 						</li>
 						<li><a href="{{ url('/candidate') }}">Candidates</a></li>
