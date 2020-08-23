@@ -20,6 +20,7 @@
         </div>
     </div>
 </div> -->
+@if(Auth::user()->usernmae !== null)   
 
 <div id="page-content">
 		<div class="container">
@@ -454,4 +455,13 @@
 			</div>
 		</div> <!-- end .container -->
 	</div> <!-- end #page-content -->
+@else
+@if(Auth::user()->user_category_id == 2)  
+ @include('auth.register-user')
+	 @endif
+
+	 @if(Auth::user()->user_category_id == 4) 
+@include('auth.register')
+	@endif
+	@endif 
 @endsection

@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         
          $role_id=Auth::user()->user_category_id;
-        
+         $getCat = TalentCategory::all(); 
          $id=Auth::id();
         $user= DB::table('user_category')->where('id','=',$role_id)->first();
         
@@ -55,7 +55,7 @@ class HomeController extends Controller
             ->select('talent__profiles.*', 'users.name', 'users.image','users.email')->simplePaginate(5); 
         }
         // return $cat;
-        return view('home')->with('user',$user)->with('d',$d)->with('invest',$invest)->with('cat',$cat);
+        return view('home')->with('user',$user)->with('d',$d)->with('invest',$invest)->with('cat',$cat)->with('getCat',$getCat);
        
        
     }
