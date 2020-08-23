@@ -75,8 +75,8 @@ class HomeController extends Controller
         $id=Auth::id();
 
        $c=Talent_Profile::where('user_id','=',$id)->count();
-       $inv=Investor_Profile::where('user_id','=',$id)->count();
-       if ($inv == 0) {
+       // $inv=Investor_Profile::where('user_id','=',$id)->count();
+       // if ($inv == 0) {
          if ($c == 0) {  
  if ($request->hasFile('file')){
             $file=$request->file('file');
@@ -98,6 +98,7 @@ class HomeController extends Controller
        'city'=>$request->city,
        'user_category_id'=>$request->user_category_id,
        'country'=>$request->country,
+       'username'=>'y'
        // 'image'=>$request->image,
 
     ]);
@@ -113,25 +114,25 @@ class HomeController extends Controller
  else{
              return redirect('home')->with('success','Already Exist');
         }
-       }
-        else{
-             return redirect('home')->with('success','Already an Investor. Please,login or register with another email');
-        }
+       // }
+       //  else{
+       //       return redirect('home')->with('success','Already an Investor. Please,login or register with another email');
+       //  }
        
     }
        public function registerstore(Request $request)
     {
         $id=Auth::id();
-           $c=Talent_Profile::where('user_id','=',$id)->count();
+           // $c=Talent_Profile::where('user_id','=',$id)->count();
        $inv=Investor_Profile::where('user_id','=',$id)->count();
-       if ($c == 0) {
+       // if ($c == 0) {
          if ($inv == 0) {  
       
            
          if ($request->hasFile('file')){
             $file=$request->file('file');
             $filename= time().'.'.$file->getClientOriginalExtension();
-            Image::make($file)->resize(300, 45)->save(public_path('/upload/'.$filename));
+            Image::make($file)->resize(200, 200)->save(public_path('/upload/'.$filename));
            
             $request->merge(['logo' => $filename]);
         }
@@ -140,8 +141,8 @@ class HomeController extends Controller
         DB::table('users')->where('id','=',$id)->update([
 
        'user_category_id'=>$request->user_category_id,
-       'image' =>$request->logo
-
+       'image' =>$request->logo,
+'username'=>'y'
     ]);
          $request->merge(['user_id' => $id]);
        
@@ -152,10 +153,10 @@ class HomeController extends Controller
       else{
              return redirect('home')->with('success','Already Exist');
         }
-       }
-        else{
-             return redirect('home')->with('success','Already Exist. Please,login or register with another email');
-        }
+       // }
+       //  else{
+       //       return redirect('home')->with('success','Already Exist. Please,login or register with another email');
+       //  }
     }
 
       public function searchpartner(Request $request){

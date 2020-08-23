@@ -20,7 +20,8 @@
         </div>
     </div>
 </div> -->
-@if(Auth::user()->usernmae !== null)   
+
+@if(Auth::user()->username !== null)   
 
 <div id="page-content">
 		<div class="container">
@@ -99,7 +100,7 @@
 
 										<tr>
 											<td>E-mail</td>
-											<td><a href="mailto:{{Auth::user()->email}}">{{Auth::user()->email}}</a></td>
+											<td><a target="_blank" href="mailto:{{Auth::user()->email}}">{{Auth::user()->email}}</a></td>
 										</tr>
 									<!-- @if(Auth::user()->website !== null)   
 										<tr>
@@ -109,7 +110,7 @@
 										  @endif -->
 									</tbody>
 								</table>
-
+					@if(Auth::user()->user_category_id == 2) 
 								<h5 class="bottom-line">Professional Rating</h5>
 
 								<table>
@@ -180,6 +181,22 @@
 										</tr>
 									</tbody>
 								</table>
+
+					@endif
+					
+					<h5 class="bottom-line"></h5>
+					@if(Auth::user()->user_category_id == 4)
+					<aside>
+						<div class="widget sidebar-widget white-container links-widget">
+							<ul>
+								<li class="active"><a href="{{ url('/home') }}">Dashboard</a></li>
+								<li><a href="{{ url('/policy') }}">Favourite</a></li>
+								<li><a href="{{ url('/term-condition') }}">Sponsor</a></li>
+							</ul>
+						</div>
+					</aside>
+
+					@endif
 							</div>
 						</div>
 					</aside>
@@ -217,6 +234,7 @@
 								<li><strong>Experience:</strong> {{$d->experience}}</li>
 								<li><strong>Degree:</strong> {{$d->degree}}</li>
 								<li><strong>Career Level:</strong> {{$d->talent_level}}</li>
+								<li><strong>Website:</strong><a href="{{$d->website}}" target="_blank"> {{$d->website}}</a> </li>
 							</ul>
 
 							<h5>Skills</h5>
@@ -258,9 +276,9 @@
 
 								<ul class="social-icons pull-right">
 									<li><span>Share</span></li>
-									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook"></a></li>
-							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter"></a></li>
-							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram"></a></li>
+									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook" target="_blank"></a></li>
+							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
+							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
 							
 								</ul>
 							</div>
@@ -284,9 +302,9 @@
 						</ul>
 
 						<ul class="social-icons clearfix">
-							<li><a href="{{$invest->facebook}}" class="btn btn-gray fa fa-facebook"></a></li>
-							<li><a href="{{$invest->twitter}}" class="btn btn-gray fa fa-twitter"></a></li>
-							<li><a href="{{$invest->instagram}}" class="btn btn-gray fa fa-instagram"></a></li>
+							<li><a href="{{$invest->facebook}}" class="btn btn-gray fa fa-facebook"  target="_blank"></a></li>
+							<li><a href="{{$invest->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
+							<li><a href="{{$invest->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
 							
 						</ul>
 
@@ -299,7 +317,7 @@
 						<ul class="list-unstyled">
 							<li><strong>Company Name:</strong>{{$invest->company_industry_category}}</li>
 							<li><strong>Company Profile:</strong> {{$invest->company_profile}}</li>
-							<li><strong>Website:</strong>{{$invest->website}}</li>
+							<li><strong>Website:</strong><a href="{{$invest->website}}" target="_blank"> {{$invest->website}}</a> </li>
 						</ul>
 
 				
@@ -318,39 +336,6 @@
 					</div>
 					 @endif	
   @endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 					<div class="title-lines">
 						<h3 class="mt0">Similar Candidates</h3>
 					</div>
@@ -426,9 +411,9 @@
 
 								<ul class="social-icons pull-right">
 									<li><span>Share</span></li>
-									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook"></a></li>
-							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter"></a></li>
-							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram"></a></li>
+									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook" target="_blank"></a></li>
+							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
+							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
 							
 								</ul>
 							</div>
@@ -463,5 +448,6 @@
 	 @if(Auth::user()->user_category_id == 4) 
 @include('auth.register')
 	@endif
+
 	@endif 
 @endsection

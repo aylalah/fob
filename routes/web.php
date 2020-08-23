@@ -76,10 +76,10 @@ Route::get('/candidate-d', function () {
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/register-user', 'HomeController@getTalentCat');
+// Route::get('/register-user', 'HomeController@getTalentCat');
 Route::POST('/register-user', 'HomeController@registeruser');
 
-Route::get('/register-invest', 'HomeController@register');
+// Route::get('/register-invest', 'HomeController@register');
 Route::POST('/register-invest', 'HomeController@registerstore');
 
 Route::POST('/search-partner', 'HomeController@searchpartner');

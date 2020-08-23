@@ -26,7 +26,7 @@
 						{{ __('Logout') }}
 					</a>
 
-					<a id="navbarDropdown"  class="btn btn-link bookmarks" href="{{ url('/home') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+					<a id="navbarDropdown"  class="btn btn-link bookmarks" href="{{ url('home/') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 						{{ Auth::user()->name }} <span class="caret"></span>
 					</a>
 
@@ -40,7 +40,7 @@
 					
 				@else
 
-				<a href="{{ url('/register-invest') }}" class="btn btn-link bookmarks">Sponsor</a>
+				<!-- <a href="{{ url('/register-invest') }}" class="btn btn-link bookmarks">Sponsor</a> -->
 
 					@if (Route::has('register'))
 						<!-- <a href="{{ route('register') }}">Register</a> -->
@@ -50,9 +50,20 @@
 							<a href="#" class="btn btn-link">Register</a>
 							<div>
 							<form method="POST" action="{{ route('register') }}">
-                        		@csrf
+								@csrf
+								<select  id="country" class="form-control @error('user_category_id') is-invalid @enderror" name="user_category_id" value="{{ old('user_category_id') }}" required autocomplete="user_category_id">
+											<option value="">Select Role</option>
+											<option value="2">Talent</option>
+											<option value="3">Member</option>
+											<option value="4">Sponsor</option>
+										</select>
+										@error('user_category_id')
+										<span class="invalid-feedback" role="alert">
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
 								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Username" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-								<input name="user_category_id" type="hidden" value="2">
+								<!-- <input name="user_category_id" type="hidden" value="2"> -->
 									@error('name')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>
@@ -161,7 +172,7 @@ $talentCat = \App\TalentCategory::get();
 				<div class="css-table logo">
 					<div class="css-table-cell">
 						<a  href="{{url('/')}}">
-							<img  src="{{ asset('img/logo3.png') }}" alt="Logo">
+							<img  src="{{ asset('img/logo4.png') }}" alt="Logo">
 						</a> <!-- end .logo -->
 					</div>
 				</div>
@@ -174,7 +185,7 @@ $talentCat = \App\TalentCategory::get();
 					<ul class="primary-nav">
 						<li><a href="{{ url('/') }}">Home</a></li>
 						<li class="has-submenu">
-							<a href="{{ url('/talents') }}">Talents</a>
+							<a href="{{ url('talents/') }}">Talents</a>
 							<ul>
 								@foreach ($talentCat as $gCat)                                                  
 									            
@@ -185,21 +196,21 @@ $talentCat = \App\TalentCategory::get();
 								<!-- <li><a href="{{ url('/talents') }}">More</a></li> -->
 							</ul>
 						</li>
-						<li><a href="{{ url('/candidate') }}">Candidates</a></li>
-						<li><a href="{{ url('/partners') }}">Investors</a></li>
+						<li><a href="{{ url('candidate/') }}">Candidates</a></li>
+						<li><a href="{{ url('partners/') }}">Investors</a></li>
 						<li class="has-submenu">
-							<a href="{{ url('/about') }}">More</a>
+							<a href="{{ url('about/') }}">More</a>
 							<ul>
-								<li><a href="{{ url('/partners') }}">Activities</a></li>
-								<li><a href="{{ url('/partners') }}">News</a></li>								
+								<li><a href="{{ url('partners/') }}">Activities</a></li>
+								<li><a href="{{ url('partners/') }}">News</a></li>								
 							</ul>
 						<li class="has-submenu">
-							<a href="{{ url('/about') }}">About Us</a>
+							<a href="{{ url('about/') }}">About Us</a>
 							<ul>
-								<li><a href="{{ url('/partners') }}">Partners</a></li>								
+								<li><a href="{{ url('partners/') }}">Partners</a></li>								
 							</ul>
 						</li>
-						<li><a href="{{ url('/contact') }}">Contact Us</a></li>					
+						<li><a href="{{ url('contact/') }}">Contact Us</a></li>					
 					</ul>
 				</nav>
 			</div> <!-- end .container -->
