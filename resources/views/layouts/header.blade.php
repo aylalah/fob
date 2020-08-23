@@ -159,7 +159,7 @@
 				<div class="css-table logo">
 					<div class="css-table-cell">
 						<a  href="{{url('/')}}">
-							<img  src="img/logo3.png" alt="Logo">
+							<img  src="img/logo4.png" alt="Logo">
 						</a> <!-- end .logo -->
 					</div>
 				</div>
