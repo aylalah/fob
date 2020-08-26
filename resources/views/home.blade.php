@@ -111,9 +111,9 @@
 									</tbody>
 								</table>
 					@if(Auth::user()->user_category_id == 2) 
-								<h5 class="bottom-line">Professional Rating</h5>
+								<h5 class="bottom-line"></h5>
 
-								<table>
+								<!-- <table>
 									<tbody>
 										<tr>
 											<td>Expertise</td>
@@ -180,7 +180,15 @@
 											</td>
 										</tr>
 									</tbody>
-								</table>
+								</table> -->
+								<aside>
+						<div class="widget sidebar-widget white-container links-widget">
+							<ul>
+								<li class="active"><a href="{{ url('/home') }}">Dashboard</a></li>
+								<li><a href="{{ url('/favourite') }}">Favourite</a></li>
+							</ul>
+						</div>
+					</aside>
 
 					@endif
 					
@@ -190,7 +198,7 @@
 						<div class="widget sidebar-widget white-container links-widget">
 							<ul>
 								<li class="active"><a href="{{ url('/home') }}">Dashboard</a></li>
-								<li><a href="{{ url('/policy') }}">Favourite</a></li>
+								<li><a href="{{ url('/favourite') }}">Favourite</a></li>
 								<li><a href="{{ url('/term-condition') }}">Sponsor</a></li>
 							</ul>
 						</div>
@@ -340,8 +348,32 @@
 						<h3 class="mt0">Similar Candidates</h3>
 					</div>
  @foreach ($cat as $d)
-       
-       
+     
+   {{$d->id}}
+   <?php 
+       $like=\App\Like::where('user_id','=',Auth::id())->where('talent_id','=',$d->id)->select(DB::raw('count(*) as like_count, status'))->groupBy('status')->first();
+        $countf=\App\favourite::where('user_id','=',Auth::id())->where('f_user_id','=',$d->user_id)->select(DB::raw('count(*) as count, status'))->groupBy('status')->first();
+        if ($like) {
+        $count_status=$like->like_count;
+        $type = $like->status;
+      // echo $type;
+    }else{
+    	$type=1;
+    	// echo $type;
+    }
+  
+       if ($countf) {
+        // $count_status=$l->like_count;
+        $status = $countf->status;
+      // echo $type;
+    }else{
+    	$status=1;
+    	// echo $type;
+    }   
+    
+?>	
+  @if(Auth::user()->id != $d->user_id)  
+
 					<div class="candidates-item">
 						<div class="thumb"><img src="http://localhost/fob/public/upload/{{$d->image}}" alt=""></div>
 
@@ -352,8 +384,20 @@
 
 						<ul class="top-btns">
 							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+							@if($status == '1') 
+							<li><a id="fav1_{{$d->user_id}}" class="btn btn-gray fa fa-star fav fav1_{{$d->user_id}}"></a></li>
+							@endif
+							@if($status == '2') 	
+							<li><a id="fav2_{{$d->user_id}}" class="btn btn-default fa fa-star fav fav2_{{$d->user_id}}"></a></li>
+								@endif
+							@if($type == '1') 
+							<li><a id="like1_{{$d->id}}" class="btn btn-gray fa fa-thumbs-up like like1_{{$d->id}}">{{$d->count_like}}</a></li>
+							@endif
+							@if($type == '2') 	
+							<li><a id="like2_{{$d->id}}" class="btn btn-default fa fa-thumbs-up like like2_{{$d->id}}">{{$d->count_like}}</a></li>
+								@endif
+							<!-- <li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+							<li><a href="#" class="btn btn-gray fa fa-link"></a></li> -->
 						</ul>
 
 						<p class="description">{{$d->about}} <a href="#" class="read-more">Read More</a></p>
@@ -419,7 +463,10 @@
 							</div>
 						</div>
 					</div>
-    
+					
+
+   @endif
+   
         @endforeach
 					
 							<hr>
