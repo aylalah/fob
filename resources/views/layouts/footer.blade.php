@@ -6,7 +6,7 @@
 					<div class="widget">
 						<div class="widget-content">
           
-							<img  src="img/logo3.png" alt="Logo">
+							<img  src="img/logo6.png" alt="Logo">
 
 							<p>Here we help you to find the right Talents for your Brand Ambassadorship, Brand Modelling, Talent recruiting and retention for specific job roles while meeting your organizations requirements simultaneously. </p>
 						</div>

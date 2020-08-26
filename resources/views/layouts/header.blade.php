@@ -167,7 +167,7 @@ $talentCat = \App\TalentCategory::get();
 				<div class="css-table logo">
 					<div class="css-table-cell">
 						<a  href="{{url('/')}}">
-							<img  src="{{ asset('img/logo4.png') }}" alt="Logo">
+							<img  src="{{ asset('img/logo7.png') }}" alt="Logo">
 						</a> <!-- end .logo -->
 					</div>
 				</div>
