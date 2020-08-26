@@ -54,6 +54,29 @@
 					</div>
 					@if(count($cand) > 0)
 @foreach ($cand as $c) 
+       <?php 
+       $like=\App\Like::where('user_id','=',Auth::id())->where('talent_id','=',$c->id)->select(DB::raw('count(*) as like_count, status'))->groupBy('status')->first();
+        $countf=\App\favourite::where('user_id','=',Auth::id())->where('f_user_id','=',$c->user_id)->select(DB::raw('count(*) as count, status'))->groupBy('status')->first();
+        if ($like) {
+        $count_status=$like->like_count;
+        $type = $like->status;
+      // echo $type;
+    }else{
+    	$type=1;
+    	// echo $type;
+    }
+  
+       if ($countf) {
+        // $count_status=$l->like_count;
+        $status = $countf->status;
+      // echo $type;
+    }else{
+    	$status=1;
+    	// echo $type;
+    }   
+       
+    
+?>	
 					<div class="candidates-item">
 						<div class="thumb"><img src="http://localhost/fob/public/upload/{{ $c->image }}" alt=""></div>
 
@@ -62,8 +85,24 @@
 
 						<ul class="top-btns">
 							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+							@if($status == '1') 
+							<li><a id="fav1_{{$c->user_id}}" class="btn btn-gray fa fa-star fav fav1_{{$c->user_id}}"></a></li>
+							@endif
+							@if($status == '2') 	
+							<li><a id="fav2_{{$c->user_id}}" class="btn btn-default fa fa-star fav fav2_{{$c->user_id}}"></a></li>
+								@endif
+							<!-- <li><a href="#" href="{{ url('/add-like') }}/{{$c->id}}" class="btn btn-gray fa fa-star"></a></li> -->
+							<!-- @if($type == '0') 
+							<li ><a id="like0_{{$c->id}}" class="btn btn-gray fa fa-thumbs-up like like0_{{$c->id}}">{{$c->count_like}}</a></li>
+							@endif -->
+							@if($type == '1') 
+							<li><a id="like1_{{$c->id}}" class="btn btn-gray fa fa-thumbs-up like like1_{{$c->id}}">{{$c->count_like}}</a></li>
+							@endif
+							@if($type == '2') 	
+							<li><a id="like2_{{$c->id}}" class="btn btn-default fa fa-thumbs-up like like2_{{$c->id}}">{{$c->count_like}}</a></li>
+								@endif
+
+								<!-- <p id="pp">dshhjsd</p> -->
 						</ul>
 
 						<p class="description">{{$c->about}}. <a href="#" class="read-more">Read More</a></p>

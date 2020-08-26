@@ -5,8 +5,7 @@ use App\Talent_Profile;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
-// use Auth;
-// use Image;
+
 use App\Investor_Profile;
 use App\UserCategory;
 use App\TalentCategory;
@@ -23,22 +22,16 @@ use App\TalentCategory;
 
 Route::get('/', function () {
     $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
-            ->select('talent__profiles.*', 'users.name', 'users.image','users.address_1','users.email')->take(6)->get(); 
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.address_1','users.email','users.count_f')->take(6)->get(); 
      $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
-            ->select('investor__profiles.*', 'users.name', 'users.image','users.email')->take(9)->get();
+            ->select('investor__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->take(9)->get();
     return view('welcome')->with('cand',$cand)->with('invest',$invest);
 });
 
-Route::get('/candidate', function () {
-    $talentCat = TalentCategory::all(); 
-     $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
-            ->select('talent__profiles.*', 'users.name', 'users.image','users.email')->paginate(12); 
-    return view('pages.candidate')->with('cand',$cand)->with('talentCat',$talentCat);
-});
 
 Route::get('/partners', function () {
     $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
-            ->select('investor__profiles.*', 'users.name', 'users.image','users.email')->paginate(1);
+            ->select('investor__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->paginate(1);
     return view('pages.partners')->with('invest',$invest);
 });
 
@@ -73,17 +66,23 @@ Route::get('/candidate-d', function () {
 // });
 
 
-Auth::routes();
-
+// Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/register-user', 'HomeController@getTalentCat');
+// Route::get('/register-user', 'HomeController@getTalentCat');
 Route::POST('/register-user', 'HomeController@registeruser');
 
-Route::get('/register-invest', 'HomeController@register');
+// Route::get('/register-invest', 'HomeController@register');
 Route::POST('/register-invest', 'HomeController@registerstore');
 
 Route::POST('/search-partner', 'HomeController@searchpartner');
 Route::POST('/search-candidate', 'HomeController@searchcandidate');
 
 Route::get('/candidate-category/{id}', 'HomeController@candidatedetail');
+
+Route::get('/add-like', 'HomeController@addlike');
+Route::get('/add-favour', 'HomeController@addfavour');
+Route::get('/remove-like/{id}', 'HomeController@removelike');
+Route::get('/candidate',  'HomeController@candidate');
+Route::get('/favourite', 'HomeController@favour');

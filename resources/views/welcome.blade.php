@@ -119,7 +119,7 @@
 								<div><span>Talents</span></div>
 							</div>
 
-							<a  href="{{ url('register-user') }}" class="btn btn-default">Register Now</a>
+							<a  href="{{ url('candidate/') }}" class="btn btn-default">Talents</a>
 						</div>
 					</div>
 
@@ -127,7 +127,7 @@
 						<div class="header-banner-box post-job">
 							<img src="img/verified.png" alt="">
 
-							<a  href="{{ url('register-invest') }}" class="btn btn-red">Sponsor</a>
+							<a  href="{{ url('partners') }}" class="btn btn-red">Sponsor</a>
 						</div>
 					</div>
 				</div>
@@ -442,7 +442,7 @@
 							<li>
 								<div class="css-table">
 									<div class="css-table-cell">
-										<a href="{{ url('/partners') }}"><img src="http://localhost/fob/public/upload/{{ $c->image }}" alt=""></a>
+										<a href="{{ url('/partners') }}"><img src="http://localhost/fob/public/upload/{{ $c->image }}" style="width: 100%;height: 50px" alt=""></a>
 									</div>
 								</div>
 							</li>

@@ -40,7 +40,7 @@
 					
 				@else
 
-				<a href="{{ url('/register-invest') }}" class="btn btn-link bookmarks">Sponsor</a>
+				<!-- <a href="{{ url('/register-invest') }}" class="btn btn-link bookmarks">Sponsor</a> -->
 
 					@if (Route::has('register'))
 						<!-- <a href="{{ route('register') }}">Register</a> -->
@@ -52,11 +52,16 @@
 							<form method="POST" action="{{ route('register') }}">
 								@csrf
 								<select  id="country" class="form-control @error('user_category_id') is-invalid @enderror" name="user_category_id" value="{{ old('user_category_id') }}" required autocomplete="user_category_id">
-											<option value="">Select Category</option>
-											<option value="2">Member</option>
-											<option value="3">Talent</option>
+											<option value="">Select Role</option>
+											<option value="2">Talent</option>
+											<option value="3">Member</option>
 											<option value="4">Sponsor</option>
 										</select>
+										@error('user_category_id')
+										<span class="invalid-feedback" role="alert">
+											<strong>{{ $message }}</strong>
+										</span>
+									@enderror
 								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Username" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 								<!-- <input name="user_category_id" type="hidden" value="2"> -->
 									@error('name')

@@ -21,6 +21,8 @@
     </div>
 </div> -->
 
+@if(Auth::user()->username !== null)   
+
 <div id="page-content">
 		<div class="container">
 			<div class="row">
@@ -98,7 +100,7 @@
 
 										<tr>
 											<td>E-mail</td>
-											<td><a href="mailto:{{Auth::user()->email}}">{{Auth::user()->email}}</a></td>
+											<td><a target="_blank" href="mailto:{{Auth::user()->email}}">{{Auth::user()->email}}</a></td>
 										</tr>
 									<!-- @if(Auth::user()->website !== null)   
 										<tr>
@@ -109,9 +111,9 @@
 									</tbody>
 								</table>
 					@if(Auth::user()->user_category_id == 2) 
-								<h5 class="bottom-line">Professional Rating</h5>
+								<h5 class="bottom-line"></h5>
 
-								<table>
+								<!-- <table>
 									<tbody>
 										<tr>
 											<td>Expertise</td>
@@ -178,7 +180,15 @@
 											</td>
 										</tr>
 									</tbody>
-								</table>
+								</table> -->
+								<aside>
+						<div class="widget sidebar-widget white-container links-widget">
+							<ul>
+								<li class="active"><a href="{{ url('/home') }}">Dashboard</a></li>
+								<li><a href="{{ url('/favourite') }}">Favourite</a></li>
+							</ul>
+						</div>
+					</aside>
 
 					@endif
 					
@@ -187,8 +197,8 @@
 					<aside>
 						<div class="widget sidebar-widget white-container links-widget">
 							<ul>
-								<li class="active"><a href="{{ url('/about') }}">Dashboard</a></li>
-								<li><a href="{{ url('/policy') }}">Favourite</a></li>
+								<li class="active"><a href="{{ url('/home') }}">Dashboard</a></li>
+								<li><a href="{{ url('/favourite') }}">Favourite</a></li>
 								<li><a href="{{ url('/term-condition') }}">Sponsor</a></li>
 							</ul>
 						</div>
@@ -232,6 +242,7 @@
 								<li><strong>Experience:</strong> {{$d->experience}}</li>
 								<li><strong>Degree:</strong> {{$d->degree}}</li>
 								<li><strong>Career Level:</strong> {{$d->talent_level}}</li>
+								<li><strong>Website:</strong><a href="{{$d->website}}" target="_blank"> {{$d->website}}</a> </li>
 							</ul>
 
 							<h5>Skills</h5>
@@ -273,9 +284,9 @@
 
 								<ul class="social-icons pull-right">
 									<li><span>Share</span></li>
-									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook"></a></li>
-							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter"></a></li>
-							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram"></a></li>
+									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook" target="_blank"></a></li>
+							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
+							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
 							
 								</ul>
 							</div>
@@ -299,9 +310,9 @@
 						</ul>
 
 						<ul class="social-icons clearfix">
-							<li><a href="{{$invest->facebook}}" class="btn btn-gray fa fa-facebook"></a></li>
-							<li><a href="{{$invest->twitter}}" class="btn btn-gray fa fa-twitter"></a></li>
-							<li><a href="{{$invest->instagram}}" class="btn btn-gray fa fa-instagram"></a></li>
+							<li><a href="{{$invest->facebook}}" class="btn btn-gray fa fa-facebook"  target="_blank"></a></li>
+							<li><a href="{{$invest->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
+							<li><a href="{{$invest->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
 							
 						</ul>
 
@@ -314,7 +325,7 @@
 						<ul class="list-unstyled">
 							<li><strong>Company Name:</strong>{{$invest->company_industry_category}}</li>
 							<li><strong>Company Profile:</strong> {{$invest->company_profile}}</li>
-							<li><strong>Website:</strong>{{$invest->website}}</li>
+							<li><strong>Website:</strong><a href="{{$invest->website}}" target="_blank"> {{$invest->website}}</a> </li>
 						</ul>
 
 				
@@ -337,8 +348,32 @@
 						<h3 class="mt0">Similar Candidates</h3>
 					</div>
  @foreach ($cat as $d)
-       
-       
+     
+   {{$d->id}}
+   <?php 
+       $like=\App\Like::where('user_id','=',Auth::id())->where('talent_id','=',$d->id)->select(DB::raw('count(*) as like_count, status'))->groupBy('status')->first();
+        $countf=\App\favourite::where('user_id','=',Auth::id())->where('f_user_id','=',$d->user_id)->select(DB::raw('count(*) as count, status'))->groupBy('status')->first();
+        if ($like) {
+        $count_status=$like->like_count;
+        $type = $like->status;
+      // echo $type;
+    }else{
+    	$type=1;
+    	// echo $type;
+    }
+  
+       if ($countf) {
+        // $count_status=$l->like_count;
+        $status = $countf->status;
+      // echo $type;
+    }else{
+    	$status=1;
+    	// echo $type;
+    }   
+    
+?>	
+  @if(Auth::user()->id != $d->user_id)  
+
 					<div class="candidates-item">
 						<div class="thumb"><img src="http://localhost/fob/public/upload/{{$d->image}}" alt=""></div>
 
@@ -349,8 +384,20 @@
 
 						<ul class="top-btns">
 							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+							@if($status == '1') 
+							<li><a id="fav1_{{$d->user_id}}" class="btn btn-gray fa fa-star fav fav1_{{$d->user_id}}"></a></li>
+							@endif
+							@if($status == '2') 	
+							<li><a id="fav2_{{$d->user_id}}" class="btn btn-default fa fa-star fav fav2_{{$d->user_id}}"></a></li>
+								@endif
+							@if($type == '1') 
+							<li><a id="like1_{{$d->id}}" class="btn btn-gray fa fa-thumbs-up like like1_{{$d->id}}">{{$d->count_like}}</a></li>
+							@endif
+							@if($type == '2') 	
+							<li><a id="like2_{{$d->id}}" class="btn btn-default fa fa-thumbs-up like like2_{{$d->id}}">{{$d->count_like}}</a></li>
+								@endif
+							<!-- <li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+							<li><a href="#" class="btn btn-gray fa fa-link"></a></li> -->
 						</ul>
 
 						<p class="description">{{$d->about}} <a href="#" class="read-more">Read More</a></p>
@@ -408,15 +455,18 @@
 
 								<ul class="social-icons pull-right">
 									<li><span>Share</span></li>
-									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook"></a></li>
-							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter"></a></li>
-							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram"></a></li>
+									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook" target="_blank"></a></li>
+							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
+							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
 							
 								</ul>
 							</div>
 						</div>
 					</div>
-    
+					
+
+   @endif
+   
         @endforeach
 					
 							<hr>
@@ -437,4 +487,14 @@
 			</div>
 		</div> <!-- end .container -->
 	</div> <!-- end #page-content -->
+@else
+@if(Auth::user()->user_category_id == 2)  
+ @include('auth.register-user')
+	 @endif
+
+	 @if(Auth::user()->user_category_id == 4) 
+@include('auth.register')
+	@endif
+
+	@endif 
 @endsection
