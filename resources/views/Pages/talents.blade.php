@@ -11,9 +11,10 @@
 @section('content')
               
 <div id="page-content">
-		@if(count($cand) > 0)
+		
 		<div class="container">
 			<div class="row">
+
 				<div class="col-sm-8 page-content">
 					<div class="white-container candidates-search">
 						<div class="row">
@@ -40,373 +41,134 @@
 									@foreach ($talentCat as $gCat)                                                  
 									            
 								
-							<option   value="candidate-detail/{{$gCat->id}}" >{{$gCat->talentcategory_name}}</option>
+							<option   value="{{ url('candidate-category') }}/{{$gCat->id}}" >{{$gCat->talentcategory_name}}</option>
 							@endforeach
 						</select>
 
-						<ul class="pagination pull-right">
+						<!-- <ul class="pagination pull-right">
 							
 							
 							<li>{{ $cand->links() }}</li>
 							
-						</ul>
+						</ul> -->
 					</div>
-
+					@if(count($cand) > 0)
+@foreach ($cand as $c) 
+       <?php 
+       $like=\App\Like::where('user_id','=',Auth::id())->where('talent_id','=',$c->id)->select(DB::raw('count(*) as like_count, status'))->groupBy('status')->first();
+        $countf=\App\favourite::where('user_id','=',Auth::id())->where('f_user_id','=',$c->user_id)->select(DB::raw('count(*) as count, status'))->groupBy('status')->first();
+        if ($like) {
+        $count_status=$like->like_count;
+        $type = $like->status;
+      // echo $type;
+    }else{
+    	$type=1;
+    	// echo $type;
+    }
+  
+       if ($countf) {
+        // $count_status=$l->like_count;
+        $status = $countf->status;
+      // echo $type;
+    }else{
+    	$status=1;
+    	// echo $type;
+    }   
+       
+    
+?>	
 					<div class="candidates-item">
-						<div class="thumb"><img src="img/content/face-1.png" alt=""></div>
+						<div class="thumb"><img src="http://localhost/fob/public/upload/{{ $c->image }}" alt=""></div>
 
-						<h6 class="title"><a href="#">John Doe</a></h6>
-						<span class="meta">24 Years Old - Sydney, AU</span>
+						<h6 class="title"><a href="#">{{$c->name}}</a></h6>
+						<span class="meta">{{$c->age}} Years Old - {{$c->address_1}}</span>
 
 						<ul class="top-btns">
 							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+							@if($status == '1') 
+							<li><a id="fav1_{{$c->user_id}}" class="btn btn-gray fa fa-star fav fav1_{{$c->user_id}}"></a></li>
+							@endif
+							@if($status == '2') 	
+							<li><a id="fav2_{{$c->user_id}}" class="btn btn-default fa fa-star fav fav2_{{$c->user_id}}"></a></li>
+								@endif
+							<!-- <li><a href="#" href="{{ url('/add-like') }}/{{$c->id}}" class="btn btn-gray fa fa-star"></a></li> -->
+							<!-- @if($type == '0') 
+							<li ><a id="like0_{{$c->id}}" class="btn btn-gray fa fa-thumbs-up like like0_{{$c->id}}">{{$c->count_like}}</a></li>
+							@endif -->
+							@if($type == '1') 
+							<li><a id="like1_{{$c->id}}" class="btn btn-gray fa fa-thumbs-up like like1_{{$c->id}}">{{$c->count_like}}</a></li>
+							@endif
+							@if($type == '2') 	
+							<li><a id="like2_{{$c->id}}" class="btn btn-default fa fa-thumbs-up like like2_{{$c->id}}">{{$c->count_like}}</a></li>
+								@endif
+
+								<!-- <p id="pp">dshhjsd</p> -->
 						</ul>
 
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
+						<p class="description">{{$c->about}}. <a href="#" class="read-more">Read More</a></p>
 
 						<div class="clearfix"></div>
 
 						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
 
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
-
-							<ul class="list-unstyled">
-								<li><strong>Experience:</strong> 5 Years</li>
-								<li><strong>Degree:</strong> MBA</li>
-								<li><strong>Career Level:</strong> Mid Career</li>
+ -->
+						<ul class="list-unstyled">
+								<li><strong>Experience:</strong> {{$c->experience}}</li>
+								<li><strong>Degree:</strong> {{$c->degree}}</li>
+								<li><strong>Career Level:</strong> {{$c->talent_level}}</li>
 							</ul>
 
 							<h5>Skills</h5>
 
-							<div class="progress-bar toggle" data-progress="60">
+							<div class="progress-bar toggle" data-progress="{{$c->rate_1}}">
 								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
+								<h6 class="progress-bar-title">{{$c->skill_1}}</h6>
 								<div class="progress-bar-inner"><span></span></div>
 								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+									{{$c->reason_1}}
 								</div>
 							</div>
 
-							<div class="progress-bar toggle" data-progress="60">
+						@if($c->skill_2 != null) 
+							<div class="progress-bar toggle" data-progress="{{$c->rate_2}}">
 								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
+								<h6 class="progress-bar-title">{{$c->skill_2}}</h6>
 								<div class="progress-bar-inner"><span></span></div>
 								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+									{{$c->reason_2}}
+								</div>
+							</div>
+							 @endif
+							@if($c->skill_3 != null) 
+							<div class="progress-bar toggle" data-progress="{{$c->rate_3}}">
+								<a href="#" class="progress-bar-toggle"></a>
+								<h6 class="progress-bar-title">{{$c->skill_3}}</h6>
+								<div class="progress-bar-inner"><span></span></div>
+								<div class="progress-bar-content">
+									{{$c->reason_3}}
 								</div>
 							</div>
 
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
+					 @endif
 							<hr>
 
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
+								<div class="clearfix">
+								<a href="mailto:{{$c->email}}" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
 
 								<ul class="social-icons pull-right">
 									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+									<li><a href="{{$c->facebook}}" class="btn btn-gray fa fa-facebook"></a></li>
+							<li><a href="{{$c->twitter}}" class="btn btn-gray fa fa-twitter"></a></li>
+							<li><a href="{{$c->instagram}}" class="btn btn-gray fa fa-instagram"></a></li>
+							
 								</ul>
 							</div>
 						</div>
 					</div>
-
-					<div class="candidates-item">
-						<div class="thumb"><img src="img/content/face-3.png" alt=""></div>
-
-						<h6 class="title"><a href="#">John Doe</a></h6>
-						<span class="meta">24 Years Old - Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="clearfix"></div>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
-
-							<ul class="list-unstyled">
-								<li><strong>Experience:</strong> 5 Years</li>
-								<li><strong>Degree:</strong> MBA</li>
-								<li><strong>Career Level:</strong> Mid Career</li>
-							</ul>
-
-							<h5>Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="candidates-item">
-						<div class="thumb"><img src="img/content/face-5.png" alt=""></div>
-
-						<h6 class="title"><a href="#">John Doe</a></h6>
-						<span class="meta">24 Years Old - Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="clearfix"></div>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
-
-							<ul class="list-unstyled">
-								<li><strong>Experience:</strong> 5 Years</li>
-								<li><strong>Degree:</strong> MBA</li>
-								<li><strong>Career Level:</strong> Mid Career</li>
-							</ul>
-
-							<h5>Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="candidates-item">
-						<div class="thumb"><img src="img/content/face-7.png" alt=""></div>
-
-						<h6 class="title"><a href="#">John Doe</a></h6>
-						<span class="meta">24 Years Old - Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="clearfix"></div>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
-
-							<ul class="list-unstyled">
-								<li><strong>Experience:</strong> 5 Years</li>
-								<li><strong>Degree:</strong> MBA</li>
-								<li><strong>Career Level:</strong> Mid Career</li>
-							</ul>
-
-							<h5>Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="candidates-item">
-						<div class="thumb"><img src="img/content/face-9.png" alt=""></div>
-
-						<h6 class="title"><a href="#">John Doe</a></h6>
-						<span class="meta">24 Years Old - Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="clearfix"></div>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
-
-							<ul class="list-unstyled">
-								<li><strong>Experience:</strong> 5 Years</li>
-								<li><strong>Degree:</strong> MBA</li>
-								<li><strong>Career Level:</strong> Mid Career</li>
-							</ul>
-
-							<h5>Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
+@endforeach
+					
 					<div class="clearfix">
 						<ul class="pagination pull-right">
 													{{ $cand->links() }}
@@ -414,6 +176,7 @@
 							
 						</ul>
 					</div>
+					@endif
 				</div> <!-- end .page-content -->
 
 				<div class="col-sm-4 page-sidebar">
@@ -507,7 +270,7 @@
 				</div> <!-- end .page-sidebar -->
 			</div>
 		</div> <!-- end .container -->
-		@endif
+		
 	</div> <!-- end #page-content -->
 
 @endsection
@@ -515,3 +278,4 @@
 @section('script')
 	
 @endsection
+

@@ -119,7 +119,7 @@
 								<div><span>Talents</span></div>
 							</div>
 
-							<a  href="{{ url('register-user') }}" class="btn btn-default">Register Now</a>
+							<a  href="{{ url('candidate/') }}" class="btn btn-default">Talents</a>
 						</div>
 					</div>
 
@@ -127,223 +127,602 @@
 						<div class="header-banner-box post-job">
 							<img src="img/verified.png" alt="">
 
-							<a  href="{{ url('register-invest') }}" class="btn btn-red">Sponsor</a>
+							<a  href="{{ url('partners') }}" class="btn btn-red">Sponsor</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div> <!-- end .header-banner -->       
 							
-@endsection
+				@endsection
 
-@section('content')
-              
-<div id="page-content">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8 page-content">
-					<div class="title-lines">
-						<h3 class="mt0">Find a Talent Per</h3>
-					</div>
+				@section('content')
+							
+				<div id="page-content">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-8 page-content">
+					
 
-					<div class="find-job-tabs responsive-tabs">
-						<ul class="nav nav-tabs">
-							<li class="active"><a href="#find-job-tabs-map">Map</a></li>
-							<li><a href="#find-job-tabs-industry">Industry</a></li>
-							<li><a href="#find-job-tabs-role">Type</a></li>
-							<li><a href="#find-job-tabs-country">Country</a></li>
+					<div class="latest-jobs-section white-container">
+						<div class="flexslider clearfix">
+							<ul class="slides">
+								@foreach ($cand as $c)  
+									<li>								
+										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_1.jpeg" alt="">								
+									</li>	
+									<li>								
+										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_2.jpeg" alt="">								
+									</li>	
+									<li>								
+										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_3.jpeg" alt="">								
+									</li>	
+									<!-- <li>								
+										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_4.jpeg" alt="">								
+									</li>	 -->
+									<li>								
+										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_5.jpeg" alt="">								
+									</li>	
+									<li>								
+										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_6.jpeg" alt="">								
+									</li>	
+									<li>								
+										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_7.jpeg" alt="">								
+									</li>	
+									<li>								
+										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_8.jpeg" alt="">								
+									</li>	
+								
+								@endforeach
+							</ul>
+						</div>
+					</div> <!-- end .latest-jobs-section -->
+
+				<div class="title-lines">
+					<h3 class="mt0">Our Activities</h3>
+				</div>
+
+				<div class="clearfix mb30">
+					<ul class="jobs-view-toggle pull-left">
+						<li><a href="#" data-layout="with-thumb" class="btn btn-gray fa fa-th-list active"></a></li>
+						<li><a href="#" data-layout="" class="btn btn-gray fa fa-list"></a></li>
+						<li><a href="#" data-layout="compact" class="btn btn-gray fa fa-align-justify"></a></li>
+					</ul>
+
+					<select class="form-control pull-left">
+						<option value="">Sort By</option>
+						<option value="">1</option>
+						<option value="">2</option>
+						<option value="">3</option>
+						<option value="">4</option>
+					</select>
+
+					<ul class="pagination pull-right">
+						<li><a href="#" class="fa fa-angle-left"></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#" class="fa fa-angle-right"></a></li>
+					</ul>
+				</div>
+
+				<div class="jobs-item with-thumb">
+					<div class="thumb"><img src="img/content/bus-00.png" alt=""></div>
+					<div class="clearfix visible-xs"></div>
+					<div class="date">27 <span>Jun</span></div>
+					<h6 class="title"><a href="#">Front-end Developer</a></h6>
+					<span class="meta">Envato, Sydney, AU</span>
+
+					<ul class="top-btns">
+						<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+					</ul>
+
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
+
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+
+						<h5>Required Skills</h5>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Web Design</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Development</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">UI/UX</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<h5>Additional Requirements</h5>
+
+						<ul class="additional-requirements clearfix">
+							<li>Work Permit</li>
+							<li>5 Years Experience</li>
+							<li>MBA</li>
+							<li>Magento Certified</li>
+							<li>Perfect Written &amp; Spoken English</li>
 						</ul>
 
-						<div class="tab-content">
-							<div class="tab-pane active" id="find-job-tabs-map">
-								<div id="find-job-map-tab" class="p5"></div>
+						<hr>
 
-								<hr class="m0 primary">
+						<div class="clearfix">
+							<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
 
-								<div class="row p30">
-									<div class="col-sm-6">
-										<ul class="filter-list">
-											<li><a href="#">Asia <span>(1234)</span></a></li>
-											<li><a href="#">Africa <span>(5678)</span></a></li>
-											<li><a href="#">Europe <span>(910)</span></a></li>
-											<li><a href="#">North America <span>(347)</span></a></li>
-										</ul>
-									</div>
-
-									<div class="col-sm-6">
-										<ul class="filter-list">
-											<li><a href="#">Central America <span>(52)</span></a></li>
-											<li><a href="#">South America <span>(117)</span></a></li>
-											<li><a href="#">Oceania <span>(736)</span></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="tab-pane" id="find-job-tabs-industry">
-								<div class="row p30">
-									<div class="col-sm-6">
-										<h6 class="mt0">Administrative and Support Services</h6>
-
-										<ul class="filter-list">
-											<li><a href="#">Support Services <span>(34)</span></a></li>
-											<li><a href="#">Consulting Services <span>(142)</span></a></li>
-											<li><a href="#">Customer Service <span>(67)</span></a></li>
-											<li><a href="#">Employment Placement <span>(24)</span></a></li>
-											<li><a href="#">Agencies/Recruiting <span>(113)</span></a></li>
-											<li><a href="#">Human Resources <span>(27)</span></a></li>
-											<li><a href="#">Administration <span>(57)</span></a></li>
-											<li><a href="#">Contracts/Purchasing <span>(29)</span></a></li>
-											<li><a href="#">Secretarial <span>(22)</span></a></li>
-											<li><a href="#">Security <span>(26)</span></a></li>
-											<li><a href="#">Telemarketing <span>(4)</span></a></li>
-											<li><a href="#">Translation <span>(12)</span></a></li>
-											<li><a href="#">Management <span>(70)</span></a></li>
-											<li><a href="#">Business Support <span>(29)</span></a></li>
-										</ul>
-
-										<h6>Healthcare and Science</h6>
-
-										<ul class="filter-list">
-											<li><a href="#">Pharmaceutical <span>(42)</span></a></li>
-											<li><a href="#">Manufacturing <span>(149)</span></a></li>
-											<li><a href="#">Mechanical <span>(28)</span></a></li>
-											<li><a href="#">Technical/Maintenance <span>(40)</span></a></li>
-											<li><a href="#">Lubricants/Greases Blending <span>(10)</span></a></li>
-											<li><a href="#">Textiles <span>(10)</span></a></li>
-											<li><a href="#">Aerospace and Defense <span>(14)</span></a></li>
-										</ul>
-									</div>
-
-									<div class="col-sm-6">
-										<h6 class="mt0">Manufacturing and Industrial</h6>
-
-										<ul class="filter-list">
-											<li><a href="#">Agriculture/Forestry/Fishing <span>(42)</span></a></li>
-											<li><a href="#">Installation/Maintenance <span>(37)</span></a></li>
-											<li><a href="#">Manufacturing and Production <span>(96)</span></a></li>
-											<li><a href="#">Mining <span>(9)</span></a></li>
-											<li><a href="#">Safety/Environment <span>(21)</span></a></li>
-											<li><a href="#">Industrial <span>(184)</span></a></li>
-											<li><a href="#">Manufacturing <span>(149)</span></a></li>
-											<li><a href="#">Mechanical <span>(28)</span></a></li>
-											<li><a href="#">Technical/Maintenance <span>(40)</span></a></li>
-											<li><a href="#">Lubricants/Greases Blending <span>(10)</span></a></li>
-											<li><a href="#">Textiles <span>(10)</span></a></li>
-											<li><a href="#">Aerospace and Defense <span>(14)</span></a></li>
-										</ul>
-
-										<h6>Healthcare and Science</h6>
-
-										<ul class="filter-list">
-											<li><a href="#">Pharmaceutical <span>(42)</span></a></li>
-											<li><a href="#">Manufacturing <span>(149)</span></a></li>
-											<li><a href="#">Mechanical <span>(28)</span></a></li>
-											<li><a href="#">Technical/Maintenance <span>(40)</span></a></li>
-											<li><a href="#">Lubricants/Greases Blending <span>(10)</span></a></li>
-											<li><a href="#">Textiles <span>(10)</span></a></li>
-											<li><a href="#">Aerospace and Defense <span>(14)</span></a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-
-							<div class="tab-pane" id="find-job-tabs-role">
-								<div class="p30">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, harum, optio, repudiandae voluptatum illum et ipsam quisquam at dolore illo eaque odio inventore quos esse reiciendis laudantium nobis aperiam iure!</p>
-
-									<div class="row">
-										<div class="col-sm-6">
-											<ul class="filter-list">
-												<li><a href="#">Accounting/Banking/Finance Jobs <span>(581)</span></a></li>
-												<li><a href="#">Administration Jobs <span>(406)</span></a></li>
-												<li><a href="#">Art/Design/Creative Jobs <span>(176)</span></a></li>
-												<li><a href="#">Customer Service Jobs <span>(334)</span></a></li>
-												<li><a href="#">Education/Training Jobs <span>(180)</span></a></li>
-												<li><a href="#">Engineering Jobs <span>(978)</span></a></li>
-												<li><a href="#">Healthcare/Medical Jobs <span>(131)</span></a></li>
-												<li><a href="#">Human Resources/Personnel Jobs <span>(318)</span></a></li>
-												<li><a href="#">Law/Legal Jobs <span>(61)</span></a></li>
-												<li><a href="#">Logistics Jobs <span>(144)</span></a></li>
-												<li><a href="#">Management Jobs <span>(743)</span></a></li>
-												<li><a href="#">Law/Legal Jobs <span>(61)</span></a></li>
-												<li><a href="#">Logistics Jobs <span>(144)</span></a></li>
-												<li><a href="#">Management Jobs <span>(743)</span></a></li>
-											</ul>
-										</div>
-
-										<div class="col-sm-6">
-											<ul class="filter-list">
-												<li><a href="#">Marketing/PR Jobs <span>(329)</span></a></li>
-												<li><a href="#">Other Jobs <span>(326)</span></a></li>
-												<li><a href="#">Purchasing/Procurement Jobs <span>(130)</span></a></li>
-												<li><a href="#">Quality Control Jobs <span>(93)</span></a></li>
-												<li><a href="#">Research Jobs <span>(33)</span></a></li>
-												<li><a href="#">Safety Jobs <span>(72)</span></a></li>
-												<li><a href="#">Sales Jobs <span>(1061)</span></a></li>
-												<li><a href="#">Secretarial Jobs <span>(155)</span></a></li>
-												<li><a href="#">Support Services Jobs <span>(744)</span></a></li>
-												<li><a href="#">Technology/IT Jobs <span>(546)</span></a></li>
-												<li><a href="#">Writing/Editing Jobs <span>(19)</span></a></li>
-												<li><a href="#">Support Services Jobs <span>(744)</span></a></li>
-												<li><a href="#">Technology/IT Jobs <span>(546)</span></a></li>
-												<li><a href="#">Writing/Editing Jobs <span>(19)</span></a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="tab-pane" id="find-job-tabs-country">
-								<div class="row p30">
-									<div class="col-sm-6">
-										<ul class="country-list">
-											<li><a href="#"><img src="img/flag-icons/Afghanistan.png" alt=""> Afghanistan <span>(7)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/African%20Union.png" alt=""> African Union <span>(6)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Aland.png" alt=""> Aland <span>(2)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Albania.png" alt=""> Albania <span>(7)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Alderney.png" alt=""> Alderney <span>(3)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Algeria.png" alt=""> Algeria <span>(4)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/American%20Samoa.png" alt=""> American Samoa <span>(3)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Andorra.png" alt=""> Andorra <span>(5)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Angola.png" alt=""> Angola <span>(3)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Anguilla.png" alt=""> Anguilla <span>(8)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Antarctica.png" alt=""> Antarctica <span>(3)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Antigua%20Barbuda.png" alt=""> Antigua &amp; Barbuda <span>(6)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Arab%20League.png" alt=""> Arab League <span>(3)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Argentina.png" alt=""> Argentina <span>(2)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Armenia.png" alt=""> Armenia <span>(3)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Aruba.png" alt=""> Aruba <span>(8)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/ASEAN.png" alt=""> ASEAN <span>(3)</span></a></li>
-										</ul>
-									</div>
-
-									<div class="col-sm-6">
-										<ul class="country-list">
-											<li><a href="#"><img src="img/flag-icons/Kenya.png" alt=""> Kenya <span>(3)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Kiribati.png" alt=""> Kiribati <span>(4)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Kosovo.png" alt=""> Kosovo <span>(2)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Kuwait.png" alt=""> Kuwait <span>(6)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Kyrgyzstan.png" alt=""> Kyrgyzstan <span>(1)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Laos.png" alt=""> Laos <span>(3)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Latvia.png" alt=""> Latvia <span>(4)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Lebanon.png" alt=""> Lebanon <span>(2)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Lesotho.png" alt=""> Lesotho <span>(5)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Liberia.png" alt=""> Liberia <span>(7)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Libya.png" alt=""> Libya <span>(1)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Liechtenstein.png" alt=""> Liechtenstein <span>(6)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Lithuania.png" alt=""> Lithuania <span>(2)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Luxembourg.png" alt=""> Luxembourg <span>(8)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Macao.png" alt=""> Macao <span>(5)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Macedonia.png" alt=""> Macedonia <span>(2)</span></a></li>
-											<li><a href="#"><img src="img/flag-icons/Madagascar.png" alt=""> Madagascar <span>(1)</span></a></li>
-										</ul>
-									</div>
-								</div>
-                  			</div>
+							<ul class="social-icons pull-right">
+								<li><span>Share</span></li>
+								<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+							</ul>
 						</div>
-					</div> <!-- end .find-job-tabs -->
+					</div>
+				</div>
 
+				<div class="jobs-item with-thumb">
+					<div class="thumb"><img src="img/content/bus-01.png" alt=""></div>
+					<div class="clearfix visible-xs"></div>
+					<div class="date">27 <span>Jun</span></div>
+					<h6 class="title"><a href="#">Front-end Developer</a></h6>
+					<span class="meta">Envato, Sydney, AU</span>
+
+					<ul class="top-btns">
+						<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+					</ul>
+
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
+
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+
+						<h5>Required Skills</h5>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Web Design</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Development</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">UI/UX</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<h5>Additional Requirements</h5>
+
+						<ul class="additional-requirements clearfix">
+							<li>Work Permit</li>
+							<li>5 Years Experience</li>
+							<li>MBA</li>
+							<li>Magento Certified</li>
+							<li>Perfect Written &amp; Spoken English</li>
+						</ul>
+
+						<hr>
+
+						<div class="clearfix">
+							<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
+
+							<ul class="social-icons pull-right">
+								<li><span>Share</span></li>
+								<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="jobs-item with-thumb">
+					<div class="thumb"><img src="img/content/bus-02.png" alt=""></div>
+					<div class="clearfix visible-xs"></div>
+					<div class="date">27 <span>Jun</span></div>
+					<h6 class="title"><a href="#">Front-end Developer</a></h6>
+					<span class="meta">Envato, Sydney, AU</span>
+
+					<ul class="top-btns">
+						<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+					</ul>
+
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
+
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+
+						<h5>Required Skills</h5>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Web Design</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Development</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">UI/UX</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<h5>Additional Requirements</h5>
+
+						<ul class="additional-requirements clearfix">
+							<li>Work Permit</li>
+							<li>5 Years Experience</li>
+							<li>MBA</li>
+							<li>Magento Certified</li>
+							<li>Perfect Written &amp; Spoken English</li>
+						</ul>
+
+						<hr>
+
+						<div class="clearfix">
+							<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
+
+							<ul class="social-icons pull-right">
+								<li><span>Share</span></li>
+								<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="jobs-item with-thumb">
+					<div class="thumb"><img src="img/content/bus-03.png" alt=""></div>
+					<div class="clearfix visible-xs"></div>
+					<div class="date">27 <span>Jun</span></div>
+					<h6 class="title"><a href="#">Front-end Developer</a></h6>
+					<span class="meta">Envato, Sydney, AU</span>
+
+					<ul class="top-btns">
+						<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+					</ul>
+
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
+
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+
+						<h5>Required Skills</h5>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Web Design</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Development</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">UI/UX</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<h5>Additional Requirements</h5>
+
+						<ul class="additional-requirements clearfix">
+							<li>Work Permit</li>
+							<li>5 Years Experience</li>
+							<li>MBA</li>
+							<li>Magento Certified</li>
+							<li>Perfect Written &amp; Spoken English</li>
+						</ul>
+
+						<hr>
+
+						<div class="clearfix">
+							<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
+
+							<ul class="social-icons pull-right">
+								<li><span>Share</span></li>
+								<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="jobs-item with-thumb">
+					<div class="thumb"><img src="img/content/bus-04.png" alt=""></div>
+					<div class="clearfix visible-xs"></div>
+					<div class="date">27 <span>Jun</span></div>
+					<h6 class="title"><a href="#">Front-end Developer</a></h6>
+					<span class="meta">Envato, Sydney, AU</span>
+
+					<ul class="top-btns">
+						<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+					</ul>
+
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
+
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+
+						<h5>Required Skills</h5>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Web Design</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Development</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">UI/UX</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<h5>Additional Requirements</h5>
+
+						<ul class="additional-requirements clearfix">
+							<li>Work Permit</li>
+							<li>5 Years Experience</li>
+							<li>MBA</li>
+							<li>Magento Certified</li>
+							<li>Perfect Written &amp; Spoken English</li>
+						</ul>
+
+						<hr>
+
+						<div class="clearfix">
+							<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
+
+							<ul class="social-icons pull-right">
+								<li><span>Share</span></li>
+								<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="jobs-item with-thumb">
+					<div class="thumb"><img src="img/content/bus-05.png" alt=""></div>
+					<div class="clearfix visible-xs"></div>
+					<div class="date">27 <span>Jun</span></div>
+					<h6 class="title"><a href="#">Front-end Developer</a></h6>
+					<span class="meta">Envato, Sydney, AU</span>
+
+					<ul class="top-btns">
+						<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+					</ul>
+
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
+
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+
+						<h5>Required Skills</h5>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Web Design</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Development</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">UI/UX</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<h5>Additional Requirements</h5>
+
+						<ul class="additional-requirements clearfix">
+							<li>Work Permit</li>
+							<li>5 Years Experience</li>
+							<li>MBA</li>
+							<li>Magento Certified</li>
+							<li>Perfect Written &amp; Spoken English</li>
+						</ul>
+
+						<hr>
+
+						<div class="clearfix">
+							<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
+
+							<ul class="social-icons pull-right">
+								<li><span>Share</span></li>
+								<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="jobs-item with-thumb">
+					<div class="thumb"><img src="img/content/bus-06.png" alt=""></div>
+					<div class="clearfix visible-xs"></div>
+					<div class="date">27 <span>Jun</span></div>
+					<h6 class="title"><a href="#">Front-end Developer</a></h6>
+					<span class="meta">Envato, Sydney, AU</span>
+
+					<ul class="top-btns">
+						<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
+						<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
+					</ul>
+
+					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
+
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+
+						<h5>Required Skills</h5>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Web Design</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">Development</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<div class="progress-bar toggle" data-progress="60">
+							<a href="#" class="progress-bar-toggle"></a>
+							<h6 class="progress-bar-title">UI/UX</h6>
+							<div class="progress-bar-inner"><span></span></div>
+							<div class="progress-bar-content">
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+							</div>
+						</div>
+
+						<h5>Additional Requirements</h5>
+
+						<ul class="additional-requirements clearfix">
+							<li>Work Permit</li>
+							<li>5 Years Experience</li>
+							<li>MBA</li>
+							<li>Magento Certified</li>
+							<li>Perfect Written &amp; Spoken English</li>
+						</ul>
+
+						<hr>
+
+						<div class="clearfix">
+							<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
+
+							<ul class="social-icons pull-right">
+								<li><span>Share</span></li>
+								<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
+								<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="clearfix">
+					<ul class="pagination pull-right">
+						<li><a href="#" class="fa fa-angle-left"></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#" class="fa fa-angle-right"></a></li>
+					</ul>
+				</div>
 					<div class="title-lines">
 						<h3>Latest Talent</h3>
 					</div>
@@ -367,67 +746,8 @@
 										<p>{{$c->about}}. <a href="{{ url('/candidate') }}" class="read-more">Read More</a></p>
 									</div>
 
-								</li>
-  
-						
-@endforeach
-				
-								<!-- <li>
-									<div class="image">
-										<img src="img/content/face-0.png" alt="">
-										<a href="#" class="btn btn-default fa fa-search"></a>
-										<a href="#" class="btn btn-default fa fa-link"></a>
-									</div>
-
-									<div class="content">
-										<h6>Front-End Developer at Envato</h6>
-										<span class="location">Sydney, Australia</span>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, hic corrupti nobis consequuntur nam praesentium dolorem quo accusamus laborum ab. <a href="#" class="read-more">Read More</a></p>
-									</div>
-
-								</li>
-
-								<li>
-									<div class="image">
-										<img src="img/content/face-2.png" alt="">
-										<a href="#" class="btn btn-default fa fa-search"></a>
-										<a href="#" class="btn btn-default fa fa-link"></a>
-									</div>
-
-									<div class="content">
-										<h6>Front-End Developer at Envato</h6>
-										<span class="location">Sydney, Australia</span>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, hic corrupti nobis consequuntur nam praesentium dolorem quo accusamus laborum ab. <a href="#" class="read-more">Read More</a></p>
-									</div>
-								</li>
-
-								<li>
-									<div class="image">
-										<img src="img/content/face-4.png" alt="">
-										<a href="#" class="btn btn-default fa fa-search"></a>
-										<a href="#" class="btn btn-default fa fa-link"></a>
-									</div>
-
-									<div class="content">
-										<h6>Front-End Developer at Envato</h6>
-										<span class="location">Sydney, Australia</span>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, hic corrupti nobis consequuntur nam praesentium dolorem quo accusamus laborum ab. <a href="#" class="read-more">Read More</a></p>
-									</div>
-								</li>
-
-								<li>
-									<div class="image">
-										<img src="img/content/face-6.png" alt="">
-										<a href="#" class="btn btn-default fa fa-search"></a>
-										<a href="#" class="btn btn-default fa fa-link"></a>
-									</div>
-
-									<div class="content">
-										<h6>Front-End Developer at Envato</h6>
-										<span class="location">Sydney, Australia</span>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, hic corrupti nobis consequuntur nam praesentium dolorem quo accusamus laborum ab. <a href="#" class="read-more">Read More</a></p>
-									</div>
-								</li> -->
+								</li>	
+						@endforeach
 							</ul>
 						</div>
 					</div> <!-- end .latest-jobs-section -->
@@ -438,16 +758,16 @@
 
 					<div class="our-partners-section white-container">
 						<ul class="clearfix">
-									@foreach ($invest as $c)    
-							<li>
+
+						<li>
 								<div class="css-table">
 									<div class="css-table-cell">
-										<a href="{{ url('/partners') }}"><img src="http://localhost/fob/public/upload/{{ $c->image }}" alt=""></a>
+										<a href="#"><img src="img/content/logo-1.png" alt=""></a>
 									</div>
 								</div>
 							</li>
-@endforeach
-							<!-- <li>
+
+							<li>
 								<div class="css-table">
 									<div class="css-table-cell">
 										<a href="#"><img src="img/content/logo-2.png" alt=""></a>
@@ -485,66 +805,21 @@
 										<a href="#"><img src="img/content/logo-1.png" alt=""></a>
 									</div>
 								</div>
-							</li> -->
+							</li>
+							<!-- @foreach ($invest as $c)    
+								<li>
+									<div class="css-table">
+										<div class="css-table-cell">
+											<a href="{{ url('/partners') }}"><img src="http://localhost/fob/public/upload/{{ $c->image }}" style="width: 100%;height: 50px" alt=""></a>
+										</div>
+									</div>
+								</li>
+							@endforeach -->
+							
 						</ul>
 					</div> <!-- end .our-partners-section -->
 
-					<!-- <div class="title-lines">
-						<h3>Our Prices</h3>
-					</div>
-
-					<div class="pricing-tables tables-3">
-						<div class="pricing-tables-column">
-							<div class="white-container">
-								<h5 class="title">Bronze</h5>
-
-								<span class="price">$ 15</span>
-
-								<ul class="features">
-									<li>1 Job Ad</li>
-									<li>30 Days</li>
-									<li>Standard Positioning</li>
-									<li>1 Lorem Ipsum</li>
-								</ul>
-
-								<a href="#" class="btn btn-default">Choose</a>
-							</div>
-						</div>
-
-						<div class="pricing-tables-column">
-							<div class="white-container">
-								<h5 class="title">Silver</h5>
-
-								<span class="price">$ 49</span>
-
-								<ul class="features">
-									<li>5 Job Ad</li>
-									<li>45 Days</li>
-									<li>Extended Positioning</li>
-									<li>5 Lorem Ipsum</li>
-								</ul>
-
-								<a href="#" class="btn btn-default">Choose</a>
-							</div>
-						</div>
-
-						<div class="pricing-tables-column">
-							<div class="white-container">
-								<h5 class="title">Gold</h5>
-
-								<span class="price">$ 99</span>
-
-								<ul class="features">
-									<li>10 Job Ad</li>
-									<li>60 Days</li>
-									<li>Extra Positioning</li>
-									<li>5 Lorem Ipsum</li>
-								</ul>
-
-								<a href="#" class="btn btn-default">Choose</a>
-							</div>
-						</div>
-					</div> end .pricing-tables -->
+					
 				</div> <!-- end .page-content -->
 
 				<div class="col-sm-4 page-sidebar">
@@ -648,73 +923,73 @@
 						<ul class="slides">
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-0.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-1.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_2.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-2.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_3.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-3.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_4.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-4.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_5.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-5.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_4.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-6.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_5.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-7.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_6.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-8.png" alt="">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_8.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-9.png" alt="">
+									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-3.png" alt="">
+									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
 								</a>
 							</li>
 
 							<li>
 								<a href="#">
-									<img class="thumb" src="img/content/face-4.png" alt="">
+									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
 								</a>
 							</li>
 
