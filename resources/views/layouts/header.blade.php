@@ -196,7 +196,7 @@ $talentCat = \App\TalentCategory::get();
 								<!-- <li><a href="{{ url('/talents') }}">More</a></li> -->
 							</ul>
 						</li>
-						<li><a href="{{ url('activites/') }}">Activities</a></li>
+						<li><a href="{{ url('activity/') }}">Activities</a></li>
 						<li><a href="{{ url('candidate/') }}">Candidates</a></li>
 						<li><a href="{{ url('partners/') }}">Investors</a></li>				
 						<li class="has-submenu">

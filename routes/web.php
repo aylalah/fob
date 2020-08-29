@@ -51,7 +51,7 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
-Route::get('/activities', function () {
+Route::get('/activity', function () {
     return view('pages.activities');
 });
 

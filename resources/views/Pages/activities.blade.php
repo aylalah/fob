@@ -217,6 +217,88 @@
 								<div class="progress-bar-inner"><span></span></div>
 								<div class="progress-bar-content">
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
+
+									<div class="flexslider">
+						<ul class="slides">
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_2.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_3.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_4.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_5.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_4.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_5.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_6.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_8.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img class="thumb" src="img/content/face-5.png" alt="">
+								</a>
+							</li>
+						</ul>
+					</div>
 								</div>
 							</div>
 
