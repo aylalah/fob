@@ -31,7 +31,7 @@ Route::get('/', function () {
 
 Route::get('/partners', function () {
     $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
-            ->select('investor__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->paginate(1);
+            ->select('investor__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->paginate(12);
     return view('pages.partners')->with('invest',$invest);
 });
 
