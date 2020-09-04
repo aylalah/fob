@@ -57,7 +57,14 @@ class HomeController extends Controller
          $role_id=Auth::user()->user_category_id;
          $getCat = TalentCategory::all(); 
          $id=Auth::id();
-        $user= DB::table('user_category')->where('id','=',$role_id)->first();
+         $all_admin= DB::table('users')->where('user_category_id','=',1)->count();
+         $all_users= DB::table('users')->where('user_category_id','!=',1)->count();
+         $guest_users= DB::table('users')->where('user_category_id','=',3)->count();
+         $talent_users= DB::table('users')->where('user_category_id','=',2)->count();
+         $sponsor_users= DB::table('users')->where('user_category_id','=',4)->count();
+
+        
+        $user_cat= DB::table('user_category')->where('id','=',$role_id)->first();
         
             $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
             ->select('investor__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->where('user_id','=',$id)->first();
@@ -76,7 +83,7 @@ class HomeController extends Controller
             ->select('talent__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->simplePaginate(5); 
         }
         // return $cat;
-        return view('home')->with('user',$user)->with('d',$d)->with('invest',$invest)->with('cat',$cat)->with('getCat',$getCat);
+        return view('home')->with('user',$user_cat)->with('d',$d)->with('invest',$invest)->with('cat',$cat)->with(['getCat' => $getCat, 'all_admin'=> $all_admin, 'all_users'=> $all_users, 'guest_users'=>$guest_users, 'talent_users'=>$talent_users, 'talent_users'=>$talent_users, 'sponsor_users'=>$sponsor_users,]);
        
        
     }

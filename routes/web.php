@@ -87,3 +87,13 @@ Route::get('/remove-like/{id}', 'HomeController@removelike');
 Route::get('/talents', 'HomeController@talents');
 Route::get('/candidate',  'HomeController@candidate');
 Route::get('/favourite', 'HomeController@favour');
+
+//Admin Panel
+Route::get('/myprofile', 'ProfileController@admin_profile');
+Route::get('/admins', 'UsersController@admins');
+Route::get('/talents', 'UsersController@talents');
+Route::get('/guests', 'UsersController@guests');
+Route::get('/investors', 'UsersController@investors');
+Route::get('/activities', 'ActivitiesController@index');
+Route::get('/policy', 'AboutusController@policy');
+Route::get('/aboutus', 'AboutusController@aboutus');
