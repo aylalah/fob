@@ -1,500 +1,526 @@
-@extends('layouts.app')
+@extends('admin-layouts.master')
+
+<!-- @section('css')
+@endsection -->
+
+@section('breadcrumb')
+
+
+							
+@endsection
 
 @section('content')
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+							
+		  <!-- Start Welcome area -->
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+        
+        <div class="analytics-sparkle-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="analytics-sparkle-line reso-mg-b-30">
+                            <div class="analytics-content">
+                                <h5>Total Users</h5>
+                                <h2><span class="counter">{{$all_users}}</span> <span class="tuition-fees">Tuition Fees</span></h2>
+                                <span class="text-success">20%</span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:20%;"> <span class="sr-only">20% Complete</span> </div>
+                                </div>
+                            </div>
                         </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="analytics-sparkle-line reso-mg-b-30">
+                            <div class="analytics-content">
+                                <h5>Total Talents</h5>
+                                <h2><span class="counter">{{$talent_users}}</span> <span class="tuition-fees">Talented Members</span></h2>
+                                <span class="text-danger">30%</span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:30%;"> <span class="sr-only">230% Complete</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
+                            <div class="analytics-content">
+                                <h5>Total Guest</h5>
+                                <h2><span class="counter">{{$guest_users}}</span> <span class="tuition-fees">Guest Members</span></h2>
+                                <span class="text-info">60%</span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:60%;"> <span class="sr-only">20% Complete</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="analytics-sparkle-line table-mg-t-pro dk-res-t-pro-30">
+                            <div class="analytics-content">
+                                <h5>Total Investors</h5>
+                                <h2><span class="counter">{{$sponsor_users}}</span> <span class="tuition-fees">Investors</span></h2>
+                                <span class="text-inverse">80%</span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-inverse" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:80%;"> <span class="sr-only">230% Complete</span> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div> -->
-
-@if(Auth::user()->username !== null)   
-
-<div id="page-content">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 page-sidebar">
-					<aside>
-						<div class="widget sidebar-widget white-container candidates-single-widget">
-							<div class="widget-content">
-								<div class="thumb">
-									<img src="http://localhost/fob/public/upload/{{ Auth::user()->image }}" alt="">
-								</div>
-
-								<h5 class="bottom-line">{{$user->category_name}} Details</h5>
-
-								<table>
-									<tbody>
-										<tr>
-											<td>Name</td>
-											<td>{{ Auth::user()->name }}</td>
-										</tr>
-								 @if(Auth::user()->age !== null)  
-										<tr>
-											<td>Age</td>
-											<td>{{ Auth::user()->age}}</td>
-										</tr>
- 								 @endif
-
-  									 @if(Auth::user()->address_1 !== null)  
-										<tr>
-											<td>Address</td>
-											<td>{{ Auth::user()->address_1 }}</td>
-										</tr>
-										  @endif
-
-										 @if(Auth::user()->address_2 !== null)    
-											<tr>
-											<td>Address 2</td>
-											<td>{{ Auth::user()->address_2 }}</td>
-										</tr>
-										  @endif
-
-										  @if(Auth::user()->state !== null)   
-										<tr>
-											<td>State</td>
-											<td>{{ Auth::user()->state }}</td>
-										</tr>
- 									 @endif
-
-  									@if(Auth::user()->country !== null)   
-										<tr>
-											<td>Country</td>
-											<td>{{ Auth::user()->country }}</td>
-										</tr>
- 									 @endif
-
-										@if(Auth::user()->city !== null)   
-										<tr>
-											<td>City</td>
-											<td>{{Auth::user()->city}}</td>
-										</tr>
-  										@endif
-
- 										 @if(Auth::user()->contact !== null)   
-										<tr>
-											<td>Phone</td>
-											<td>{{ Auth::user()->contact}}</td>
-										</tr>
-										  @endif
-
- 							 		@if(Auth::user()->contact2 !== null)    
-										<tr>
-											<td>Phone 2</td>
-											<td>{{ Auth::user()->contact2 }}</td>
-										</tr>
-										   @endif
-
-										<tr>
-											<td>E-mail</td>
-											<td><a target="_blank" href="mailto:{{Auth::user()->email}}">{{Auth::user()->email}}</a></td>
-										</tr>
-									<!-- @if(Auth::user()->website !== null)   
-										<tr>
-											<td>Website</td>
-											<td><a href="{{Auth::user()->website}}" target="">{{Auth::user()->website}}</a></td>
-										</tr>
-										  @endif -->
-									</tbody>
-								</table>
-					@if(Auth::user()->user_category_id == 2) 
-								<h5 class="bottom-line"></h5>
-
-								<!-- <table>
-									<tbody>
-										<tr>
-											<td>Expertise</td>
-											<td>
-												<ul class="stars">
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</td>
-										</tr>
-
-										<tr>
-											<td>Knowledge</td>
-											<td>
-												<ul class="stars">
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</td>
-										</tr>
-
-										<tr>
-											<td>Quality</td>
-											<td>
-												<ul class="stars">
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-												</ul>
-											</td>
-										</tr>
-
-										<tr>
-											<td>Price</td>
-											<td>
-												<ul class="stars">
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</td>
-										</tr>
-
-										<tr>
-											<td>Services</td>
-											<td>
-												<ul class="stars">
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</ul>
-											</td>
-										</tr>
-									</tbody>
-								</table> -->
-								<aside>
-						<div class="widget sidebar-widget white-container links-widget">
-							<ul>
-								<li class="active"><a href="{{ url('/home') }}">Dashboard</a></li>
-								<li><a href="{{ url('/favourite') }}">Favourite</a></li>
-							</ul>
-						</div>
-					</aside>
-
-					@endif
-					
-					<h5 class="bottom-line"></h5>
-					@if(Auth::user()->user_category_id == 4)
-					<aside>
-						<div class="widget sidebar-widget white-container links-widget">
-							<ul>
-								<li class="active"><a href="{{ url('/home') }}">Dashboard</a></li>
-								<li><a href="{{ url('/favourite') }}">Favourite</a></li>
-								<li><a href="{{ url('/term-condition') }}">Sponsor</a></li>
-							</ul>
-						</div>
-					</aside>
-
-					@endif
-							</div>
-						</div>
-					</aside>
-				</div> <!-- end .page-sidebar -->
-
-				<div class="col-sm-8 page-content">
-					<!-- <div class="clearfix mb30 hidden-xs">
-						<a href="#" class="btn btn-gray pull-left">Back to Listings</a>
-						<div class="pull-right">
-							<a href="#" class="btn btn-gray">Previous</a>
-							<a href="#" class="btn btn-gray">Next</a>
-						</div>
-					</div> -->
-					<!-- Member or Talent -->
-@if(Auth::user()->user_category_id == 2)   
-@if($d) 
-
-					<div class="candidates-item candidates-single-item">
-						<h6 class="title"><a >{{ Auth::user()->name }}</a></h6>
-						<span class="meta">{{$d->age}} Years Old </span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-						</ul>
-
-						
-
-						<p style="white-space: pre-line;">{{$d->about}}</p>
-
-					<!-- 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p> -->
-
-						<ul class="list-unstyled">
-								<li><strong>Experience:</strong> {{$d->experience}}</li>
-								<li><strong>Degree:</strong> {{$d->degree}}</li>
-								<li><strong>Career Level:</strong> {{$d->talent_level}}</li>
-								<li><strong>Website:</strong><a href="{{$d->website}}" target="_blank"> {{$d->website}}</a> </li>
-							</ul>
-
-							<h5>Skills</h5>
-
-							<hr>
-							<div class="progress-bar toggle" data-progress="{{$d->rate_1}}">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">{{$d->skill_1}}</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									{{$d->reason_1}}
-								</div>
-							</div>
-@if($d->skill_2 != null) 
-							<div class="progress-bar toggle" data-progress="{{$d->rate_2}}">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">{{$d->skill_2}}</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									{{$d->reason_2}}
-								</div>
-							</div>
-							 @endif
-							@if($d->skill_3 != null) 
-							<div class="progress-bar toggle" data-progress="{{$d->rate_3}}">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">{{$d->skill_3}}</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									{{$d->reason_3}}
-								</div>
-							</div>
-
-					 @endif
-						<hr>
-
-						<div class="clearfix">
-								<a href="mailto:{{Auth::user()->email}}" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook" target="_blank"></a></li>
-							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
-							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
-							
-								</ul>
-							</div>
-					</div>
-  @endif
- @endif
-
-
-
-
-<!-- Investor -->
-@if(Auth::user()->user_category_id == 4) 
-@if($invest) 
-					<div class="candidates-item candidates-single-item">
-						
-						<h6 class="title"><a >{{$invest->ceo_name}}</a></h6>
-						
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-						</ul>
-
-						<ul class="social-icons clearfix">
-							<li><a href="{{$invest->facebook}}" class="btn btn-gray fa fa-facebook"  target="_blank"></a></li>
-							<li><a href="{{$invest->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
-							<li><a href="{{$invest->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
-							
-						</ul>
-
-						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae.</p>
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p>
- -->
-						<ul class="list-unstyled">
-							<li><strong>Company Name:</strong>{{$invest->company_industry_category}}</li>
-							<li><strong>Company Profile:</strong> {{$invest->company_profile}}</li>
-							<li><strong>Website:</strong><a href="{{$invest->website}}" target="_blank"> {{$invest->website}}</a> </li>
-						</ul>
-
-				
-						<hr>
-
-						<!-- <div class="clearfix">
-							<a href="#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
-
-							<ul class="social-icons pull-right">
-								<li><span>Share</span></li>
-								<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-								<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-								<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-							</ul>
-						</div> -->
-					</div>
-					 @endif	
-  @endif
-					<div class="title-lines">
-						<h3 class="mt0">Similar Candidates</h3>
-					</div>
- @foreach ($cat as $d)
+        <div class="product-sales-area mg-tb-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-sales-chart">
+                            <div class="portlet-title">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="caption pro-sl-hd">
+                                            <span class="caption-subject"><b>University Earnings</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="actions graph-rp graph-rp-dl">
+                                            <p>All Earnings are in million $</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list-inline cus-product-sl-rp">
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #006DF0;"></i>CSE</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #933EC5;"></i>Accounting</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #65b12d;"></i>Electrical</h5>
+                                </li>
+                            </ul>
+                            <div id="extra-area-chart" style="height: 356px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="white-box analytics-info-cs mg-b-10 res-mg-b-30 res-mg-t-30 table-mg-t-pro-n tb-sm-res-d-n dk-res-t-d-n">
+                            <h3 class="box-title">Total Visit</h3>
+                            <ul class="list-inline two-part-sp">
+                                <li>
+                                    <div id="sparklinedash"></div>
+                                </li>
+                                <li class="text-right sp-cn-r"><i class="fa fa-level-up" aria-hidden="true"></i> <span class="counter text-success">1500</span></li>
+                            </ul>
+                        </div>
+                        <div class="white-box analytics-info-cs mg-b-10 res-mg-b-30 tb-sm-res-d-n dk-res-t-d-n">
+                            <h3 class="box-title">Page Views</h3>
+                            <ul class="list-inline two-part-sp">
+                                <li>
+                                    <div id="sparklinedash2"></div>
+                                </li>
+                                <li class="text-right graph-two-ctn"><i class="fa fa-level-up" aria-hidden="true"></i> <span class="counter text-purple">3000</span></li>
+                            </ul>
+                        </div>
+                        <div class="white-box analytics-info-cs mg-b-10 res-mg-b-30 tb-sm-res-d-n dk-res-t-d-n">
+                            <h3 class="box-title">Unique Visitor</h3>
+                            <ul class="list-inline two-part-sp">
+                                <li>
+                                    <div id="sparklinedash3"></div>
+                                </li>
+                                <li class="text-right graph-three-ctn"><i class="fa fa-level-up" aria-hidden="true"></i> <span class="counter text-info">5000</span></li>
+                            </ul>
+                        </div>
+                        <div class="white-box analytics-info-cs table-dis-n-pro tb-sm-res-d-n dk-res-t-d-n">
+                            <h3 class="box-title">Bounce Rate</h3>
+                            <ul class="list-inline two-part-sp">
+                                <li>
+                                    <div id="sparklinedash4"></div>
+                                </li>
+                                <li class="text-right graph-four-ctn"><i class="fa fa-level-down" aria-hidden="true"></i> <span class="text-danger"><span class="counter">18</span>%</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="traffic-analysis-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="social-media-edu">
+                            <i class="fa fa-facebook"></i>
+                            <div class="social-edu-ctn">
+                                <h3>50k Likes</h3>
+                                <p>You main list growing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="social-media-edu twitter-cl res-mg-t-30 table-mg-t-pro-n">
+                            <i class="fa fa-twitter"></i>
+                            <div class="social-edu-ctn">
+                                <h3>30k followers</h3>
+                                <p>You main list growing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="social-media-edu linkedin-cl res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
+                            <i class="fa fa-linkedin"></i>
+                            <div class="social-edu-ctn">
+                                <h3>7k Connections</h3>
+                                <p>You main list growing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="social-media-edu youtube-cl res-mg-t-30 res-tablet-mg-t-30 dk-res-t-pro-30">
+                            <i class="fa fa-youtube"></i>
+                            <div class="social-edu-ctn">
+                                <h3>50k Subscribers</h3>
+                                <p>You main list growing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="library-book-area mg-t-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="single-cards-item">
+                            <div class="single-product-image">
+                                <a href="#"><img src="{{ asset('admin-asset/img/product/profile-bg.jpg') }}" alt=""></a>
+                            </div>
+                            <div class="single-product-text">
+                                <img src="{{ asset('admin-asset/img/product/pro4.jpg') }}" alt="">
+                                <h4><a class="cards-hd-dn" href="#">Angela Dominic</a></h4>
+                                <h5>Web Designer & Developer</h5>
+                                <p class="ctn-cards">Lorem ipsum dolor sit amet, this is a consectetur adipisicing elit</p>
+                                <a class="follow-cards" href="#">Follow</a>
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="cards-dtn">
+                                            <h3><span class="counter">199</span></h3>
+                                            <p>Articles</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="cards-dtn">
+                                            <h3><span class="counter">599</span></h3>
+                                            <p>Like</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                        <div class="cards-dtn">
+                                            <h3><span class="counter">399</span></h3>
+                                            <p>Comment</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="single-review-st-item res-mg-t-30 table-mg-t-pro-n">
+                            <div class="single-review-st-hd">
+                                <h2>Reviews</h2>
+                            </div>
+                            <div class="single-review-st-text">
+                                <img src="{{ asset('admin-asset/img/notification/1.jpg') }}" alt="">
+                                <div class="review-ctn-hf">
+                                    <h3>Sarah Graves</h3>
+                                    <p>Highly recommend</p>
+                                </div>
+                                <div class="review-item-rating">
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star-half"></i>
+                                </div>
+                            </div>
+                            <div class="single-review-st-text">
+                                <img src="{{ asset('admin-asset/img/notification/2.jpg') }}" alt="">
+                                <div class="review-ctn-hf">
+                                    <h3>Garbease sha</h3>
+                                    <p>Awesome Pro</p>
+                                </div>
+                                <div class="review-item-rating">
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star-half"></i>
+                                </div>
+                            </div>
+                            <div class="single-review-st-text">
+                                <img src="{{ asset('admin-asset/img/notification/3.jpg') }}" alt="">
+                                <div class="review-ctn-hf">
+                                    <h3>Gobetro pro</h3>
+                                    <p>Great Website</p>
+                                </div>
+                                <div class="review-item-rating">
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star-half"></i>
+                                </div>
+                            </div>
+                            <div class="single-review-st-text">
+                                <img src="{{ asset('admin-asset/img/notification/4.jpg') }}" alt="">
+                                <div class="review-ctn-hf">
+                                    <h3>Siam Graves</h3>
+                                    <p>That's Good</p>
+                                </div>
+                                <div class="review-item-rating">
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star-half"></i>
+                                </div>
+                            </div>
+                            <div class="single-review-st-text">
+                                <img src="{{ asset('admin-asset/img/notification/5.jpg') }}" alt="">
+                                <div class="review-ctn-hf">
+                                    <h3>Sarah Graves</h3>
+                                    <p>Highly recommend</p>
+                                </div>
+                                <div class="review-item-rating">
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star-half"></i>
+                                </div>
+                            </div>
+                            <div class="single-review-st-text">
+                                <img src="{{ asset('admin-asset/img/notification/6.jpg') }}" alt="">
+                                <div class="review-ctn-hf">
+                                    <h3>Julsha Grav</h3>
+                                    <p>Sei Hoise bro</p>
+                                </div>
+                                <div class="review-item-rating">
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star"></i>
+                                    <i class="educate-icon educate-star-half"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="single-product-item res-mg-t-30 table-mg-t-pro-n tb-sm-res-d-n dk-res-t-d-n">
+                            <div class="single-product-image">
+                                <a href="#"><img src="{{ asset('admin-asset/img/product/book-4.jpg') }}" alt=""></a>
+                            </div>
+                            <div class="single-product-text edu-pro-tx">
+                                <h4><a href="#">Title Demo Here</a></h4>
+                                <h5>Lorem ipsum dolor sit amet, this is a consec tetur adipisicing elit</h5>
+                                <div class="product-price">
+                                    <h3>$45</h3>
+                                    <div class="single-item-rating">
+                                        <i class="educate-icon educate-star"></i>
+                                        <i class="educate-icon educate-star"></i>
+                                        <i class="educate-icon educate-star"></i>
+                                        <i class="educate-icon educate-star"></i>
+                                        <i class="educate-icon educate-star-half"></i>
+                                    </div>
+                                </div>
+                                <div class="product-buttons">
+                                    <button type="button" class="button-default cart-btn">Read More</button>
+                                    <button type="button" class="button-default"><i class="fa fa-heart"></i></button>
+                                    <button type="button" class="button-default"><i class="fa fa-share"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-sales-area mg-tb-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-sales-chart">
+                            <div class="portlet-title">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="caption pro-sl-hd">
+                                            <span class="caption-subject"><b>Adminsion Statistic</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="actions graph-rp actions-graph-rp">
+                                            <a href="#" class="btn btn-dark btn-circle active tip-top" data-toggle="tooltip" title="Refresh">
+													<i class="fa fa-reply" aria-hidden="true"></i>
+												</a>
+                                            <a href="#" class="btn btn-blue-grey btn-circle active tip-top" data-toggle="tooltip" title="Delete">
+													<i class="fa fa-trash-o" aria-hidden="true"></i>
+												</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="list-inline cus-product-sl-rp">
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #006DF0;"></i>Python</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #933EC5;"></i>PHP</h5>
+                                </li>
+                                <li>
+                                    <h5><i class="fa fa-circle" style="color: #65b12d;"></i>Java</h5>
+                                </li>
+                            </ul>
+                            <div id="morris-area-chart"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="analysis-progrebar res-mg-t-30 mg-ub-10 res-mg-b-30 table-mg-t-pro-n tb-sm-res-d-n dk-res-t-d-n">
+                            <div class="analysis-progrebar-content">
+                                <h5>Usage</h5>
+                                <h2 class="storage-right"><span class="counter">90</span>%</h2>
+                                <div class="progress progress-mini ug-1">
+                                    <div style="width: 68%;" class="progress-bar"></div>
+                                </div>
+                                <div class="m-t-sm small">
+                                    <p>Server down since 1:32 pm.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analysis-progrebar reso-mg-b-30 res-mg-b-30 mg-ub-10 tb-sm-res-d-n dk-res-t-d-n">
+                            <div class="analysis-progrebar-content">
+                                <h5>Memory</h5>
+                                <h2 class="storage-right"><span class="counter">70</span>%</h2>
+                                <div class="progress progress-mini ug-2">
+                                    <div style="width: 78%;" class="progress-bar"></div>
+                                </div>
+                                <div class="m-t-sm small">
+                                    <p>Server down since 12:32 pm.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analysis-progrebar reso-mg-b-30 res-mg-b-30 res-mg-t-30 mg-ub-10 tb-sm-res-d-n dk-res-t-d-n">
+                            <div class="analysis-progrebar-content">
+                                <h5>Data</h5>
+                                <h2 class="storage-right"><span class="counter">50</span>%</h2>
+                                <div class="progress progress-mini ug-3">
+                                    <div style="width: 38%;" class="progress-bar progress-bar-danger"></div>
+                                </div>
+                                <div class="m-t-sm small">
+                                    <p>Server down since 8:32 pm.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analysis-progrebar res-mg-t-30 table-dis-n-pro tb-sm-res-d-n dk-res-t-d-n">
+                            <div class="analysis-progrebar-content">
+                                <h5>Space</h5>
+                                <h2 class="storage-right"><span class="counter">40</span>%</h2>
+                                <div class="progress progress-mini ug-4">
+                                    <div style="width: 28%;" class="progress-bar progress-bar-danger"></div>
+                                </div>
+                                <div class="m-t-sm small">
+                                    <p>Server down since 5:32 pm.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="courses-area mg-b-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Browser Status</h3>
+                            <ul class="basic-list">
+                                <li>Google Chrome <span class="pull-right label-danger label-1 label">95.8%</span></li>
+                                <li>Mozila Firefox <span class="pull-right label-purple label-2 label">85.8%</span></li>
+                                <li>Apple Safari <span class="pull-right label-success label-3 label">23.8%</span></li>
+                                <li>Internet Explorer <span class="pull-right label-info label-4 label">55.8%</span></li>
+                                <li>Opera mini <span class="pull-right label-warning label-5 label">28.8%</span></li>
+                                <li>Mozila Firefox <span class="pull-right label-purple label-6 label">26.8%</span></li>
+                                <li>Safari <span class="pull-right label-purple label-7 label">31.8%</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="white-box res-mg-t-30 table-mg-t-pro-n">
+                            <h3 class="box-title">Visits from countries</h3>
+                            <ul class="country-state">
+                                <li>
+                                    <h2><span class="counter">1250</span></h2> <small>From Australia</small>
+                                    <div class="pull-right">75% <i class="fa fa-level-up text-danger ctn-ic-1"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-danger ctn-vs-1" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:75%;"> <span class="sr-only">75% Complete</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2><span class="counter">1050</span></h2> <small>From USA</small>
+                                    <div class="pull-right">48% <i class="fa fa-level-up text-success ctn-ic-2"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-info ctn-vs-2" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:48%;"> <span class="sr-only">48% Complete</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2><span class="counter">6350</span></h2> <small>From Canada</small>
+                                    <div class="pull-right">55% <i class="fa fa-level-up text-success ctn-ic-3"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success ctn-vs-3" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:55%;"> <span class="sr-only">55% Complete</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2><span class="counter">950</span></h2> <small>From India</small>
+                                    <div class="pull-right">33% <i class="fa fa-level-down text-success ctn-ic-4"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-success ctn-vs-4" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:33%;"> <span class="sr-only">33% Complete</span></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h2><span class="counter">3250</span></h2> <small>From Bangladesh</small>
+                                    <div class="pull-right">60% <i class="fa fa-level-up text-success ctn-ic-5"></i></div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-inverse ctn-vs-5" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:60%;"> <span class="sr-only">60% Complete</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="courses-inner res-mg-t-30 table-mg-t-pro-n tb-sm-res-d-n dk-res-t-d-n">
+                            <div class="courses-title">
+                                <a href="#"><img src="{{ asset('admin-asset/img/courses/1.jpg') }}" alt="" /></a>
+                                <h2>Apps Development</h2>
+                            </div>
+                            <div class="courses-alaltic">
+                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-clock"></i></span> 1 Year</span>
+                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-heart"></i></span> 50</span>
+                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-dollar"></i></span> 500</span>
+                            </div>
+                            <div class="course-des">
+                                <p><span><i class="fa fa-clock"></i></span> <b>Duration:</b> 6 Months</p>
+                                <p><span><i class="fa fa-clock"></i></span> <b>Professor:</b> Jane Doe</p>
+                                <p><span><i class="fa fa-clock"></i></span> <b>Students:</b> 100+</p>
+                            </div>
+                            <div class="product-buttons">
+                                <button type="button" class="button-default cart-btn">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
      
-   {{$d->id}}
-   <?php 
-       $like=\App\Like::where('user_id','=',Auth::id())->where('talent_id','=',$d->id)->select(DB::raw('count(*) as like_count, status'))->groupBy('status')->first();
-        $countf=\App\favourite::where('user_id','=',Auth::id())->where('f_user_id','=',$d->user_id)->select(DB::raw('count(*) as count, status'))->groupBy('status')->first();
-        if ($like) {
-        $count_status=$like->like_count;
-        $type = $like->status;
-      // echo $type;
-    }else{
-    	$type=1;
-    	// echo $type;
-    }
-  
-       if ($countf) {
-        // $count_status=$l->like_count;
-        $status = $countf->status;
-      // echo $type;
-    }else{
-    	$status=1;
-    	// echo $type;
-    }   
-    
-?>	
-  @if(Auth::user()->id != $d->user_id)  
+    </div>	
 
-					<div class="candidates-item">
-						<div class="thumb"><img src="http://localhost/fob/public/upload/{{$d->image}}" alt=""></div>
+@endsection
 
-						<h6 class="title"><a href="#">{{$d->name}}</a></h6>
-						<span class="meta">{{$d->age}} Years Old 
-						<!-- - Sydney, AU -->
-					</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							@if($status == '1') 
-							<li><a id="fav1_{{$d->user_id}}" class="btn btn-gray fa fa-star fav fav1_{{$d->user_id}}"></a></li>
-							@endif
-							@if($status == '2') 	
-							<li><a id="fav2_{{$d->user_id}}" class="btn btn-default fa fa-star fav fav2_{{$d->user_id}}"></a></li>
-								@endif
-							@if($type == '1') 
-							<li><a id="like1_{{$d->id}}" class="btn btn-gray fa fa-thumbs-up like like1_{{$d->id}}">{{$d->count_like}}</a></li>
-							@endif
-							@if($type == '2') 	
-							<li><a id="like2_{{$d->id}}" class="btn btn-default fa fa-thumbs-up like like2_{{$d->id}}">{{$d->count_like}}</a></li>
-								@endif
-							<!-- <li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li> -->
-						</ul>
-
-						<p class="description">{{$d->about}} <a href="#" class="read-more">Read More</a></p>
-
-						<div class="clearfix"></div>
-
-						<div class="content">
-							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, at nemo inventore temporibus corporis suscipit.</p> -->
-
-							<ul class="list-unstyled">
-								<li><strong>Experience:</strong> {{$d->experience}}</li>
-								<li><strong>Degree:</strong> {{$d->degree}}</li>
-								<li><strong>Career Level:</strong> {{$d->talent_level}}</li>
-							</ul>
-
-							<h5>Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="{{$d->rate_1}}">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">{{$d->skill_1}}</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									{{$d->reason_1}}
-								</div>
-							</div>
-
-						@if($d->skill_2 != null) 
-							<div class="progress-bar toggle" data-progress="{{$d->rate_2}}">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">{{$d->skill_2}}</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									{{$d->reason_2}}
-								</div>
-							</div>
-							 @endif
-							@if($d->skill_3 != null) 
-							<div class="progress-bar toggle" data-progress="{{$d->rate_3}}">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">{{$d->skill_3}}</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									{{$d->reason_3}}
-								</div>
-							</div>
-
-					 @endif
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="mailto:{{$d->email}}" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="{{$d->facebook}}" class="btn btn-gray fa fa-facebook" target="_blank"></a></li>
-							<li><a href="{{$d->twitter}}" class="btn btn-gray fa fa-twitter" target="_blank"></a></li>
-							<li><a href="{{$d->instagram}}" class="btn btn-gray fa fa-instagram" target="_blank"></a></li>
-							
-								</ul>
-							</div>
-						</div>
-					</div>
-					
-
-   @endif
-   
-        @endforeach
-					
-							<hr>
-
-							<!-- <div class="clearfix">
-								<a href="#" class="btn btn-default pull-left"><i class="fa fa-envelope-o"></i> Contact Me</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div> -->
-						</div>
-					</div>
-				</div> <!-- end .page-content -->
-			</div>
-		</div> <!-- end .container -->
-	</div> <!-- end #page-content -->
-@else
-@if(Auth::user()->user_category_id == 2)  
- @include('auth.register-user')
-	 @endif
-
-	 @if(Auth::user()->user_category_id == 4) 
-@include('auth.register')
-	@endif
-
-	@endif 
+@section('admin-script')
+	
 @endsection

@@ -31,35 +31,40 @@ Route::get('/', function () {
 
 Route::get('/partners', function () {
     $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
+
             ->select('investor__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->paginate(12);
     return view('pages.partners')->with('invest',$invest);
+
+    //         ->select('investor__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->paginate(1);
+    // return view('Pages.partners')->with('invest',$invest);
+
 });
 
 Route::get('/policy', function () {
-    return view('pages.policy');
+    return view('Pages.policy');
 });
 
 Route::get('/term-condition', function () {
-    return view('pages.term-condition');
+    return view('Pages.term-condition');
 });
 
 Route::get('/about', function () {
-    return view('pages.about');
+    return view('Pages.about');
 });
 
 Route::get('/contact', function () {
-    return view('pages.contact');
+    return view('Pages.contact');
 });
 
 Route::get('/activity', function () {
-    return view('pages.activities');
+    return view('Pages.activities');
 });
 
 Route::get('/search', function () {
-    return view('pages.search');
+    return view('Pages.search');
 });
 Route::get('/candidate-d', function () {
-    return view('pages.candidate-d');
+    return view('Pages.candidate-d');
 });
 
 // Route::get('/register-user', function () {
@@ -87,3 +92,13 @@ Route::get('/remove-like/{id}', 'HomeController@removelike');
 Route::get('/talents', 'HomeController@talents');
 Route::get('/candidate',  'HomeController@candidate');
 Route::get('/favourite', 'HomeController@favour');
+
+//Admin Panel
+Route::get('/myprofile', 'ProfileController@admin_profile');
+Route::get('/admins', 'UsersController@admins');
+Route::get('/talents', 'UsersController@talents');
+Route::get('/guests', 'UsersController@guests');
+Route::get('/investors', 'UsersController@investors');
+Route::get('/activities', 'ActivitiesController@index');
+Route::get('/policy', 'AboutusController@policy');
+Route::get('/aboutus', 'AboutusController@aboutus');

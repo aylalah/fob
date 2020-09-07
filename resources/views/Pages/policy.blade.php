@@ -30,7 +30,40 @@
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, et mollitia dicta debitis veniam dolor est magni necessitatibus minus sit recusandae aut delectus officia. Quam, quidem suscipit aspernatur ullam totam.</p>
 
 						<p>Lorem ipsum dolor sit amet, <strong>consectetur adipisicing elit</strong>. Asperiores, magni, fugit, deleniti beatae dicta animi fuga quis possimus minima adipisci obcaecati maxime hic blanditiis ipsa dolorem laboriosam totam in nostrum architecto recusandae odit placeat excepturi corporis sunt incidunt consequatur debitis eos distinctio quam reiciendis provident velit similique repudiandae iure eaque.</p>
+					
+						<div class="accordion">
+						<ul>
+							<li class="active">
+								<a href="#">Lorem ipsum dolor</a>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, officia, consequuntur et est tempore.
+								</div>
+							</li>
+
+							<li>
+								<a href="#">Lorem ipsum dolor</a>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, officia, consequuntur et est tempore.
+								</div>
+							</li>
+
+							<li>
+								<a href="#">Lorem ipsum dolor</a>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, officia, consequuntur et est tempore.
+								</div>
+							</li>
+
+							<li>
+								<a href="#">Lorem ipsum dolor</a>
+								<div>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, officia, consequuntur et est tempore.
+								</div>
+							</li>
+						</ul>
 					</div>
+				</div>
+							
 				</div>
 
 				<div class="col-sm-4 page-sidebar">

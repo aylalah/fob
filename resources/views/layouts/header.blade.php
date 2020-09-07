@@ -26,7 +26,7 @@
 						{{ __('Logout') }}
 					</a>
 
-					<a id="navbarDropdown"  class="btn btn-link bookmarks" href="{{ url('home/') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+					<a id="navbarDropdown"  class="btn btn-link bookmarks" href="{{ url('/home') }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 						{{ Auth::user()->name }} <span class="caret"></span>
 					</a>
 
