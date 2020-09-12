@@ -182,21 +182,22 @@
 
 						<ul class="pagination pull-right">
 							<li><a href="#" class="fa fa-angle-left"></a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#" class="fa fa-angle-right"></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#" class="fa fa-angle-right"></a></li>
 						</ul>
 					</div>
-
+					@if(count($act) > 0)
+					@foreach ($act as $index => $c )
 					<div class="jobs-item with-thumb">
-						<div class="thumb"><img src="img/content/bus-00.png" alt=""></div>
+						<div class="thumb"><img src="http://localhost/fob/storage/app/{{$c->image}}" alt=""></div>
 						<div class="clearfix visible-xs"></div>
-						<div class="date">27 <span>Jun</span></div>
-						<h6 class="title"><a href="#">Front-end Developer</a></h6>
-						<span class="meta">Envato, Sydney, AU</span>
+						<!-- <div class="date">27 <span>Jun</span></div> -->
+						<h6 class="title"><a href="#">{{$c->tittle}}</a></h6>
+						<span class="meta">{{$c->category_name}}</span>
 
 						<ul class="top-btns">
 							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
@@ -204,135 +205,55 @@
 							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
 						</ul>
 
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
+						<p class="description" style="white-space: pre-line;">{{$c->content}}<a href="#" class="read-more">Read More</a></p>
+<div class="clearfix"></div>
 						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
+							<!-- <p style="white-space: pre-line;">{{$c->content}}</p> -->
 
-							<h5>Required Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-
-									<div class="flexslider">
-						<ul class="slides">
-							<li>
+							<h5>Image Gallery</h5>
+							<?php
+$g_image=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.gallery_id','=','galleries.id')->join('activities','act_galleries.activities_id','=','activities.id')->select('act_galleries.*','activities.tittle','galleries.image_name')->where('galleries.image_type','=','image')->where('galleries.subject','=','activities')->where('act_galleries.activities_id','=',$c->id)->get();
+$g_video=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.gallery_id','=','galleries.id')->join('activities','act_galleries.activities_id','=','activities.id')->select('act_galleries.*','activities.tittle','galleries.image_name')->where('galleries.image_type','=','video')->where('galleries.subject','=','activities')->where('act_galleries.activities_id','=',$c->id)->get();
+// echo $g_image;
+							?>
+			<div class="row">
+<ul class="slides">
+	@if(!$g_image->isEmpty())
+	@foreach ($g_image as $img )
+  <li>
 								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
+									<img style="position: relative;	height: 200px;" class="thumb" src="http://localhost/fob/storage/app/{{$img->image_name}}" alt="">
 								</a>
 							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_2.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_3.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_4.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_5.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_4.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_5.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_6.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_8.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img class="thumb" src="img/content/face-5.png" alt="">
-								</a>
-							</li>
-						</ul>
-					</div>
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<h5>Additional Requirements</h5>
+  @endforeach
+							
+@else
+    
+@endif
+							
+</ul></div>
+				
+		<hr>					
+<h5>Video Gallery</h5>
 
 							<ul class="additional-requirements clearfix">
-								<li>Work Permit</li>
-								<li>5 Years Experience</li>
-								<li>MBA</li>
-								<li>Magento Certified</li>
-								<li>Perfect Written &amp; Spoken English</li>
+								<div class="row">
+									@if(!$g_video->isEmpty())
+	@foreach ($g_video as $v )
+		<div class="fitvidsjs col-sm-6">
+							<iframe src="//{{$v->image_name}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+						</div>
+ 
+  @endforeach
+							
+@else
+    
+@endif
+							
+							</div>	
 							</ul>
-
 							<hr>
-
-							<div class="clearfix">
+							<!-- <div class="clearfix">
 								<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
 
 								<ul class="social-icons pull-right">
@@ -341,458 +262,24 @@
 									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
 									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
 								</ul>
-							</div>
+							</div> -->
 						</div>
 					</div>
-
-					<div class="jobs-item with-thumb">
-						<div class="thumb"><img src="img/content/bus-01.png" alt=""></div>
-						<div class="clearfix visible-xs"></div>
-						<div class="date">27 <span>Jun</span></div>
-						<h6 class="title"><a href="#">Front-end Developer</a></h6>
-						<span class="meta">Envato, Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<h5>Required Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<h5>Additional Requirements</h5>
-
-							<ul class="additional-requirements clearfix">
-								<li>Work Permit</li>
-								<li>5 Years Experience</li>
-								<li>MBA</li>
-								<li>Magento Certified</li>
-								<li>Perfect Written &amp; Spoken English</li>
-							</ul>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="jobs-item with-thumb">
-						<div class="thumb"><img src="img/content/bus-02.png" alt=""></div>
-						<div class="clearfix visible-xs"></div>
-						<div class="date">27 <span>Jun</span></div>
-						<h6 class="title"><a href="#">Front-end Developer</a></h6>
-						<span class="meta">Envato, Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<h5>Required Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<h5>Additional Requirements</h5>
-
-							<ul class="additional-requirements clearfix">
-								<li>Work Permit</li>
-								<li>5 Years Experience</li>
-								<li>MBA</li>
-								<li>Magento Certified</li>
-								<li>Perfect Written &amp; Spoken English</li>
-							</ul>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="jobs-item with-thumb">
-						<div class="thumb"><img src="img/content/bus-03.png" alt=""></div>
-						<div class="clearfix visible-xs"></div>
-						<div class="date">27 <span>Jun</span></div>
-						<h6 class="title"><a href="#">Front-end Developer</a></h6>
-						<span class="meta">Envato, Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<h5>Required Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<h5>Additional Requirements</h5>
-
-							<ul class="additional-requirements clearfix">
-								<li>Work Permit</li>
-								<li>5 Years Experience</li>
-								<li>MBA</li>
-								<li>Magento Certified</li>
-								<li>Perfect Written &amp; Spoken English</li>
-							</ul>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="jobs-item with-thumb">
-						<div class="thumb"><img src="img/content/bus-04.png" alt=""></div>
-						<div class="clearfix visible-xs"></div>
-						<div class="date">27 <span>Jun</span></div>
-						<h6 class="title"><a href="#">Front-end Developer</a></h6>
-						<span class="meta">Envato, Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<h5>Required Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<h5>Additional Requirements</h5>
-
-							<ul class="additional-requirements clearfix">
-								<li>Work Permit</li>
-								<li>5 Years Experience</li>
-								<li>MBA</li>
-								<li>Magento Certified</li>
-								<li>Perfect Written &amp; Spoken English</li>
-							</ul>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="jobs-item with-thumb">
-						<div class="thumb"><img src="img/content/bus-05.png" alt=""></div>
-						<div class="clearfix visible-xs"></div>
-						<div class="date">27 <span>Jun</span></div>
-						<h6 class="title"><a href="#">Front-end Developer</a></h6>
-						<span class="meta">Envato, Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<h5>Required Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<h5>Additional Requirements</h5>
-
-							<ul class="additional-requirements clearfix">
-								<li>Work Permit</li>
-								<li>5 Years Experience</li>
-								<li>MBA</li>
-								<li>Magento Certified</li>
-								<li>Perfect Written &amp; Spoken English</li>
-							</ul>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="jobs-item with-thumb">
-						<div class="thumb"><img src="img/content/bus-06.png" alt=""></div>
-						<div class="clearfix visible-xs"></div>
-						<div class="date">27 <span>Jun</span></div>
-						<h6 class="title"><a href="#">Front-end Developer</a></h6>
-						<span class="meta">Envato, Sydney, AU</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-						<div class="content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, nihil, dolores, culpa ullam vero ipsum placeat accusamus nemo ipsa cupiditate id molestiae consectetur quae pariatur repudiandae vel ex quaerat nam iusto aliquid laborum quia adipisci aut ut impedit obcaecati nisi deleniti tempore maxime sequi fugit reiciendis libero quo. Rerum, assumenda.</p>
-
-							<h5>Required Skills</h5>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Web Design</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">Development</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<div class="progress-bar toggle" data-progress="60">
-								<a href="#" class="progress-bar-toggle"></a>
-								<h6 class="progress-bar-title">UI/UX</h6>
-								<div class="progress-bar-inner"><span></span></div>
-								<div class="progress-bar-content">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, asperiores.
-								</div>
-							</div>
-
-							<h5>Additional Requirements</h5>
-
-							<ul class="additional-requirements clearfix">
-								<li>Work Permit</li>
-								<li>5 Years Experience</li>
-								<li>MBA</li>
-								<li>Magento Certified</li>
-								<li>Perfect Written &amp; Spoken English</li>
-							</ul>
-
-							<hr>
-
-							<div class="clearfix">
-								<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
-
-								<ul class="social-icons pull-right">
-									<li><span>Share</span></li>
-									<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
+   @endforeach
+					
+			
 					<div class="clearfix">
 						<ul class="pagination pull-right">
-							<li><a href="#" class="fa fa-angle-left"></a></li>
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#" class="fa fa-angle-right"></a></li>
-						</ul>
+							{{ $act->links() }}
+													</ul>
 					</div>
-				</div> <!-- end .page-
-		</div> <!-- end .container -->
-		
-	</div> <!-- end #page-content -->
+						@endif
+				</div>
 
+		</div>
+		
+	</div> 
+</div>
 @endsection
 
 @section('script')

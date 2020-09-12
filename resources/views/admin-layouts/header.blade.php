@@ -107,7 +107,7 @@
 								<li><a title="All Students" href="{{url('activities/')}}"><span class="mini-sub-pro">Activities</span></a></li>
 								<li><a title="Add Library" href="{{url('aboutus/')}}"><span class="mini-sub-pro">About Us</span></a></li>
                                 <li><a title="Add Students" href="{{url('policy/')}}"><span class="mini-sub-pro">Policies</span></a></li>
-                                <li><a title="Edit Students" href="{{url('terms_cobdition/')}}"><span class="mini-sub-pro">Terms and Conditions</span></a></li>
+                                <li><a title="Edit Students" href="{{url('termcondition/')}}"><span class="mini-sub-pro">Terms and Conditions</span></a></li>
                                 <!-- <li><a title="Students Profile" href="student-profile.html"><span class="mini-sub-pro">Student Profile</span></a></li> -->
                             </ul>
                         </li>
@@ -125,7 +125,7 @@
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Settings</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Library" href="library-assets.html"><span class="mini-sub-pro">Talent Category</span></a></li>
-                       
+                        <li><a title="All Library" href="company_category"><span class="mini-sub-pro">Company Category</span></a></li>
 								<li><a title="Edit Library" href="edit-library-assets.html"><span class="mini-sub-pro">Our Pertners</span></a></li>
 								<li><a title="Edit Library" href="edit-library-assets.html"><span class="mini-sub-pro">Platform Setings</span></a></li>
                             </ul>

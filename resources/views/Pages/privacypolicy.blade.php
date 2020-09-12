@@ -16,9 +16,9 @@
 				<div class="col-sm-8 page-content">
 					<div class="white-container mb0">
 						<div class="title-lines">
-							<h3 class="mt15">{{$t->heading}}</h3>
+							<h3 class="mt15">{{$p->heading}}</h3>
 						</div>
-						<p style="white-space: pre-line;">{{$t->content}}</p>
+						<p style="white-space: pre-line;">{{$p->content}}</p>
 						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, consectetur, neque, aliquid officia quibusdam quidem facere ipsum aperiam quod aliquam nemo totam. Sunt, nostrum adipisci dicta suscipit vitae perspiciatis repellat.</p>
 
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, animi iusto sit ipsum quae nobis nostrum fuga laboriosam ab nesciunt aliquam inventore odio alias accusantium maiores hic voluptate similique sed assumenda suscipit molestiae soluta necessitatibus ipsa non debitis excepturi eius.</p>
