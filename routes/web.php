@@ -9,6 +9,12 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Investor_Profile;
 use App\UserCategory;
 use App\TalentCategory;
+use App\Aboutus;
+use App\Team;
+use App\PrivacyPolicy;
+use App\TeamCondition;
+use App\Activities;
+use App\CompanyCategory;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,16 +46,20 @@ Route::get('/partners', function () {
 
 });
 
-Route::get('/policy', function () {
-    return view('Pages.policy');
+Route::get('/privacy-policy', function () {
+    $p= PrivacyPolicy::first();
+    return view('Pages.privacypolicy')->with('p',$p);
 });
 
 Route::get('/term-condition', function () {
-    return view('Pages.term-condition');
+    $t= TeamCondition::first();
+    return view('Pages.term-condition')->with('t',$t);
 });
 
 Route::get('/about', function () {
-    return view('Pages.about');
+       $abt=Aboutus::first();
+         $team=Team::orderBy('id','desc')->get();
+    return view('Pages.about')->with('abt',$abt)->with('team',$team);
 });
 
 Route::get('/contact', function () {
@@ -57,7 +67,8 @@ Route::get('/contact', function () {
 });
 
 Route::get('/activity', function () {
-    return view('Pages.activities');
+     $act=Activities::orderBy('id','desc')->join('company_categories','activities.category_id','=','company_categories.id')->select('activities.*','company_categories.category_name')->where('activities.status','=','active')->paginate(20);
+    return view('Pages.activities')->with('act',$act);
 });
 
 Route::get('/search', function () {
@@ -100,5 +111,22 @@ Route::get('/talents', 'UsersController@talents');
 Route::get('/guests', 'UsersController@guests');
 Route::get('/investors', 'UsersController@investors');
 Route::get('/activities', 'ActivitiesController@index');
+Route::get('/edit_activities/{id}', 'ActivitiesController@edit_activities');
+Route::POST('/updateactivities', 'ActivitiesController@updateactivities');
+Route::get('/delete_activities/{id}', 'ActivitiesController@delete_activities');
+Route::get('/delete_actg/{id}', 'ActivitiesController@delete_actg');
 Route::get('/policy', 'AboutusController@policy');
 Route::get('/aboutus', 'AboutusController@aboutus');
+Route::get('/company_category', 'CategoryController@company_category');
+Route::get('/add_company_category', 'CategoryController@add_company_category');
+Route::POST('/storecompanycategory', 'CategoryController@storecompany_category');
+
+Route::get('/add_activities', 'ActivitiesController@add_activities');
+Route::POST('/storeactivities', 'ActivitiesController@storeactivities');
+Route::POST('/storeactgallery', 'ActivitiesController@storeactgallery');
+Route::POST('/updateaboutus', 'AboutusController@updateaboutus');
+Route::POST('/storeteam', 'AboutusController@storeteam');
+Route::get('/add_team', 'AboutusController@add_team');
+Route::POST('/updatepolicy', 'AboutusController@updatepolicy');
+Route::POST('/updateteam', 'AboutusController@updateterm');
+Route::get('/termcondition', 'AboutusController@teamcondition');

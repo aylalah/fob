@@ -17,9 +17,9 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
-                            <h4>Library List</h4>
+                            <h4>Policy</h4>
                             <div class="add-product">
-                                <a href="#">Add Library</a>
+                                <!-- <a href="#">Add Library</a> -->
                             </div>
                            
                         </div>
@@ -33,14 +33,40 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="tab-content-details mg-b-30">
-                            <h2>Custom Animate accordion Bootstrap</h2>
+                                <form  method="POST" action="{{ url('updatepolicy') }}" enctype='multipart/form-data'>
+                                                         @csrf
+                                                        <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                 <input name="id" type="hidden" class="form-control" value="{{$p->id}}">
+                                                                <div class="form-group">
+                                                                    <input name="heading" type="text" class="form-control" value="{{$p->heading}}">
+                                                                </div>
+                                                                 <div class="form-group">
+                                                                    <textarea name="content" placeholder="Content">{{$p->content}}</textarea>
+                                                                </div>
+                                                                
+                                                               <!--  <div class="form-group ">
+                                                                     <input name="file"  type="file" />
+                                                                   
+                                                                </div> -->
+                                                            </div>
+                                                          
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="payment-adress">
+                                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                            <!-- <h2>Custom Animate accordion Bootstrap</h2>
                             <p>These are the Custom Animate accordion Bootstrap. Using animate bounce, flash, pulse, rubberBand, shake, swing, tada, wobble, jello, bounceIn, bounceInDown, bounceInLeft, bounceInRight, bounceInUp, fadeIn, fadeInDown, fadeInDownBig,
                                 fadeInLeft, fadeInLeftBig, fadeInRight, fadeInRightBig, fadeInUp, fadeInUpBig, flipInX, flipInY, lightSpeedIn, rotateIn, rotateInDownLeft, rotateInDownRight, rotateInUpLeft, rotateInUpRight, rollIn, zoomIn, zoomInDown,
-                                zoomInLeft, zoomInRight, zoomInUp etc.</p>
+                                zoomInLeft, zoomInRight, zoomInUp etc.</p> -->
                         </div>
                     </div>
                 </div>
-                <div class="row">
+               <!--  <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="admin-pro-accordion-wrap shadow-inner responsive-mg-b-30">
                             <div class="alert-title">
@@ -96,7 +122,7 @@
                             </div>
                         </div>
                     </div>                   
-                </div>
+                </div> -->
             </div>
         </div>
 @endsection
