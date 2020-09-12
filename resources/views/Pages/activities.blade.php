@@ -181,9 +181,16 @@
 						</select>
 
 						<ul class="pagination pull-right">
-							{{ $act->links() }}
+							<li><a href="#" class="fa fa-angle-left"></a></li>
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#" class="fa fa-angle-right"></a></li>
 						</ul>
 					</div>
+					@if(count($act) > 0)
 					@foreach ($act as $index => $c )
 					<div class="jobs-item with-thumb">
 						<div class="thumb"><img src="http://localhost/fob/storage/app/{{$c->image}}" alt=""></div>
@@ -205,8 +212,8 @@
 
 							<h5>Image Gallery</h5>
 							<?php
-$g_image=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.gallery_id','=','galleries.id')->join('activities','act_galleries.gallery_id','=','activities.id')->select('act_galleries.*','activities.tittle','galleries.image_name')->where('galleries.image_type','=','image')->where('galleries.subject','=','activities')->where('act_galleries.activities_id','=',$c->id)->get();
-$g_video=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.activities_id','=','galleries.id')->join('activities','act_galleries.activities_id','=','activities.id')->select('act_galleries.*','activities.tittle','galleries.image_name')->where('galleries.image_type','=','video')->where('galleries.subject','=','activities')->where('act_galleries.activities_id','=',$c->id)->get();
+$g_image=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.gallery_id','=','galleries.id')->join('activities','act_galleries.activities_id','=','activities.id')->select('act_galleries.*','activities.tittle','galleries.image_name')->where('galleries.image_type','=','image')->where('galleries.subject','=','activities')->where('act_galleries.activities_id','=',$c->id)->get();
+$g_video=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.gallery_id','=','galleries.id')->join('activities','act_galleries.activities_id','=','activities.id')->select('act_galleries.*','activities.tittle','galleries.image_name')->where('galleries.image_type','=','video')->where('galleries.subject','=','activities')->where('act_galleries.activities_id','=',$c->id)->get();
 // echo $g_image;
 							?>
 			<div class="row">
@@ -226,7 +233,7 @@ $g_video=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.a
 							
 </ul></div>
 				
-							
+		<hr>					
 <h5>Video Gallery</h5>
 
 							<ul class="additional-requirements clearfix">
@@ -246,7 +253,7 @@ $g_video=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.a
 							</div>	
 							</ul>
 							<hr>
-							<div class="clearfix">
+							<!-- <div class="clearfix">
 								<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
 
 								<ul class="social-icons pull-right">
@@ -255,7 +262,7 @@ $g_video=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.a
 									<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
 									<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
 								</ul>
-							</div>
+							</div> -->
 						</div>
 					</div>
    @endforeach
@@ -264,13 +271,15 @@ $g_video=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.a
 					<div class="clearfix">
 						<ul class="pagination pull-right">
 							{{ $act->links() }}
-						</ul>
+													</ul>
 					</div>
+						@endif
 				</div>
+
 		</div>
 		
 	</div> 
-
+</div>
 @endsection
 
 @section('script')
