@@ -26,29 +26,41 @@
 								<div class="row">
 									<div class="col-sm-4">
 										<!-- <input type="text" class="form-control" placeholder="Name"> -->
-										<input id="name" type="text"  placeholder="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth::user()->name }}" required autocomplete="name" disabled>
+										<!-- <input id="name" type="text"  placeholder="name" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name" disabled> -->
+										<input id="name" type="text"  placeholder="name" class="form-control @error('name') is-invalid @enderror" name="name" value="" required autocomplete="name">
 										
 									</div>
-
-									
-								
 								</div>		
-
 								<h6 class="label">Email</h6>
 								<div class="row">
 									<div class="col-sm-4">
 										<!-- <input type="text" class="form-control" placeholder="Surname"> -->
-										<input id="email" type="email"  placeholder="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Auth::user()->email}}" required autocomplete="email" disabled>
-
-										
+										<!-- <input id="email" type="email"  placeholder="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email" disabled> -->
+										<input id="email" type="email"  placeholder="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email">										
 									</div>
-</div>
+								</div>
+								<h6 class="label">Password</h6>
+								<div class="row">
+									<div class="col-sm-4">
+										<!-- <input type="text" class="form-control" placeholder="Surname"> -->
+										<!-- <input id="email" type="email"  placeholder="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email" disabled> -->
+										<input id="password" type="password"  placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" value="" required autocomplete="password">	
+									</div>
+								</div>
+								<h6 class="label">Confirm Password</h6>
+								<div class="row">
+									<div class="col-sm-4">
+										<!-- <input type="text" class="form-control" placeholder="Surname"> -->
+										<!-- <input id="email" type="email"  placeholder="email" class="form-control @error('email') is-invalid @enderror" name="email" value="" required autocomplete="email" disabled> -->
+										<input id="c-password" type="password"  placeholder="Confirm Password" class="form-control @error('password') is-invalid @enderror" name="c-password" value="" required autocomplete="password">								
+									</div>
+								</div>
 								<h6 class="label">Phone</h6>
-
 								<div class="row">
 									<div class="col-sm-4">
 										
-										<input id="contact" type="number" placeholder="Mobile" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus>
+										<!-- <input id="contact" type="number" placeholder="Mobile" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ old('contact') }}" required autocomplete="contact" autofocus> -->
+										<input id="contact" type="number" placeholder="Mobile" class="form-control @error('contact') is-invalid @enderror" name="contact" value="" required autocomplete="contact" autofocus>
 
 										@error('contact')
 											<span class="invalid-feedback" role="alert">
@@ -58,7 +70,8 @@
 									</div>
 
 									<div class="col-sm-4">
-									<input id="contact2" type="number" placeholder="Mobile 2" class="form-control @error('contact2') is-invalid @enderror" name="contact2" value="{{ old('contact2') }}" autocomplete="contact2">
+									<!-- <input id="contact2" type="number" placeholder="Mobile 2" class="form-control @error('contact2') is-invalid @enderror" name="contact2" value="{{ old('contact2') }}" autocomplete="contact2"> -->
+									<input id="contact2" type="number" placeholder="Mobile 2" class="form-control @error('contact2') is-invalid @enderror" name="contact2" value="" autocomplete="contact2">
 
 										@error('contact2')
 											<span class="invalid-feedback" role="alert">
@@ -78,7 +91,8 @@
 									<div class="col-sm-6">
 										<input type="hidden" class="form-control" value="2" name="user_category_id">
 
-										<input id="address_1" type="text" placeholder="Address 1" class="form-control @error('address_1') is-invalid @enderror" name="address_1" value="{{ old('address_1') }}" required autocomplete="address_1">
+										<!-- <input id="address_1" type="text" placeholder="Address 1" class="form-control @error('address_1') is-invalid @enderror" name="address_1" value="{{ old('address_1') }}" required autocomplete="address_1"> -->
+										<input id="address_1" type="text" placeholder="Address 1" class="form-control @error('address_1') is-invalid @enderror" name="address_1" value="" required autocomplete="address_1">
 
 										@error('address_1')
 											<span class="invalid-feedback" role="alert">
@@ -91,7 +105,8 @@
 									<div class="col-sm-6">
 										<!-- <input type="text" class="form-control" placeholder="Address 2"> -->
 
-										<input id="address_2" type="text" placeholder="Address 2" class="form-control @error('address_2') is-invalid @enderror" name="address_2" value="{{ old('address_2') }}" autocomplete="address_2">
+										<!-- <input id="address_2" type="text" placeholder="Address 2" class="form-control @error('address_2') is-invalid @enderror" name="address_2" value="{{ old('address_2') }}" autocomplete="address_2"> -->
+										<input id="address_2" type="text" placeholder="Address 2" class="form-control @error('address_2') is-invalid @enderror" name="address_2" value="" autocomplete="address_2">
 
 										@error('address_2')
 											<span class="invalid-feedback" role="alert">
@@ -103,7 +118,8 @@
 
 								<div class="row">
 									<div class="col-sm-3">
-										<select  id="country" class="form-control @error('address_2') is-invalid @enderror" name="address_2" value="{{ old('address_2') }}" required autocomplete="address_2">
+										<!-- <select  id="country" class="form-control @error('address_2') is-invalid @enderror" name="address_2" value="{{ old('address_2') }}" required autocomplete="address_2"> -->
+										<select  id="country" class="form-control @error('address_2') is-invalid @enderror" name="address_2" value="" required autocomplete="address_2">
 											<option value="">Country</option>
 											<option value="">Nigeria</option>
 											<option value="">South Africa</option>
@@ -114,7 +130,8 @@
 									</div>
 
 									<div class="col-sm-3">
-									<input id="state" type="text" placeholder="State" class="form-control @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" autocomplete="state">
+									<!-- <input id="state" type="text" placeholder="State" class="form-control @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" autocomplete="state"> -->
+									<input id="state" type="text" placeholder="State" class="form-control @error('state') is-invalid @enderror" name="state" value="" autocomplete="state">
 
 										@error('state')
 											<span class="invalid-feedback" role="alert">
@@ -124,7 +141,8 @@
 									</div>
 
 									<div class="col-sm-3">
-									<input id="city" type="text" placeholder="city" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" autocomplete="state">
+									<!-- <input id="city" type="text" placeholder="city" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" autocomplete="state"> -->
+									<input id="city" type="text" placeholder="city" class="form-control @error('city') is-invalid @enderror" name="city" value="" autocomplete="state">
 
 									@error('city')
 										<span class="invalid-feedback" role="alert">

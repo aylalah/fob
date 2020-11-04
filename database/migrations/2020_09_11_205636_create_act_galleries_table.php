@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CompanyCategory extends Migration
+class CreateActGalleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CompanyCategory extends Migration
      */
     public function up()
     {
-        Schema::create('company_category', function (Blueprint $table) {
+        Schema::create('act_galleries', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name');
-            $table->string('category_description');
-            $table->string('created_by');
-            $table->string('updated_by');
-            $table->string('status');
-            $table->string('c_date');
-            $table->string('c_time');
+            $table->string('activities_id');
+            $table->string('gallery_id');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CompanyCategory extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('act_galleries');
     }
 }

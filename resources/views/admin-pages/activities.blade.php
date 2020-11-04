@@ -14,138 +14,134 @@
     <!-- Single pro tab review Start-->
     <div class="product-status mg-b-15">
             <div class="container-fluid">
+                 <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-payment-inner-st">
+                             <ul id="myTabedu1" class="tab-review-design">
+                                <li class="active"><a href="#description">Activities List</a></li>
+                                <li><a href="#reviews">Image Gallery</a></li>
+                                <li><a href="#INFORMATION">Video Gallery</a></li>
+                            </ul>
+                            <div class="add-product">
+                                <a href="{{url('add_activities')}}">Add Activities or Galleries</a>
+                            </div>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                 <div class="product-tab-list tab-pane fade active in" id="description">
+
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
-                            <h4>Library List</h4>
-                            <div class="add-product">
-                                <a href="#">Add Library</a>
-                            </div>
+                            <!-- <h4>Activities List</h4> -->
+                            
                             <div class="asset-inner">
                                 <table>
                                     <tr>
                                         <th>No</th>
                                         <th>Image</th>
-                                        <th>Name of Asset</th>
+                                        <th>Name of Category</th>
                                         <th>Status</th>
-                                        <th>Subject</th>
-                                        <th>Department</th>
-                                        <th>Type</th>
-                                        <th>Price</th>
+                                        <th>Tittle</th>
+                                        <!-- <th>Content</th> -->
+                                        <!-- <th>Title Type</th> -->
+                                       <th>Created_by</th>
+                                        <th>Updated_by</th>
+                                        <th>Created_at</th>
+                                        <th>Updated_at</th>
                                         <th>Setting</th>
                                     </tr>
+                                     @foreach ($act as $index => $c )  
                                     <tr>
-                                        <td>1</td>
-                                        <td><img src="{{ asset('admin-asset/img/product/book-1.jpg') }}" alt="" /></td>
-                                        <td>Web Development Book</td>
+                                      <td>{{$index +1}}</td>
+                                     
+                                        <td><img src="http://localhost/fob/storage/app/{{$c->image}}" alt="" /></td>
+                                        <td>{{$c->category_name}}</td>
+                                        
                                         <td>
-                                            <button class="pd-setting">Active</button>
+                                            <button class="ps-setting">{{$c->status}}</button>
                                         </td>
-                                        <td>Html, Css</td>
-                                        <td>CSE</td>
-                                        <td>Book</td>
-                                        <td>$1500</td>
+                                        <td>{{$c->tittle}}</td>
+                                        <!-- <td><p style="white-space: pre-line;">{{$c->content}}</p></td> -->
+                                        <!-- <td>{{$c->title_type}}</td> -->
+                                          <td>{{$c->created_by}}</td>
+                                        <td>{{$c->updated_by}}</td>
+                                        <td>{{$c->created_at}}</td>
+                                        <td>{{$c->updated_at}}</td>
                                         <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                           <a href="{{url('edit_activities')}}/{{$c->id}}"> <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></a>
+                                            <a href="{{url('delete_activities')}}/{{$c->id}}"><button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button></a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td><img src="{{ asset('admin-asset/img/product/book-2.jpg') }}" alt="" /></td>
-                                        <td>Quality Bol pen</td>
-                                        <td>
-                                            <button class="ps-setting">Paused</button>
-                                        </td>
-                                        <td>PHP</td>
-                                        <td>CSE</td>
-                                        <td>CD</td>
-                                        <td>$1700</td>
-                                        <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td><img src="{{ asset('admin-asset/img/product/book-3.jpg') }}" alt="" /></td>
-                                        <td>Box of pendrive</td>
-                                        <td>
-                                            <button class="ds-setting">Disabled</button>
-                                        </td>
-                                        <td>Java</td>
-                                        <td>CSE</td>
-                                        <td>Book</td>
-                                        <td>$1500</td>
-                                        <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td><img src="{{ asset('admin-asset/img/product/book-4.jpg') }}" alt="" /></td>
-                                        <td>Quality Bol pen</td>
-                                        <td>
-                                            <button class="pd-setting">Active</button>
-                                        </td>
-                                        <td>PHP</td>
-                                        <td>CSE</td>
-                                        <td>CD</td>
-                                        <td>$1200</td>
-                                        <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td><img src="{{ asset('admin-asset/img/product/book-1.jpg') }}" alt="" /></td>
-                                        <td>Web Development Book</td>
-                                        <td>
-                                            <button class="pd-setting">Active</button>
-                                        </td>
-                                        <td>Wordpress</td>
-                                        <td>CSE</td>
-                                        <td>Book</td>
-                                        <td>$1800</td>
-                                        <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>6</td>
-                                        <td><img src="{{ asset('admin-asset/img/product/book-2.jpg') }}" alt="" /></td>
-                                        <td>Quality Bol pen</td>
-                                        <td>
-                                            <button class="ps-setting">Paused</button>
-                                        </td>
-                                        <td>Java</td>
-                                        <td>CSE</td>
-                                        <td>CD</td>
-                                        <td>$1000</td>
-                                        <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                        </td>
-                                    </tr>
+                                      @endforeach
                                 </table>
                             </div>
                             <div class="custom-pagination">
 								<ul class="pagination">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
+									{{ $act->links() }}
 								</ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+             <div class="product-tab-list tab-pane fade" id="reviews">
+            <div class="row">
+                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="courses-area">
+            <div class="container-fluid">
+                <div class="row">
+                      @foreach ($g_image as $index => $c )  
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="courses-inner res-mg-b-30">
+                            <div class="courses-title">
+                                <a ><img src="http://localhost/fob/storage/app/{{$c->image_name}}"  alt=""></a>
+                                <!-- <h2>Apps Development</h2> -->
+                            </div>
+                           <div class="product-buttons">
+                              <a href="{{url('delete_actg/')}}/{{$c->gallery_id}}">  <button type="button" class="button-default cart-btn">Delete</button></a>
+                            </div>
+                        </div>
+                    </div>
+                   @endforeach
+                </div>
+
+             </div>
         </div>
+
+        </div>
+            </div>
+        </div>
+
+
+            <div class="product-tab-list tab-pane fade" id="INFORMATION">
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="courses-area">
+            <div class="container-fluid">
+                <div class="row">
+                      @foreach ($g_video as $index => $c )  
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        
+                        <div class="fitvidsjs">
+                            <iframe src="https://{{$c->image_name}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                       
+                       <div class="product-buttons">
+                               <a href="{{url('delete_actg/')}}/{{$c->gallery_id}}"> <button type="button" class="button-default cart-btn">Delete</button></a>
+                            </div>
+                    </div>
+                   @endforeach
+                    </div>
+                    
+                       
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+
+    </div>
+</div>
+</div>
 @endsection
 
 @section('script')

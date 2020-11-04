@@ -22,18 +22,18 @@
 								<div class="col-xs-6 col-sm-12 col-md-6">
 									<ul class="footer-links">
 										<li><a href="#">Home</a></li>
-										<li><a href="#">Talent</a></li>
-										<li><a href="#">Candidates</a></li>
-										<li><a href="#">Partners</a></li>
+										<li><a href="{{ url('talents/') }}">Talent</a></li>
+										<li><a href="{{ url('candidate/') }}">Candidates</a></li>
+										<li><a href="{{ url('partners/') }}">Partners</a></li>
 									</ul>
 								</div>
 
 								<div class="col-xs-6 col-sm-12 col-md-6">
 									<ul class="footer-links">
-										<li><a href="#">About Us</a></li>
-										<li><a href="#">Contact Us</a></li>
-										<li><a href="#">Terms &amp; Conditions</a></li>
-										<li><a href="#">Privacy Policy</a></li>
+										<li><a href="{{ url('about/') }}">About Us</a></li>
+										<li><a href="{{ url('contact/') }}">Contact Us</a></li>
+										<li><a href="{{ url('term-condition/') }}">Terms &amp; Conditions</a></li>
+										<li><a href="{{ url('privacy-policy/') }}">Privacy Policy</a></li>
 									</ul>
 								</div>
 							</div>
@@ -75,7 +75,8 @@
 
 		<div class="copyright">
 			<div class="container">
-				<p>&copy; Copyright 2020 <a href="#">fbmtm.com</a> | All Rights Reserved | Powered by <a href="#">FOB$TM</a></p>
+				<!-- <p>&copy; Copyright 2020 <a href="#">fbmtm.com</a> | All Rights Reserved | Powered by <a href="#">FOB$TM</a></p> -->
+				<p>Copyright © <script>document.write(new Date().getFullYear());</script> All rights reserved. Powered by FOB&TM</p>
 
 				<ul class="footer-social">
 					<li><a href="#" class="fa fa-facebook"></a></li>

@@ -113,6 +113,14 @@
            }
         });
         });
+                   $(function() {
+                    $('.file').hide();
+  $('#fileselector').change(function(){
+    // alert();
+    $('.file').hide();
+    $('#' + $(this).val()).show();
+  });
+});
     </script>
     </body>
 </html>

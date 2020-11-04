@@ -17,10 +17,10 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
-                            <h4>Library List</h4>
-                            <div class="add-product">
+                            <h4>Investors List</h4>
+                            <!-- <div class="add-product">
                                 <a href="#">Add Library</a>
-                            </div>                  
+                            </div>                   -->
                         </div>
                     </div>                    
                 </div>
@@ -30,19 +30,21 @@
         <div class="contacts-area mg-b-15">
             <div class="container-fluid">
                 <div class="row">
+                @foreach ($sponsor as $c )  
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="student-inner-std res-mg-b-30">
                             <div class="student-img">
-                                <img  src="{{ asset('admin-asset/img/student/1.jpg') }}" alt="" />
+                                <img src="http://{{$app_url->app_url}}/upload/{{$c->image}}" alt="" />
                             </div>
                             <div class="student-dtl">
-                                <h2>Alexam Angles</h2>
-                                <p class="dp">Computer Science</p>
-                                <p class="dp-ag"><b>Age:</b> 20 Years</p>
+                                <h2>{{$c->name}}</h2>
+                                <p class="dp"><b>Company's Name: </b>{{$c->company_industry_category}}</p>
+                                <p class="dp-ag"><b>Company's Profile: </b>{{$c->company_profile}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    @endforeach
+                    <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="student-inner-std res-mg-b-30">
                             <div class="student-img">
                                 <img  src="{{ asset('admin-asset/img/student/2.jpg') }}" alt="" />
@@ -77,9 +79,9 @@
                                 <p class="dp-ag"><b>Age:</b> 20 Years</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="student-inner-std mg-t-30">
                             <div class="student-img">
@@ -128,7 +130,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 @endsection

@@ -3,14 +3,15 @@
 			<div class="container">
 
 				<!-- Header Language -->
-				<div class="header-language clearfix">
+				<!-- <div class="header-language clearfix">
 					<ul>
 						<li class="active"><a href="#">En</a></li>
 						<li><a href="#">Fr</a></li>
 						<li><a href="#">De</a></li>
 						<li><a href="#">It</a></li>
 					</ul>
-				</div> <!-- end .header-language -->
+				</div>  -->
+				<!-- end .header-language -->
 
 				<!-- Bookmarks -->	
 
@@ -51,18 +52,8 @@
 							<div>
 							<form method="POST" action="{{ route('register') }}">
 								@csrf
-								<select  id="country" class="form-control @error('user_category_id') is-invalid @enderror" name="user_category_id" value="{{ old('user_category_id') }}" required autocomplete="user_category_id">
-											<option value="">Select Role</option>
-											<option value="2">Talent</option>
-											<option value="3">Member</option>
-											<option value="4">Sponsor</option>
-										</select>
-										@error('user_category_id')
-										<span class="invalid-feedback" role="alert">
-											<strong>{{ $message }}</strong>
-										</span>
-									@enderror
-								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Username" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+								
+								<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Fullname" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 								<!-- <input name="user_category_id" type="hidden" value="2"> -->
 									@error('name')
 										<span class="invalid-feedback" role="alert">

@@ -64,4 +64,7 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+      <!-- modals CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{ asset('admin-asset/css/modals.css') }}">
     

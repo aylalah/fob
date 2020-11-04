@@ -51,6 +51,11 @@
     <script src="{{ asset('admin-asset/js/calendar/moment.min.js') }}"></script>
     <script src="{{ asset('admin-asset/js/calendar/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('admin-asset/js/calendar/fullcalendar-active.js') }}"></script>
+
+    <!-- tab JS
+		============================================ -->
+    <script src="{{ asset('admin-asset/js/tab.js') }}"></script>
+
     <!-- plugins JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/plugins.js') }}"></script>

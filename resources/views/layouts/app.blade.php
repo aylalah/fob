@@ -4,11 +4,11 @@
        
        <title>{{ config('app.name', 'Laravel') }}</title>
        
-           @include('admin-layouts.head')
+           @include('layouts.head')
        </head>
 <body>
     <div id="app">
-    @include('admin-layouts.header')
+    @include('layouts.header')
            
         <main class="py-4">
            @include('includes.messages')
@@ -16,10 +16,10 @@
         </main>
     </div>
 
-    @include('admin-layouts.footer')    
-    @include('admin-layouts.footer-script') 
+    @include('layouts.footer')    
+    @include('layouts.footer-script') 
 
-    @yield('admin-script')
+    @yield('script')
 
        <script type="text/javascript">
          $(".like").click(function(){
@@ -115,6 +115,11 @@
            }
         });
         });
+
+
+     
     </script>
+  
 </body>
 </html>
+

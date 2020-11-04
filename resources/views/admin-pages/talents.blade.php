@@ -17,10 +17,10 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
-                            <h4>Library List</h4>
-                            <div class="add-product">
+                            <h4>Talents List</h4>
+                            <!-- <div class="add-product">
                                 <a href="#">Add Library</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -29,13 +29,17 @@
 
             <div class="container-fluid">
                 <div class="row">
+                @foreach ($talent as $index => $c )  
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="courses-inner res-mg-b-30">
                             <div class="courses-title">
-                                <a href="#"><img src="{{ asset('admin-asset/img/courses/1.jpg') }}" alt=""></a>
-                                <h2>Apps Development</h2>
+                                <a href="#"><img src="http://{{$app_url->app_url}}/upload/{{$c->image}}" alt=""></a>
+                                <h2>{{$c->name}}</h2>
                             </div>
                             <div class="courses-alaltic">
+                            {{$c->about_talent}}
+                            </div>
+                            <!-- <div class="courses-alaltic">
                                 <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-clock"></i></span> 1 Year</span>
                                 <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-heart"></i></span> 50</span>
                                 <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-dollar"></i></span> 500</span>
@@ -44,13 +48,14 @@
                                 <p><span><i class="fa fa-clock"></i></span> <b>Duration:</b> 6 Months</p>
                                 <p><span><i class="fa fa-clock"></i></span> <b>Professor:</b> Jane Doe</p>
                                 <p><span><i class="fa fa-clock"></i></span> <b>Students:</b> 100+</p>
-                            </div>
+                            </div> -->
                             <div class="product-buttons">
                                 <button type="button" class="button-default cart-btn">Read More</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                @endforeach
+                    <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="courses-inner">
                             <div class="courses-title">
                                 <a href="#"><img src="{{ asset('admin-asset/img/courses/2.jpg') }}" alt=""></a>
@@ -199,7 +204,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
     
                            

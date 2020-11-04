@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="footer-copy-right">
-                            <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+                            <p>Copyright © <script>document.write(new Date().getFullYear());</script> All rights reserved. Powered by FOB&TM</p>
                         </div>
                     </div>
                 </div>

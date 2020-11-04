@@ -14,7 +14,7 @@
 
 					<div class="white-container sign-up-form">
 						<div>
-								<form method="POST" action="{{ url('register-invest') }}" enctype="multipart/form-data" >
+								<form method="POST" action="{{ url('register-sponsor') }}" enctype="multipart/form-data" >
 						@csrf
 							<h2> Fill in your Information</h2>
 <!-- 
@@ -36,12 +36,23 @@
 								<h6 class="label">Name</h6>
 
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-4">
 										<input type="text" class="form-control" placeholder="CEO Name" name="ceo_name" required>
 									</div>
 
-									<div class="col-sm-6">
+									<div class="col-sm-4">
 										<input type="text" class="form-control" name="company_industry_category" placeholder="Company Name" required>
+									</div>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" name="email" placeholder="Company Email" required>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4">
+										<input type="password" class="form-control" name="passowrd" placeholder="Password" required>
+									</div>
+									<div class="col-sm-4">
+										<input type="password" class="form-control" name="c-password" placeholder="Confirm Password" required>
 									</div>
 								</div>
 

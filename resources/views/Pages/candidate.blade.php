@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="col-sm-8 page-content">
+				<div class="col-sm-12 page-content">
 					<div class="white-container candidates-search">
 						<div class="row">
 						<form method="POST" action="{{ url('search-candidate') }}" enctype="multipart/form-data">
@@ -179,7 +179,7 @@
 					@endif
 				</div> <!-- end .page-content -->
 
-				<div class="col-sm-4 page-sidebar">
+				<!-- <div class="col-sm-4 page-sidebar">
 					<aside>
 						<div class="widget sidebar-widget white-container social-widget">
 							<h5 class="widget-title">Share Us</h5>
@@ -267,7 +267,8 @@
 							</div>
 						</div>
 					</aside>
-				</div> <!-- end .page-sidebar -->
+				</div> -->
+				 <!-- end .page-sidebar -->
 			</div>
 		</div> <!-- end .container -->
 		

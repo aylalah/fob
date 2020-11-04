@@ -15,6 +15,8 @@ use App\Investor_Profile;
 use App\UserCategory;
 use App\Like;
 use App\favourite;
+use Illuminate\Support\Facades\Hash;
+
 class HomeController extends Controller
 {
     /**
@@ -39,7 +41,7 @@ class HomeController extends Controller
         $talentCat = TalentCategory::all(); 
             $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
                     ->select('talent__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->paginate(12); 
-            return view('pages.candidate')->with('cand',$cand)->with('talentCat',$talentCat);
+            return view('Pages.candidate')->with('cand',$cand)->with('talentCat',$talentCat);
         }
 
         public function talents()
@@ -48,13 +50,15 @@ class HomeController extends Controller
             $talentCat = TalentCategory::all(); 
                 $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
                         ->select('talent__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->paginate(12); 
-                return view('pages.talents')->with('cand',$cand)->with('talentCat',$talentCat);
+                return view('Pages.talents')->with('cand',$cand)->with('talentCat',$talentCat);
             }
 
     public function index()
     {
         
          $role_id=Auth::user()->user_category_id;
+        //  echo "<script>alert('odofekofk')</script>";
+        //  return;
          $getCat = TalentCategory::all(); 
          $id=Auth::id();
          $all_admin= DB::table('users')->where('user_category_id','=',1)->count();
@@ -83,7 +87,13 @@ class HomeController extends Controller
             ->select('talent__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->simplePaginate(5); 
         }
         // return $cat;
-        return view('home')->with('user',$user_cat)->with('d',$d)->with('invest',$invest)->with('cat',$cat)->with(['getCat' => $getCat, 'all_admin'=> $all_admin, 'all_users'=> $all_users, 'guest_users'=>$guest_users, 'talent_users'=>$talent_users, 'talent_users'=>$talent_users, 'sponsor_users'=>$sponsor_users,]);
+        if ($role_id != 1) {
+          return view('home2')->with('user',$user_cat)->with('d',$d)->with('invest',$invest)->with('cat',$cat)->with(['getCat' => $getCat, 'all_admin'=> $all_admin, 'all_users'=> $all_users, 'guest_users'=>$guest_users, 'talent_users'=>$talent_users, 'talent_users'=>$talent_users, 'sponsor_users'=>$sponsor_users,]);
+        } else {
+          return view('home')->with('user',$user_cat)->with('d',$d)->with('invest',$invest)->with('cat',$cat)->with(['getCat' => $getCat, 'all_admin'=> $all_admin, 'all_users'=> $all_users, 'guest_users'=>$guest_users, 'talent_users'=>$talent_users, 'talent_users'=>$talent_users, 'sponsor_users'=>$sponsor_users,]);
+        }
+        
+        
        
        
     }
@@ -100,48 +110,91 @@ class HomeController extends Controller
 
      public function registeruser(Request $request)
     {
-        $id=Auth::id();
+      // return response()->json(
+      //   $request->all()
+      // );
+      $verify_user = DB::table('users')->where('users.email', $request->email)->exists();
+      if($verify_user){
+       echo "<script>alert('An account with this email adress alreday exist, please check and try again.')</script>";
+       $talent_category = TalentCategory::orderBy('talentcategory_name', 'asc')->get();
+       return view('auth.register-user')->with('getCat', $talent_category);
+      } else {
+        $insert = DB::table('users')->insertGetId([
+          'name'=>$request->name,
+          'contact'=>$request->contact,
+          'contact2'=>$request->chapter_id,
+          'address_1'=>$request->address_1,
+          'address_2'=>$request->address_2, 
+          'state'=>$request->state,
+          'city'=>$request->city,
+          'user_category_id'=>$request->user_category_id,
+          'country'=>$request->country,
+          'username'=>$request->name,
+          'role_id'=>'4',
+          'email'=>$request->email,
+          'status'=>'active',
+          'password'=>  Hash::make($request->password)
+          // 'image'=>$request->image,
+        ]);
 
-       $c=Talent_Profile::where('user_id','=',$id)->count();
-       // $inv=Investor_Profile::where('user_id','=',$id)->count();
-       // if ($inv == 0) {
-         if ($c == 0) {  
- if ($request->hasFile('file')){
-            $file=$request->file('file');
-            $filename= time().'.'.$file->getClientOriginalExtension();
-            Image::make($file)->resize(300, 300)->save(public_path('/upload/'.$filename));
-              DB::table('users')->where('id','=',$id)->update([
-      
-       'image'=>$filename,
+         if ($request->hasFile('file')){
+          $file=$request->file('file');
+          $filename= time().'.'.$file->getClientOriginalExtension();
+          Image::make($file)->resize(300, 300)->save(public_path('/upload/'.$filename));
+            DB::table('users')->where('id','=',$insert)->update([
+              'image'=>$filename,
+            ]);
+          }
 
-    ]);
-            
-        }
-         DB::table('users')->where('id','=',$id)->update([
-        'contact'=>$request->contact,
-      'contact2'=>$request->chapter_id,
-      'address_1'=>$request->address_1,
-       'address_2'=>$request->address_2, 
-       'state'=>$request->state,
-       'city'=>$request->city,
-       'user_category_id'=>$request->user_category_id,
-       'country'=>$request->country,
-       'username'=>'y'
-       // 'image'=>$request->image,
-
-    ]);
-//            DB::table('talent_profile')->insert(
-//         $request->all()
-// );
-         $request->merge(['user_id' => $id]);
+          $request->merge(['user_id' => $insert]);
        
-        Talent_Profile::create($request->all());
-        return redirect('home')->with('success','Saved');
-        // return $request;
-}
- else{
-             return redirect('home')->with('success','Already Exist');
-        }
+          Talent_Profile::create($request->all());
+          return redirect('login')->with('success','Saved');
+      }
+
+//         $id=Auth::id();
+
+//        $c=Talent_Profile::where('user_id','=',$id)->count();
+//        // $inv=Investor_Profile::where('user_id','=',$id)->count();
+//        // if ($inv == 0) {
+//          if ($c == 0) {  
+//  if ($request->hasFile('file')){
+//             $file=$request->file('file');
+//             $filename= time().'.'.$file->getClientOriginalExtension();
+//             Image::make($file)->resize(300, 300)->save(public_path('/upload/'.$filename));
+//               DB::table('users')->where('id','=',$id)->update([
+      
+//        'image'=>$filename,
+
+//     ]);
+            
+//         }
+//          DB::table('users')->where('id','=',$id)->update([
+//         'contact'=>$request->contact,
+//       'contact2'=>$request->chapter_id,
+//       'address_1'=>$request->address_1,
+//        'address_2'=>$request->address_2, 
+//        'state'=>$request->state,
+//        'city'=>$request->city,
+//        'user_category_id'=>$request->user_category_id,
+//        'country'=>$request->country,
+//        'username'=>'y'
+//        // 'image'=>$request->image,
+
+//     ]);
+// //            DB::table('talent_profile')->insert(
+// //         $request->all()
+// // );
+//          $request->merge(['user_id' => $id]);
+       
+//         Talent_Profile::create($request->all());
+//         return redirect('home')->with('success','Saved');
+//         // return $request;
+// }
+//  else{
+//              return redirect('home')->with('success','Already Exist');
+//         }
+
        // }
        //  else{
        //       return redirect('home')->with('success','Already an Investor. Please,login or register with another email');
@@ -150,41 +203,76 @@ class HomeController extends Controller
     }
        public function registerstore(Request $request)
     {
-        $id=Auth::id();
-           // $c=Talent_Profile::where('user_id','=',$id)->count();
-       $inv=Investor_Profile::where('user_id','=',$id)->count();
-       // if ($c == 0) {
-         if ($inv == 0) {  
+      // echo "<script>alert('odfijdif')</script>";
+      // return;
+      //  return response()->json(
+      //   $request->all()
+      // );
+      $verify_user = DB::table('users')->where('users.email', $request->email)->exists();
+      if($verify_user){
+       echo "<script>alert('An account with this email adress alreday exist, please check and try again.')</script>";
+       $talent_category = TalentCategory::orderBy('talentcategory_name', 'asc')->get();
+       return view('auth.register')->with('getCat', $talent_category);
+      } else {
+        $insert = DB::table('users')->insertGetId([
+          'name'=>$request->ceo_name,
+          'user_category_id'=>'4',
+          'role_id'=>'4',
+          'email'=>$request->email,
+          'status'=>'active',
+          'password'=>  Hash::make($request->password)
+          // 'image'=>$request->image,
+        ]);
+
+        if ($request->hasFile('file')){
+          $file=$request->file('file');
+          $filename= time().'.'.$file->getClientOriginalExtension();
+          Image::make($file)->resize(300, 300)->save(public_path('/upload/'.$filename));
+            DB::table('users')->where('id','=',$insert)->update([
+              'image'=>$filename,
+            ]);
+          $request->merge(['logo' => $filename]);
+          $request->merge(['user_id' => $insert]);
+        }
+        Investor_Profile::create($request->all());
+        return redirect('login')->with('success','Saved');
+      }
+    
+//         $id=Auth::id();
+//            // $c=Talent_Profile::where('user_id','=',$id)->count();
+//        $inv=Investor_Profile::where('user_id','=',$id)->count();
+//        // if ($c == 0) {
+//          if ($inv == 0) {  
       
            
-         if ($request->hasFile('file')){
-            $file=$request->file('file');
-            $filename= time().'.'.$file->getClientOriginalExtension();
-            Image::make($file)->resize(200, 200)->save(public_path('/upload/'.$filename));
+//          if ($request->hasFile('file')){
+//             $file=$request->file('file');
+//             $filename= time().'.'.$file->getClientOriginalExtension();
+//             Image::make($file)->resize(200, 200)->save(public_path('/upload/'.$filename));
            
-            $request->merge(['logo' => $filename]);
-        }
+//             $request->merge(['logo' => $filename]);
+//         }
 
-        // return $request;
-        DB::table('users')->where('id','=',$id)->update([
+//         // return $request;
+//         DB::table('users')->where('id','=',$id)->update([
 
-       'user_category_id'=>$request->user_category_id,
-       'image' =>$request->logo,
-'username'=>'y'
-    ]);
-         $request->merge(['user_id' => $id]);
+//        'user_category_id'=>$request->user_category_id,
+//        'image' =>$request->logo,
+// 'username'=>'y'
+//     ]);
+//          $request->merge(['user_id' => $id]);
        
-        Investor_Profile::create($request->all());
-        return redirect('home')->with('success','Saved');
-        // return $request;
-        }
-      else{
-             return redirect('home')->with('success','Already Exist');
-        }
-       // }
-       //  else{
-       //       return redirect('home')->with('success','Already Exist. Please,login or register with another email');
-       //  }
+//         Investor_Profile::create($request->all());
+//         return redirect('home')->with('success','Saved');
+//         // return $request;
+//         }
+//       else{
+//              return redirect('home')->with('success','Already Exist');
+//         }
+//        // }
+//        //  else{
+//        //       return redirect('home')->with('success','Already Exist. Please,login or register with another email');
+//        //  }
     }
 
       public function searchpartner(Request $request){
@@ -194,7 +282,7 @@ class HomeController extends Controller
      // ->orWhere('email','LIKE', "%{$search}%")
     ->paginate(100);
     // return $dat;
-    return view('pages.partners')->with('invest',$invest);
+    return view('Pages.partners')->with('invest',$invest);
     }
      public function searchcandidate(Request $request){
          $talentCat = TalentCategory::all(); 
@@ -206,7 +294,7 @@ class HomeController extends Controller
        ->orWhere('skill_3','LIKE', "%{$search}%")
      ->paginate(100);
     // return $dat;
-   return view('pages.candidate')->with('cand',$cand)->with('talentCat',$talentCat);
+   return view('Pages.candidate')->with('cand',$cand)->with('talentCat',$talentCat);
     }
 
        public function candidatedetail($id)
@@ -214,7 +302,7 @@ class HomeController extends Controller
    $talentCat = TalentCategory::all(); 
      $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
             ->select('talent__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->where('talent_category_id','=',$id)->paginate(12); 
-    return view('pages.candidate_category')->with('cand',$cand)->with('talentCat',$talentCat);
+    return view('Pages.candidate_category')->with('cand',$cand)->with('talentCat',$talentCat);
     }
 
       public function addlike(Request $request)
@@ -329,6 +417,6 @@ class HomeController extends Controller
     ->join('talent__profiles','users.id','=','talent__profiles.user_id')
             ->select('favourites.id AS fav_id','favourites.user_id AS fav_user_id','favourites.f_user_id','favourites.status AS f_status','talent__profiles.*','users.id AS u_id','users.name', 'users.image','users.email','users.count_f')->get();
             // return $cat;
-             return view('pages.favour')->with('user',$user)->with('cat',$cat);
+             return view('Pages.favour')->with('user',$user)->with('cat',$cat);
     }
 }

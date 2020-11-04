@@ -228,7 +228,8 @@
 							</div>
 						</div>
 					</aside>
-				</div> <!-- end .page-sidebar -->
+				</div>
+				 <!-- end .page-sidebar -->
 			</div>
 		</div> <!-- end .container -->
 		
