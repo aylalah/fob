@@ -14,10 +14,10 @@
 
 					<div class="white-container sign-up-form">
 						<div>
-								<form method="POST" action="{{ url('register-sponsor') }}" enctype="multipart/form-data" >
+								<form method="POST" action="{{ url('register') }}" enctype="multipart/form-data" >
 						@csrf
 							<h2> Fill in your Information</h2>
-<!-- 
+<!--
 							<section>
 								<h6 class="bottom-line">You are:</h6>
 
@@ -56,7 +56,7 @@
 									</div>
 								</div>
 
-								
+
 
 								<h6 class="label">Company Profile</h6>
 
@@ -65,7 +65,7 @@
 										<input type="text" class="form-control" name="company_profile" placeholder="Company Profile">
 									</div>
 
-									
+
 								</div>
 
 								<h6 class="label">Social Handles Links</h6>
@@ -81,7 +81,7 @@
 										@enderror
 									</div>
 
-									<div class="col-sm-4">										
+									<div class="col-sm-4">
 										<input id="twitter" type="text"  placeholder="Twitter" class="form-control @error('twitter') is-invalid @enderror" name="twitter" value="{{ old('twitter') }}" autocomplete="twitter" autofocus>
 										<!-- <input name="user_category_id" type="hidden" value="2"> -->
 										@error('twitter')
@@ -91,7 +91,7 @@
 										@enderror
 									</div>
 
-									<div class="col-sm-4">									
+									<div class="col-sm-4">
 										<input id="facebook" type="text"  placeholder="Facebook" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook') }}"  autocomplete="facebook" autofocus>
 										<!-- <input name="user_category_id" type="hidden" value="2"> -->
 										@error('facebook')
@@ -104,15 +104,15 @@
 
 
 								<div class="row">
-									
+
 									<div class="col-sm-12">
 										<input type="text" class="form-control" name="website" placeholder="website">
 									</div>
 
-									
+
 								</div>
 							</section>
-<hr class="mt60">							
+<hr class="mt60">
 
 							<!-- <h2>2. Upload</h2> -->
 
@@ -124,7 +124,7 @@
 									</div>
 								</div>
 							</section>
-							
+
 						</div>
 
 						<hr class="mt60">

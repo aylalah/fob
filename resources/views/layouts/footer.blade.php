@@ -1,11 +1,11 @@
-    <!--== Footer Area Start ==-->
+    <!--
     <footer id="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3 col-md-4">
 					<div class="widget">
 						<div class="widget-content">
-          
+
 							<img  src="img/logo6.png" alt="Logo">
 
 							<p>Here we help you to find the right Talents for your Brand Ambassadorship, Brand Modelling, Talent recruiting and retention for specific job roles while meeting your organizations requirements simultaneously. </p>
@@ -75,7 +75,7 @@
 
 		<div class="copyright">
 			<div class="container">
-				<!-- <p>&copy; Copyright 2020 <a href="#">fbmtm.com</a> | All Rights Reserved | Powered by <a href="#">FOB$TM</a></p> -->
+
 				<p>Copyright © <script>document.write(new Date().getFullYear());</script> All rights reserved. Powered by FOB&TM</p>
 
 				<ul class="footer-social">
@@ -88,4 +88,112 @@
 				</ul>
 			</div>
 		</div>
-	</footer>        <!-- End Footer -->
+    </footer>   -->
+
+
+
+
+
+
+
+    <footer class="page_footer ds ms section_padding_top_75 section_padding_bottom_45 columns_padding_15">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="widget">
+                        <h3 class="widget-title">Our Contacts</h3>
+
+                        <div class="media small-teaser">
+                            <div class="media-left">
+                                <i class="fa fa-globe highlight2"></i>
+                            </div>
+                            <div class="media-body">
+                                Jacksotts str. 698 San Diego, California, USA
+                            </div>
+                        </div>
+
+                        <div class="media small-teaser">
+                            <div class="media-left">
+                                <i class="fa fa-phone highlight2"></i>
+                            </div>
+                            <div class="media-body">
+                                1-800-123-4567, 1-800-123-4568
+                            </div>
+                        </div>
+
+                        <div class="media small-teaser">
+                            <div class="media-left">
+                                <i class="fa fa-envelope highlight2"></i>
+                            </div>
+                            <div class="media-body underlined-links greylinks">
+                                <a href="mailto:your@mail.com">fashion_vogue@support.com</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="widget widget_mailchimp">
+
+                        <h3 class="widget-title">Newsletter Signup</h3>
+
+                        <form class="signup form-inline" action="./" method="get">
+                            <div class="form-group">
+                                <input name="email" type="email" class="mailchimp_email form-control" placeholder="Email Address">
+                            </div>
+                            <button type="submit" class="theme_button">Send</button>
+                            <div class="response"></div>
+                        </form>
+
+                    </div>
+
+                    <div class="widget">
+                        <h3 class="widget-title">Follow Us</h3>
+                        <p class="greylinks">
+                <a class="social-icon border-icon round soc-facebook" href="index.html#" title="Facebook"></a>
+                <a class="social-icon border-icon round soc-twitter" href="index.html#" title="Twitter"></a>
+                <a class="social-icon border-icon round soc-google" href="index.html#" title="Google"></a>
+                <a class="social-icon border-icon round soc-linkedin" href="index.html#" title="LinkedIn"></a>
+                <a class="social-icon border-icon round soc-pinterest" href="index.html#" title="Pinterest"></a>
+            </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="widget widget_banner">
+
+                        <h3 class="widget-title">Banner Ad</h3>
+                        <div class="vertical-item content-absolute ds">
+                            <div class="item-media">
+                                <img src="http://localhost:8400/img/logo6.png" alt="">
+                                <div class="media-links">
+                                    <a href="index.html#" class="abs-link"></a>
+                                </div>
+                            </div>
+                            <div class="item-content">
+                                {{-- <span class="main_bg_color2">
+                                    visit
+                                </span> --}}
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <section class="ls page_copyright table_section section_padding_20">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p class="grey thin">&copy; Copyright 2020 FOB&TB</p>
+                </div>
+            </div>
+        </div>
+    </section>

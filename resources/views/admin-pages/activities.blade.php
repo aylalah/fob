@@ -6,11 +6,11 @@
 @section('breadcrumb')
 
 
-							
+
 @endsection
 
 @section('content')
-    
+
     <!-- Single pro tab review Start-->
     <div class="product-status mg-b-15">
             <div class="container-fluid">
@@ -32,7 +32,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
                             <!-- <h4>Activities List</h4> -->
-                            
+
                             <div class="asset-inner">
                                 <table>
                                     <tr>
@@ -49,13 +49,13 @@
                                         <th>Updated_at</th>
                                         <th>Setting</th>
                                     </tr>
-                                     @foreach ($act as $index => $c )  
+                                     @foreach ($act as $index => $c )
                                     <tr>
                                       <td>{{$index +1}}</td>
-                                     
-                                        <td><img src="http://localhost/fob/storage/app/{{$c->image}}" alt="" /></td>
+
+                                        <td><img src="http://localhost/fob/storage/app/upload/{{$c->image}}" alt="" /></td>
                                         <td>{{$c->category_name}}</td>
-                                        
+
                                         <td>
                                             <button class="ps-setting">{{$c->status}}</button>
                                         </td>
@@ -89,11 +89,11 @@
                         <div class="courses-area">
             <div class="container-fluid">
                 <div class="row">
-                      @foreach ($g_image as $index => $c )  
+                      @foreach ($g_image as $index => $c )
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="courses-inner res-mg-b-30">
                             <div class="courses-title">
-                                <a ><img src="http://localhost/fob/storage/app/{{$c->image_name}}"  alt=""></a>
+                                <a ><img src="http://localhost/fob/storage/app/upload{{$c->image_name}}"  alt=""></a>
                                 <!-- <h2>Apps Development</h2> -->
                             </div>
                            <div class="product-buttons">
@@ -118,21 +118,21 @@
             <div class="courses-area">
             <div class="container-fluid">
                 <div class="row">
-                      @foreach ($g_video as $index => $c )  
+                      @foreach ($g_video as $index => $c )
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        
+
                         <div class="fitvidsjs">
                             <iframe src="https://{{$c->image_name}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                         </div>
-                       
+
                        <div class="product-buttons">
                                <a href="{{url('delete_actg/')}}/{{$c->gallery_id}}"> <button type="button" class="button-default cart-btn">Delete</button></a>
                             </div>
                     </div>
                    @endforeach
                     </div>
-                    
-                       
+
+
                 </div>
                 </div>
                 </div>
@@ -145,5 +145,5 @@
 @endsection
 
 @section('script')
-	
+
 @endsection

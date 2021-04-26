@@ -1,0 +1,99 @@
+<footer class="page_footer parallax ds ms section_padding_50 columns_padding_25" id="contact" style="background-image: url('{{ app_url }}/images/baners/img_2.jpeg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <a href="index.html" class="logo top_logo">
+          <img src="{{ app_url }}/images/logos/{{ logo }}" alt="">
+        </a>
+        <p class="topmargin_20">
+   {{description}}
+  </p>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <h2 class="bottommargin_30">Mail form</h2>
+        <form class="contact-form" method="post" action="./">
+
+          <p class="contact-form-name">
+      <label for="footer-name">Full Name <span class="required">*</span></label>
+      <input type="text" aria-required="true" size="30" value="" name="name" id="footer-name" class="form-control with_icon" placeholder="Name">
+      <i class="fa fa-user"></i>
+    </p>
+          <p class="contact-form-email">
+      <label for="footer-email">Email address<span class="required">*</span></label>
+      <input type="email" aria-required="true" size="30" value="" name="email" id="footer-email" class="form-control with_icon" placeholder="Email Address">
+      <i class="fa fa-envelope"></i>
+    </p>
+          <p class="contact-form-message">
+      <label for="footer-message">Message</label>
+      <textarea aria-required="true" rows="6" cols="45" name="message" id="footer-message" class="form-control with_icon" placeholder="Message"></textarea>
+      <i class="fa fa-pencil"></i>
+    </p>
+          <p class="contact-form-submit topmargin_40">
+      <button type="submit" id="footer_contact_form_submit" name="contact_submit" class="theme_button color1">Send</button>
+    </p>
+
+        </form>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <h2 class="bottommargin_30">Contacts</h2>
+
+        <div class="media small-teaser">
+          <div class="media-left">
+            <i class="rt-icon2-map2 highlight fontsize_24"></i>
+          </div>
+          <div class="media-body">
+            {{address}}
+          </div>
+        </div>
+
+        <div class="media small-teaser">
+          <div class="media-left">
+            <i class="rt-icon2-device-phone highlight fontsize_24"></i>
+          </div>
+          <div class="media-body">
+            {{appPhone}}
+          </div>
+        </div>
+
+        <div class="media small-teaser">
+          <div class="media-left">
+            <i class="rt-icon2-printer2 highlight fontsize_24"></i>
+          </div>
+          <div class="media-body">
+            {{gmail}}
+          </div>
+        </div>
+
+        <div class="media small-teaser">
+          <div class="media-left">
+            <i class="rt-icon2-mail2 highlight fontsize_24"></i>
+          </div>
+          <div class="media-body">
+            <a href="mailto:your@mail.com">{{support_mail}}</a>
+          </div>
+        </div>
+
+        <div class="topmargin_30">
+          <a href="https://twitter.com/{{ twitter }}" class="social-icon color-bg-icon soc-twitter"></a>
+          <a href="https://www.facebook.com/{{ facebook }}" class="social-icon color-bg-icon soc-facebook"></a>
+          <a href="https://www.google.com/{{ gmail }}" class="social-icon color-bg-icon soc-google"></a>
+          <a href="https://www.instagram.com/{{ instagram }}" class="social-icon color-bg-icon soc-instagram"></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<section class="ls page_copyright table_section section_padding_30">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <p class="grey thin">&copy; Copyright 2017 All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<section class="page_breadcrumbs ds parallax section_padding_75" style="background-image: url('{{ app_url }}/images/baners/img_6.jpeg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2>All Talent</h2>
+        <ol class="breadcrumb greylinks">
+          <li>
+            <a href="index.html">
+        Home
+      </a>
+          </li>
+          <li>
+            <a href="models.html#">Pages</a>
+          </li>
+          <li class="active">404 2</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds section_padding_100 container_padding_60 bottompadding_10">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5 col-md-push-7 text-md-right">
+
+        <form class="inline-form inline-content" method="post" action="./">
+          <div class="select-group">
+            <label for="sorting" class="sr-only">Sorting
+              <span class="required">*</span>
+            </label>
+            <!-- <div class="input-group"> -->
+            <select aria-required="true" id="sorting" name="sorting" class="choice empty form-control">
+              <option value="default">Default sorting</option>
+              <option value="jan">Sort by name</option>
+              <option value="feb">Sort by date</option>
+              <option value="mar">Random sorting</option>
+            </select>
+            <i class="fa fa-caret-down theme_button" aria-hidden="true"></i>
+            <!-- </div> -->
+          </div>
+          <div class="select-group">
+            <label for="order" class="sr-only">Order
+              <span class="required">*</span>
+            </label>
+            <!-- <div class="input-group"> -->
+            <select aria-required="true" id="order" name="order" class="choice empty form-control">
+              <option value="default">Descending</option>
+              <option value="jan">Ascendanting</option>
+            </select>
+            <i class="fa fa-caret-down theme_button" aria-hidden="true"></i>
+            <!-- </div> -->
+          </div>
+        </form>
+
+      </div>
+      <div class="col-md-7 col-md-pull-5">
+        <div class="filters isotope_filters">
+          <a href="models.html#" class="theme_button inverse selected" data-filter="*">All</a>
+          <a href="models.html#" class="theme_button inverse" data-filter=".fashion">Fashion</a>
+          <a href="models.html#" class="theme_button inverse" data-filter=".studio">Music</a>
+          <a href="models.html#" class="theme_button inverse" data-filter=".session">Photography</a>
+          <a href="models.html#" class="theme_button inverse" data-filter=".top">Top</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="isotope_container isotope row masonry-layout columns_margin_top_0" data-filters=".isotope_filters">
+
+      <div *ngFor="let crew of Crew" class="isotope-item col-xlg-6 col-lg-3 col-sm-4 fashion">
+        <div class="vertical-item gallery-title-item text-center">
+          <div class="item-media" style=" overflow: hidden; width: 250px; height: 320px;">
+            <img src="{{ app_url }}/images/talents/{{ crew.image }}" alt="" />
+            <div class="media-links">
+              <div class="links-wrap">
+                <a class="p-view prettyPhoto " title="" data-gal="prettyPhoto[gal]" href="{{ app_url }}/images/talents/{{ crew.image }}"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-title text-center">
+          <h4>
+            <a href="javascript:void(0)" (click)="routelink(crew.id)">{{ crew.firstname }} {{ crew.lastname }}</a>
+          </h4>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- eof .isotope_container.row -->
+
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <a href="models.html#" class="theme_button color2 inverse">Load more</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<app-footer></app-footer>

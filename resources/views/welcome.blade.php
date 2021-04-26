@@ -4,607 +4,1005 @@
 @endsection -->
 
 @section('breadcrumb')
-<!-- <div class="header-search-bar"> -->
-			<!-- <div class="container">
-				<form>
-					<div class="basic-form clearfix">
-						<a href="#" class="toggle"><span></span></a>
-
-						<div class="hsb-input-1">
-							<input type="text" class="form-control" placeholder="I'm looking for a ...">
-						</div>
-
-						<div class="hsb-text-1">in</div>
-
-						<div class="hsb-container">
-							<div class="hsb-input-2">
-								<input type="text" class="form-control" placeholder="Location">
-							</div>
-
-							<div class="hsb-select">
-								<select class="form-control">
-									<option value="0">Select Category</option>
-									<option value="">Category</option>
-									<option value="">Category</option>
-									<option value="">Category</option>
-									<option value="">Category</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="hsb-submit">
-                        <a class="btn btn-default btn-blockk" href="{{ url('/search') }}">Search</a>
-							<input type="submit"  class="btn btn-default btn-block" value="Search">
-						</div>
-					</div>
-
-					<div class="advanced-form">
-						<div class="container">
-							<div class="row">
-								<label class="col-md-3">Distance</label>
-
-								<div class="col-md-9">
-									<div class="range-slider">
-										<div class="slider" data-min="1" data-max="200" data-current="100"></div>
-										<div class="last-value"><span>100</span> km</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<label class="col-md-3">Rating</label>
-
-								<div class="col-md-9">
-									<div class="range-slider">
-										<div class="slider" data-min="1" data-max="100" data-current="20"></div>
-										<div class="last-value">&gt; <span>20</span> %</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<label class="col-md-3">Days Published</label>
-
-								<div class="col-md-9">
-									<div class="range-slider">
-										<div class="slider" data-min="1" data-max="60" data-current="30"></div>
-										<div class="last-value">&lt; <span>30</span></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<label class="col-md-3">Location</label>
-
-								<div class="col-md-9">
-									<input type="text" class="form-control" placeholder="Switzerland">
-								</div>
-							</div>
-
-							<div class="row">
-								<label class="col-md-3">Industry</label>
-
-								<div class="col-md-9">
-									<select class="form-control">
-										<option value="">Select Industry</option>
-										<option value="">Option 1</option>
-										<option value="">Option 2</option>
-										<option value="">Option 3</option>
-										<option value="">Option 4</option>
-										<option value="">Option 5</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-			</div> -->
-		<!-- </div>  -->
-		<!-- end .header-search-bar -->
-
-		<div class="header-banner">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="header-banner-box register">
-							<div class="counter-container">
-								<ul class="counter clearfix">
-									<li class="zero">0</li>
-									<li>0</li>
-									<li>0</li>
-									<li>1</li>
-									<li>0</li>
-									<li>9</li>
-								</ul>
-
-								<div><span>Talents</span></div>
-							</div>
-
-							<a  href="{{ url('register-talent') }}" class="btn btn-default">Talents</a>
-						</div>
-					</div>
-
-					<div class="col-sm-6">
-						<div class="header-banner-box post-job">
-							<img src="img/verified.png" alt="">
-
-							<a  href="{{ url('register-investor') }}" class="btn btn-red">Sponsor</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> <!-- end .header-banner -->       
-							
-				@endsection
-
-				@section('content')
-							
-				<div id="page-content">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-8 page-content">
-					
-
-					<div class="latest-jobs-section white-container">
-						<div class="flexslider clearfix">
-							<ul class="slides">
-								@foreach ($cand as $c)  
-									<li>								
-										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_1.jpeg" alt="">								
-									</li>	
-									<li>								
-										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_2.jpeg" alt="">								
-									</li>	
-									<li>								
-										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_3.jpeg" alt="">								
-									</li>	
-									<!-- <li>								
-										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_4.jpeg" alt="">								
-									</li>	 -->
-									<li>								
-										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_5.jpeg" alt="">								
-									</li>	
-									<li>								
-										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_6.jpeg" alt="">								
-									</li>	
-									<li>								
-										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_7.jpeg" alt="">								
-									</li>	
-									<li>								
-										<img style="width: 100%; height: auto; vertical-align: middle;" src="http://localhost/fob/public/img/img_8.jpeg" alt="">								
-									</li>	
-								
-								@endforeach
-							</ul>
-						</div>
-					</div> 
-					</div>
-					<!-- end .latest-jobs-section -->
-					<div class="col-sm-12 page-content">
-				<div class="title-lines">
-					<h3 class="mt0">Our Activities</h3>
-				</div>
-
-				<div class="clearfix mb30">
-					<ul class="jobs-view-toggle pull-left">
-						<li><a href="#" data-layout="with-thumb" class="btn btn-gray fa fa-th-list active"></a></li>
-						<li><a href="#" data-layout="" class="btn btn-gray fa fa-list"></a></li>
-						<li><a href="#" data-layout="compact" class="btn btn-gray fa fa-align-justify"></a></li>
-					</ul>
-
-					<select class="form-control pull-left">
-						<option value="">Sort By</option>
-						<option value="">1</option>
-						<option value="">2</option>
-						<option value="">3</option>
-						<option value="">4</option>
-					</select>
-
-					<ul class="pagination pull-right">
-						<li><a href="#" class="fa fa-angle-left"></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#" class="fa fa-angle-right"></a></li>
-					</ul>
-				</div>
-
-				<div class="jobs-item with-thumb">
-					<div class="thumb"><img src="img/content/bus-00.png" alt=""></div>
-					<div class="clearfix visible-xs"></div>
-					<div class="date">27 <span>Jun</span></div>
-					<h6 class="title"><a href="#">Front-end Developer</a></h6>
-					<span class="meta">Envato, Sydney, AU</span>
-
-					<ul class="top-btns">
-						<li><a href="#" class="btn btn-gray fa fa-eye toggle"></a></li>
-						<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-						<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-					</ul>
-
-					<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="#" class="read-more">Read More</a></p>
-
-				</div>
-
-				@foreach ($activities as $index => $c )
-					<div class="jobs-item with-thumb">
-						<div class="thumb"><img src="http://{{$app_url->app_url2}}/storage/app/{{$c->image}}" alt=""></div>
-						<div class="clearfix visible-xs"></div>
-						<div class="date">{{$c->day_}} <span>{{$c->month_}}</span></div>
-						<h6 class="title"><a href="#">{{$c->tittle}}</a></h6>
-						<span class="meta">{{$c->category_name}}</span>
-
-						<ul class="top-btns">
-							<li><a href="#" class="btn btn-gray fa fa-plus toggle"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-star"></a></li>
-							<li><a href="#" class="btn btn-gray fa fa-link"></a></li>
-						</ul>
-
-						<p class="description" style="white-space: pre-line;">{{$c->content}}<a href="#" class="read-more">Read More</a></p>
-						<div class="clearfix"></div>
-												<div class="content">
-													<!-- <p style="white-space: pre-line;">{{$c->content}}</p> -->
-
-													<h5>Image Gallery</h5>
-													<?php
-						$g_image=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.gallery_id','=','galleries.id')->join('activities','act_galleries.activities_id','=','activities.id')->select('act_galleries.*','activities.tittle','galleries.image_name')->where('galleries.image_type','=','image')->where('galleries.subject','=','activities')->where('act_galleries.activities_id','=',$c->id)->get();
-						$g_video=App\ActGallery::orderBy('id','desc')->join('galleries','act_galleries.gallery_id','=','galleries.id')->join('activities','act_galleries.activities_id','=','activities.id')->select('act_galleries.*','activities.tittle','galleries.image_name')->where('galleries.image_type','=','video')->where('galleries.subject','=','activities')->where('act_galleries.activities_id','=',$c->id)->get();
-						// echo $g_image;
-													?>
-									<div class="row">
-						<ul class="slides">
-							@if(!$g_image->isEmpty())
-							@foreach ($g_image as $img )
-						<li>
-														<a href="#">
-															<img style="position: relative;	height: 200px;" class="thumb" src="http://localhost/fob/storage/app/{{$img->image_name}}" alt="">
-														</a>
-													</li>
-						@endforeach
-													
-						@else
-							
-						@endif
-													
-						</ul></div>
-										
-								<hr>					
-						<h5>Video Gallery</h5>
-
-													<ul class="additional-requirements clearfix">
-														<div class="row">
-															@if(!$g_video->isEmpty())
-							@foreach ($g_video as $v )
-								<div class="fitvidsjs col-sm-6">
-													<iframe src="//{{$v->image_name}}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-												</div>
-						
-						@endforeach
-						@else
-    
-							@endif
-														
-														</div>	
-														</ul>
-														<hr>
-														<!-- <div class="clearfix">
-															<a href="#" class="btn btn-default pull-left">Apply for this Job</a>
-
-															<ul class="social-icons pull-right">
-																<li><span>Share</span></li>
-																<li><a href="#" class="btn btn-gray fa fa-facebook"></a></li>
-																<li><a href="#" class="btn btn-gray fa fa-twitter"></a></li>
-																<li><a href="#" class="btn btn-gray fa fa-google-plus"></a></li>
-															</ul>
-														</div> -->
-													</div>
-												</div>
-							@endforeach
-
-				
-
-
-					
-
-
-				<div class="clearfix">
-					<ul class="pagination pull-right">
-						<li><a href="#" class="fa fa-angle-left"></a></li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#" class="fa fa-angle-right"></a></li>
-					</ul>
-				</div>
-					<div class="title-lines">
-						<h3>Latest Talent</h3>
-					</div>
-
-					<div class="latest-jobs-section white-container">
-						<div class="flexslider clearfix">
-							<ul class="slides">
-									@foreach ($cand as $c)  
-										<li>
-
-									<div class="image">
-										<img src="http://localhost/fob/public/upload/{{ $c->image }}" alt="">
-										<a href="#" class="btn btn-default fa fa-search"></a>
-										<a href="#" class="btn btn-default fa fa-link"></a>
-									</div>
-
-									<div class="content">
-										<h5>{{$c->name}} Talent</h5>
-										<h6>{{$c->skill_1}} @if($c->skill_2 != null),{{$c->skill_2}} @endif @if($c->skill_3 != null),{{$c->skill_3}} @endif </h6>
-										<span class="location">{{$c->address_1}}</span>
-										<p>{{$c->about}}. <a href="{{ url('/candidate') }}" class="read-more">Read More</a></p>
-									</div>
-
-								</li>	
-						@endforeach
-							</ul>
-						</div>
-					</div> <!-- end .latest-jobs-section -->
-
-					<div class="title-lines">
-						<h3>Our Partners</h3>
-					</div>
-
-					<div class="our-partners-section white-container">
-						<ul class="clearfix">
-
-						<li>
-								<div class="css-table">
-									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-1.png" alt=""></a>
-									</div>
-								</div>
-							</li>
-
-							<li>
-								<div class="css-table">
-									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-2.png" alt=""></a>
-									</div>
-								</div>
-							</li>
-
-							<li>
-								<div class="css-table">
-									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-3.png" alt=""></a>
-									</div>
-								</div>
-							</li>
-
-							<li>
-								<div class="css-table">
-									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-2.png" alt=""></a>
-									</div>
-								</div>
-							</li>
-
-							<li>
-								<div class="css-table">
-									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-3.png" alt=""></a>
-									</div>
-								</div>
-							</li>
-
-							<li>
-								<div class="css-table">
-									<div class="css-table-cell">
-										<a href="#"><img src="img/content/logo-1.png" alt=""></a>
-									</div>
-								</div>
-							</li>
-							<!-- @foreach ($invest as $c)    
-								<li>
-									<div class="css-table">
-										<div class="css-table-cell">
-											<a href="{{ url('/partners') }}"><img src="http://localhost/fob/public/upload/{{ $c->image }}" style="width: 100%;height: 50px" alt=""></a>
-										</div>
-									</div>
-								</li>
-							@endforeach -->
-							
-						</ul>
-					</div> <!-- end .our-partners-section -->
-
-					
-				</div> <!-- end .page-content -->
-
-				<!-- <div class="col-sm-4 page-sidebar">
-					<aside>
-						<div class="widget sidebar-widget white-container social-widget">
-							<h5 class="widget-title">Share Us</h5>
-
-							<div class="widget-content">
-								<div class="row row-p5">
-									<div class="col-xs-6 col-md-3 share-box facebook">
-										<div class="count">86</div>
-										<a href="#">Facebook</a>
-									</div>
-
-									<div class="col-xs-6 col-md-3 share-box twitter">
-										<div class="count">2.2k</div>
-										<a href="#">Twitter</a>
-									</div>
-
-									<div class="col-xs-6 col-md-3 share-box google">
-										<div class="count">324</div>
-										<a href="#">Google +</a>
-									</div>
-
-									<div class="col-xs-6 col-md-3 share-box linkedin">
-										<div class="count">1.5k</div>
-										<a href="#">LinkedIn</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					    <div class="widget sidebar-widget text-center">
-							<a href="#"><img src="img/content/sidebar-ad.png" alt=""></a>
-						</div> 
-
-						<div class="white-container">
-							<div class="widget sidebar-widget">
-								<h5 class="widget-title">5 Tips To Pass Your Interview!</h5>
-
-								<div class="widget-content">
-									<div class="fitvidsjs">
-										<iframe src="//www.youtube.com/embed/A6XUVjK9W4o?rel=0&controls=2&showinfo=0" frameborder="0" allowfullscreen></iframe>
-									</div>
-								</div>
-							</div>
-
-							<div class="widget sidebar-widget">
-								<h5 class="widget-title">The Poll</h5>
-
-								<div class="widget-content">
-									<p>Are you satisfied with your current employer?</p>
-									<div class="radio">
-										<label>
-											<input type="radio" name="sidebarpoll" value="" checked>
-											Definitely Yes
-										</label>
-									</div>
-
-									<div class="radio">
-										<label>
-											<input type="radio" name="sidebarpoll" value="">
-											Rather Yes
-										</label>
-									</div>
-
-									<div class="radio">
-										<label>
-											<input type="radio" name="sidebarpoll" value="">
-											I'm not sure
-										</label>
-									</div>
-
-									<div class="radio">
-										<label>
-											<input type="radio" name="sidebarpoll" value="">
-											Rather Not
-										</label>
-									</div>
-
-									<div class="radio">
-										<label>
-											<input type="radio" name="sidebarpoll" value="">
-											Not at all
-										</label>
-									</div>
-								</div>
-							</div>
-						</div>
-					</aside>
-				</div> -->
-				 <!-- end .page-sidebar -->
-			</div>
-		</div> <!-- end .container -->
-
-		<div class="success-stories-section">
-			<div class="container">
-				<h5 class="mt10">Success Stories</h5>
-
-				<div>
-					<div class="flexslider">
-						<ul class="slides">
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_2.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_3.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_4.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/image_5.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_4.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_5.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_6.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img style="position: relative;	height: 100px;" class="thumb" src="http://localhost/fob/public/img/photos/img_8.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img class="thumb" src="http://localhost/fob/public/img/photos/image_1.jpeg" alt="">
-								</a>
-							</li>
-
-							<li>
-								<a href="#">
-									<img class="thumb" src="img/content/face-5.png" alt="">
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> <!-- end #page-content -->
+
+@endsection
+
+@section('content')
+
+<section class="intro_section page_mainslider ds">
+    <div class="flexslider" data-nav="false">
+        <ul class="slides">
+
+            <li>
+                <img src="http://localhost:8400/img/img_5.jpeg" alt="">
+
+                <div class="bottom-content main_bg_color3 transparent section_padding_top_30 section_padding_bottom_30 table_section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2 class="section_header">
+                                    Mollie Weaver
+                                </h2>
+                                <p class="small-text lusitana highlight bottommargin_0">
+                        Top Model &amp; director
+                    </p>
+                            </div>
+                            <div class="col-sm-8 text-center text-sm-right">
+                                <div class="fontsize_16 lusitana text-uppercase grey parameters ">
+                                    <span>
+                                        Talent
+                                        <br>
+                                        <span class="highlight">Musician</span>
+                                    </span>
+                                    <span>
+                                        Experience
+                                        <br>
+                                        <span class="highlight">3 years</span>
+                                    </span>
+                                    <span>
+                                        Age
+                                        <br>
+                                        <span class="highlight">20</span>
+                                    </span>
+                                    <span>
+                                        Skill
+                                        <br>
+                                        <span class="highlight">87</span>
+                                    </span>
+                                    <span>
+                                        Country
+                                        <br>
+                                        <span class="highlight">Nigeria</span>
+                                    </span>
+                                    <span>
+                                        State
+                                        <br>
+                                        <span class="highlight">Lagos</span>
+                                    </span>
+                                    {{-- <span>
+                                        Hair
+                                        <br>
+                                        <span class="highlight">Brown</span>
+                                    </span> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <div class="slide_description_wrapper">
+                                <div class="slide_description text-center">
+                                    <div class="intro-layer" data-animation="fadeInUp">
+                                        <h3 class="text-uppercase">
+                                            welcome to the
+                                        </h3>
+                                    </div>
+                                    <div class="intro-layer" data-animation="fadeInUp">
+                                        <h2 class="text-uppercase big">
+                                            TALENT
+                                            <br> HUB
+                                        </h2>
+                                    </div>
+                                    <div class="intro-layer inline-content" data-animation="fadeInUp">
+                                        <a class="theme_button color2" href="{{ url('userReg/') }}">Register</a>
+                                        <a class="theme_button inverse" href="{{ url('login/') }}">Login</a>
+                                    </div>
+                                </div>
+                                <!-- eof .slide_description -->
+                            </div>
+                            <!-- eof .slide_description_wrapper -->
+                        </div>
+                        <!-- eof .col-* -->
+                    </div>
+                    <!-- eof .row -->
+                </div>
+                <!-- eof .container -->
+            </li>
+
+            <li>
+                <img src="http://localhost:8400/img/img_6.jpeg" alt="">
+
+                <div class="bottom-content main_bg_color3 transparent section_padding_top_30 section_padding_bottom_30 table_section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2 class="section_header">
+                                    Mollie Weaver
+                                </h2>
+                                <p class="small-text lusitana highlight bottommargin_0">
+                        Top Model &amp; director
+                    </p>
+                            </div>
+                            <div class="col-sm-8 text-center text-sm-right">
+                                <div class="fontsize_16 lusitana text-uppercase grey parameters ">
+                                    <span>
+                                        Talent
+                                        <br>
+                                        <span class="highlight">Musician</span>
+                                    </span>
+                                    <span>
+                                        Experience
+                                        <br>
+                                        <span class="highlight">3 years</span>
+                                    </span>
+                                    <span>
+                                        Age
+                                        <br>
+                                        <span class="highlight">20</span>
+                                    </span>
+                                    <span>
+                                        Skill
+                                        <br>
+                                        <span class="highlight">87</span>
+                                    </span>
+                                    <span>
+                                        Country
+                                        <br>
+                                        <span class="highlight">Nigeria</span>
+                                    </span>
+                                    <span>
+                                        State
+                                        <br>
+                                        <span class="highlight">Lagos</span>
+                                    </span>
+                                    {{-- <span>
+                                        Hair
+                                        <br>
+                                        <span class="highlight">Brown</span>
+                                    </span> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <div class="slide_description_wrapper">
+                                <div class="slide_description text-center">
+                                    <div class="intro-layer" data-animation="fadeInUp">
+                                        <h3 class="text-uppercase">
+                                            Are You a
+                                        </h3>
+                                    </div>
+                                    <div class="intro-layer" data-animation="fadeInUp">
+                                        <h2 class="text-uppercase big">
+                                            TALENT
+                                            <br>
+                                        </h2>
+                                    </div>
+                                    <div class="intro-layer inline-content" data-animation="fadeInUp">
+                                        <a class="theme_button color2" href="about.html">Register</a>
+                                        <a class="theme_button inverse" href="about.html">Login</a>
+                                    </div>
+                                </div>
+                                <!-- eof .slide_description -->
+                            </div>
+                            <!-- eof .slide_description_wrapper -->
+                        </div>
+                        <!-- eof .col-* -->
+                    </div>
+                    <!-- eof .row -->
+                </div>
+                <!-- eof .container -->
+            </li>
+
+            <li>
+                <img src="http://localhost:8400/img/img_8.jpeg" alt="">
+
+                <div class="bottom-content main_bg_color3 transparent section_padding_top_30 section_padding_bottom_30 table_section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h2 class="section_header">
+                                    Mollie Weaver
+                                </h2>
+                                <p class="small-text lusitana highlight bottommargin_0">
+                        Top Model &amp; director
+                    </p>
+                            </div>
+                            <div class="col-sm-8 text-center text-sm-right">
+                                <div class="fontsize_16 lusitana text-uppercase grey parameters">
+                                    <span>
+                                        Talent
+                                        <br>
+                                        <span class="highlight">Musician</span>
+                                    </span>
+                                    <span>
+                                        Experience
+                                        <br>
+                                        <span class="highlight">3 years</span>
+                                    </span>
+                                    <span>
+                                        Age
+                                        <br>
+                                        <span class="highlight">20</span>
+                                    </span>
+                                    <span>
+                                        Skill
+                                        <br>
+                                        <span class="highlight">87</span>
+                                    </span>
+                                    <span>
+                                        Country
+                                        <br>
+                                        <span class="highlight">Nigeria</span>
+                                    </span>
+                                    <span>
+                                        State
+                                        <br>
+                                        <span class="highlight">Lagos</span>
+                                    </span>
+                                    {{-- <span>
+                                        Hair
+                                        <br>
+                                        <span class="highlight">Brown</span>
+                                    </span> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-right">
+                            <div class="slide_description_wrapper">
+                                <div class="slide_description text-center">
+                                    <div class="intro-layer" data-animation="fadeInUp">
+                                        <h3 class="text-uppercase">
+                                            Did You Need
+                                        </h3>
+                                    </div>
+                                    <div class="intro-layer" data-animation="fadeInUp">
+                                        <h2 class="text-uppercase">TALENTS FOR
+                                            <br>PROMOTION?
+                                        </h2>
+                                    </div>
+                                    <div class="intro-layer inline-content" data-animation="fadeInUp">
+                                        <a class="theme_button color2" href="about.html">Register</a>
+                                        <a class="theme_button inverse" href="about.html">Login</a>
+                                    </div>
+                                </div>
+                                <!-- eof .slide_description -->
+                            </div>
+                            <!-- eof .slide_description_wrapper -->
+                        </div>
+                        <!-- eof .col-* -->
+                    </div>
+                    <!-- eof .row -->
+                </div>
+                <!-- eof .container -->
+            </li>
+
+        </ul>
+    </div>
+    <!-- eof flexslider -->
+</section>
+
+<section id="about" class="ds ms page_about parallax section_padding_100 columns_padding_25 columns_margin_bottom_30">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2 class="section_header">About Our Agency</h2>
+                <p class="small-text highlight lusitana">The team of professionals</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="fontsize_20">
+                    This website is all about a platform to help Discover talents, create benefits for talents, promote talents and get talent some sweet deals. Talent here is not only based on entertainment but also any creativity.
+            </p>
+                <p>
+                    Arts and crafts are one other category apart from the gifted talents and also the trained or skilled talents. Buying and selling or other brands is another aspect in which we only have an advertisement package for, linkable to getting them more customers by finding a perfect talent to model for them. In conclusion the purpose of the website is to link Artists to more fan base, get them noticed and also connect them to the most possible support, sponsorship or investors with our uniquely planned and programmed management structure
+            </p>
+            </div>
+            <div class="col-md-6">
+                <p class="progress-bar-title small-text lusitana grey">Artist - <span class="highlight">99.9%</span></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" data-transitiongoal="99">
+                    </div>
+                </div>
+
+                <p class="progress-bar-title small-text lusitana grey">Musician - <span class="highlight">99.9%</span></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" data-transitiongoal="99">
+                    </div>
+                </div>
+
+                <p class="progress-bar-title small-text lusitana grey">Models - <span class="highlight">99.9%</span></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" data-transitiongoal="99">
+                    </div>
+                </div>
+
+                <p class="progress-bar-title small-text lusitana grey">Writers - <span class="highlight">99.9%</span></p>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" data-transitiongoal="99.9">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 text-center">
+                <a href="about.html" class="theme_button color2">Read more</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="models" class="ds ms section_padding_top_50 container_padding_60 bottompadding_10">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 col-md-push-7 text-md-right">
+
+                <form class="inline-form inline-content" method="post" action="./">
+                    <div class="select-group">
+                        <label for="sorting" class="sr-only">Sorting
+                            <span class="required">*</span>
+                        </label>
+                        <!-- <div class="input-group"> -->
+                        <select aria-required="true" id="sorting" name="sorting" class="choice empty form-control">
+                            <option value="default">Default sorting</option>
+                            <option value="jan">Sort by name</option>
+                            <option value="feb">Sort by date</option>
+                            <option value="mar">Random sorting</option>
+                        </select>
+                        <i class="fa fa-caret-down theme_button" aria-hidden="true"></i>
+                        <!-- </div> -->
+                    </div>
+                    <div class="select-group">
+                        <label for="order" class="sr-only">Order
+                            <span class="required">*</span>
+                        </label>
+                        <!-- <div class="input-group"> -->
+                        <select aria-required="true" id="order" name="order" class="choice empty form-control">
+                            <option value="default">Descending</option>
+                            <option value="jan">Ascendanting</option>
+                        </select>
+                        <i class="fa fa-caret-down theme_button" aria-hidden="true"></i>
+                        <!-- </div> -->
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-md-7 col-md-pull-5">
+                <div class="filters carousel_filters">
+                    <a href="index.html#" class="theme_button inverse selected" data-filter="*">All</a>
+                    <a href="index.html#" class="theme_button inverse" data-filter=".fashion">Fashion</a>
+                    <a href="index.html#" class="theme_button inverse" data-filter=".studio">Studio</a>
+                    <a href="index.html#" class="theme_button inverse" data-filter=".session">Session</a>
+                    <a href="index.html#" class="theme_button inverse" data-filter=".top">Top</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="owl-carousel text-nav" data-nav="true" data-dots="false" data-margin="0" data-filters=".carousel_filters">
+
+        <div class="vertical-item content-absolute hover-content text-center fashion">
+            <div class="item-media" style="height: 400px">
+                <img style="width: 100%" src="http://localhost:8400/img/img_1.jpeg" alt="" />
+            </div>
+            <div class="item-content transp_gradient_bg">
+                <h3 class="model-name">
+                    <a href="index.html#">Rachel Tale</a>
+                </h3>
+                <p class="small-text lusitana highlight">Top model</p>
+
+                <div class="fontsize_16 lusitana text-uppercase grey parameters">
+                    <span>
+                        Height
+                        <br>
+                        <span class="highlight">185</span>
+                    </span>
+                    <span>
+                        Bust
+                        <br>
+                        <span class="highlight">79</span>
+                    </span>
+                    <span>
+                        Waist
+                        <br>
+                        <span class="highlight">59</span>
+                    </span>
+                    <span>
+                        Hips
+                        <br>
+                        <span class="highlight">87</span>
+                    </span>
+                    <span>
+                        Shoes
+                        <br>
+                        <span class="highlight">39</span>
+                    </span>
+                    <span>
+                        Eyes
+                        <br>
+                        <span class="highlight">Green</span>
+                    </span>
+                    <span>
+                        Hair
+                        <br>
+                        <span class="highlight">Brown</span>
+                    </span>
+                    <span>
+                        Size
+                        <br>
+                        <span class="highlight">8</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-item content-absolute hover-content text-center studio">
+            <div class="item-media" style="height: 400px">
+                <img style="display: initial " src="http://localhost:8400/img/img_2.jpeg" alt="" />
+            </div>
+            <div class="item-content transp_gradient_bg">
+                <h3 class="model-name">
+                    <a href="index.html#">Rachel Tale</a>
+                </h3>
+                <p class="small-text lusitana highlight">Top model</p>
+
+                <div class="fontsize_16 lusitana text-uppercase grey parameters">
+                    <span>
+                        Height
+                        <br>
+                        <span class="highlight">185</span>
+                    </span>
+                    <span>
+                        Bust
+                        <br>
+                        <span class="highlight">79</span>
+                    </span>
+                    <span>
+                        Waist
+                        <br>
+                        <span class="highlight">59</span>
+                    </span>
+                    <span>
+                        Hips
+                        <br>
+                        <span class="highlight">87</span>
+                    </span>
+                    <span>
+                        Shoes
+                        <br>
+                        <span class="highlight">39</span>
+                    </span>
+                    <span>
+                        Eyes
+                        <br>
+                        <span class="highlight">Green</span>
+                    </span>
+                    <span>
+                        Hair
+                        <br>
+                        <span class="highlight">Brown</span>
+                    </span>
+                    <span>
+                        Size
+                        <br>
+                        <span class="highlight">8</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-item content-absolute hover-content text-center session">
+            <div class="item-media" style="height: 400px">
+                <img style="width: 100%" src="http://localhost:8400/img/img_3.jpeg" alt="" />
+            </div>
+            <div class="item-content transp_gradient_bg">
+                <h3 class="model-name">
+                    <a href="index.html#">Rachel Tale</a>
+                </h3>
+                <p class="small-text lusitana highlight">Top model</p>
+
+                <div class="fontsize_16 lusitana text-uppercase grey parameters">
+                    <span>
+                        Height
+                        <br>
+                        <span class="highlight">185</span>
+                    </span>
+                    <span>
+                        Bust
+                        <br>
+                        <span class="highlight">79</span>
+                    </span>
+                    <span>
+                        Waist
+                        <br>
+                        <span class="highlight">59</span>
+                    </span>
+                    <span>
+                        Hips
+                        <br>
+                        <span class="highlight">87</span>
+                    </span>
+                    <span>
+                        Shoes
+                        <br>
+                        <span class="highlight">39</span>
+                    </span>
+                    <span>
+                        Eyes
+                        <br>
+                        <span class="highlight">Green</span>
+                    </span>
+                    <span>
+                        Hair
+                        <br>
+                        <span class="highlight">Brown</span>
+                    </span>
+                    <span>
+                        Size
+                        <br>
+                        <span class="highlight">8</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-item content-absolute hover-content text-center top">
+            <div class="item-media" style="height: 400px">
+                <img style="width: 100%" src="http://localhost:8400/img/img_9.jpeg" alt="" />
+            </div>
+            <div class="item-content transp_gradient_bg">
+                <h3 class="model-name">
+                    <a href="index.html#">Rachel Tale</a>
+                </h3>
+                <p class="small-text lusitana highlight">Top model</p>
+
+                <div class="fontsize_16 lusitana text-uppercase grey parameters">
+                    <span>
+                        Height
+                        <br>
+                        <span class="highlight">185</span>
+                    </span>
+                    <span>
+                        Bust
+                        <br>
+                        <span class="highlight">79</span>
+                    </span>
+                    <span>
+                        Waist
+                        <br>
+                        <span class="highlight">59</span>
+                    </span>
+                    <span>
+                        Hips
+                        <br>
+                        <span class="highlight">87</span>
+                    </span>
+                    <span>
+                        Shoes
+                        <br>
+                        <span class="highlight">39</span>
+                    </span>
+                    <span>
+                        Eyes
+                        <br>
+                        <span class="highlight">Green</span>
+                    </span>
+                    <span>
+                        Hair
+                        <br>
+                        <span class="highlight">Brown</span>
+                    </span>
+                    <span>
+                        Size
+                        <br>
+                        <span class="highlight">8</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-item content-absolute hover-content text-center fashion">
+            <div class="item-media" style="height: 400px">
+                <img src="http://localhost:8400/img/img_9.jpeg" alt="" />
+            </div>
+            <div class="item-content transp_gradient_bg">
+                <h3 class="model-name">
+                    <a href="index.html#">Rachel Tale</a>
+                </h3>
+                <p class="small-text lusitana highlight">Top model</p>
+
+                <div class="fontsize_16 lusitana text-uppercase grey parameters">
+                    <span>
+                        Height
+                        <br>
+                        <span class="highlight">185</span>
+                    </span>
+                    <span>
+                        Bust
+                        <br>
+                        <span class="highlight">79</span>
+                    </span>
+                    <span>
+                        Waist
+                        <br>
+                        <span class="highlight">59</span>
+                    </span>
+                    <span>
+                        Hips
+                        <br>
+                        <span class="highlight">87</span>
+                    </span>
+                    <span>
+                        Shoes
+                        <br>
+                        <span class="highlight">39</span>
+                    </span>
+                    <span>
+                        Eyes
+                        <br>
+                        <span class="highlight">Green</span>
+                    </span>
+                    <span>
+                        Hair
+                        <br>
+                        <span class="highlight">Brown</span>
+                    </span>
+                    <span>
+                        Size
+                        <br>
+                        <span class="highlight">8</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="vertical-item content-absolute hover-content text-center studio">
+            <div class="item-media" style="height: 400px">
+                <img src="http://localhost:8400/img/img_8.jpeg" alt="" />
+            </div>
+            <div class="item-content transp_gradient_bg">
+                <h3 class="model-name">
+                    <a href="index.html#">Rachel Tale</a>
+                </h3>
+                <p class="small-text lusitana highlight">Top model</p>
+
+                <div class="fontsize_16 lusitana text-uppercase grey parameters">
+                    <span>
+                        Height
+                        <br>
+                        <span class="highlight">185</span>
+                    </span>
+                    <span>
+                        Bust
+                        <br>
+                        <span class="highlight">79</span>
+                    </span>
+                    <span>
+                        Waist
+                        <br>
+                        <span class="highlight">59</span>
+                    </span>
+                    <span>
+                        Hips
+                        <br>
+                        <span class="highlight">87</span>
+                    </span>
+                    <span>
+                        Shoes
+                        <br>
+                        <span class="highlight">39</span>
+                    </span>
+                    <span>
+                        Eyes
+                        <br>
+                        <span class="highlight">Green</span>
+                    </span>
+                    <span>
+                        Hair
+                        <br>
+                        <span class="highlight">Brown</span>
+                    </span>
+                    <span>
+                        Size
+                        <br>
+                        <span class="highlight">8</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="reviews" class="ds page_testimonials section_padding_top_100 section_padding_95">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="owl-carousel" data-responsive-lg="1" data-responsive-md="1" data-responsive-sm="1" data-dots="true">
+
+                    <blockquote class="with_quotes text-center">
+                        <img src="http://localhost:8400/img/img_2.jpeg" alt="" />
+                        <div class="item-meta">
+                            <h5>
+                                <a href="index.html#">Helen Thompson</a>
+                            </h5>
+                            <p class="small-text lusitana highlight">photographer</p>
+                        </div>
+                        Pork loin andouille rump, corned beef bacon kevin venison tail. Tri-tip boudin pig tenderloin ham. Meatloaf cupim picanha pork chop landjaeger pork chicken andouille jerky, shoulder flank turkey.
+                    </blockquote>
+
+                    <blockquote class="with_quotes text-center">
+                        <img src="http://localhost:8400/img/img_4.jpeg" alt="" />
+                        <div class="item-meta">
+                            <h5>
+                                <a href="index.html#">Helen Thompson</a>
+                            </h5>
+                            <p class="small-text lusitana highlight">photographer</p>
+                        </div>
+                        Pork loin andouille rump, corned beef bacon kevin venison tail. Tri-tip boudin pig tenderloin ham. Meatloaf cupim picanha pork chop landjaeger pork chicken andouille jerky, shoulder flank turkey.
+                    </blockquote>
+
+                    <blockquote class="with_quotes text-center">
+                        <img src="http://localhost:8400/img/img_1.jpeg" alt="" />
+                        <div class="item-meta">
+                            <h5>
+                                <a href="index.html#">Helen Thompson</a>
+                            </h5>
+                            <p class="small-text lusitana highlight">photographer</p>
+                        </div>
+                        Pork loin andouille rump, corned beef bacon kevin venison tail. Tri-tip boudin pig tenderloin ham. Meatloaf cupim picanha pork chop landjaeger pork chicken andouille jerky, shoulder flank turkey.
+                    </blockquote>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ds section_padding_100 columns_margin_bottom_20">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2 class="section_header">Our Blog</h2>
+                <p class="small-text highlight lusitana">Latest trends of the industry</p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4 col-sm-6">
+                <article class="vertical-item content-padding with_background bottom_color_border text-center">
+                    <div class="item-media">
+                        <img src="http://localhost:8400/img/img_22.jpeg" alt="">
+                        <div class="media-links">
+                            <a href="blog-single-right.html" class="abs-link"></a>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <header class="entry-header">
+                            <span class="entry-date highlight lusitana">
+                                <time class="entry-date" datetime="2017-03-13T08:50:40+00:00">
+                                    March 13, 2017
+                                </time>
+                            </span>
+                            <h3 class="entry-title">
+                                <a href="blog-single-right.html">
+                        To Keep Makeup...
+                    </a>
+                            </h3>
+                            <p>
+                    Bacon alcatra shankle meatloaf kevin. Capicola pork beef ribs ball tip. Strip steak turkey drumstick sirloin...
+                </p>
+                            <p>
+                    <a class="social-icon theme-color-icon soc-facebook" href="index.html#" title="Facebook"></a>
+                    <a class="social-icon theme-color-icon soc-twitter" href="index.html#" title="Twitter"></a>
+                    <a class="social-icon theme-color-icon soc-google" href="index.html#" title="Google"></a>
+                </p>
+                        </header>
+
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <article class="vertical-item content-padding with_background bottom_color_border text-center">
+                    <div class="item-media">
+                        <img src="http://localhost:8400/img/img_22.jpeg" alt="">
+                        <div class="media-links">
+                            <a href="blog-single-right.html" class="abs-link"></a>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <header class="entry-header">
+                            <span class="entry-date highlight lusitana">
+                                <time class="entry-date" datetime="2017-03-13T08:50:40+00:00">
+                                    March 13, 2017
+                                </time>
+                            </span>
+                            <h3 class="entry-title">
+                                <a href="blog-single-right.html">
+                        To Keep Makeup...
+                    </a>
+                            </h3>
+                            <p>
+                    Bacon alcatra shankle meatloaf kevin. Capicola pork beef ribs ball tip. Strip steak turkey drumstick sirloin...
+                </p>
+                            <p>
+                    <a class="social-icon theme-color-icon soc-facebook" href="index.html#" title="Facebook"></a>
+                    <a class="social-icon theme-color-icon soc-twitter" href="index.html#" title="Twitter"></a>
+                    <a class="social-icon theme-color-icon soc-google" href="index.html#" title="Google"></a>
+                </p>
+                        </header>
+
+                    </div>
+                </article>
+            </div>
+
+{{-- @foreach ($activities as $index => $c )
+            <div class="col-md-4 col-sm-6">
+                <article class="vertical-item content-padding with_background bottom_color_border text-center">
+                    <div class="item-media">
+                        <img src="http://{{$app_url->app_url2}}/storage/app/{{$c->image}}" alt="">
+                        <div class="media-links">
+                            <a href="blog-single-right.html" class="abs-link"></a>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <header class="entry-header">
+                            <span class="entry-date highlight lusitana">
+                                <time class="entry-date" datetime="2017-03-13T08:50:40+00:00">
+                                    {{$c->day_}} <span>{{$c->month_}}</span>
+                                </time>
+                            </span>
+                            <h3 class="entry-title">
+                                <a href="blog-single-right.html">
+                                    {{$c->tittle}}
+                    </a>
+                            </h3>
+                            <p style="white-space: pre-line;">
+                                {{$c->content}}
+                </p>
+                            <p>
+                    <a class="social-icon theme-color-icon soc-facebook" href="index.html#" title="Facebook"></a>
+                    <a class="social-icon theme-color-icon soc-twitter" href="index.html#" title="Twitter"></a>
+                    <a class="social-icon theme-color-icon soc-google" href="index.html#" title="Google"></a>
+                </p>
+                        </header>
+
+                    </div>
+                </article>
+            </div>
+
+
+
+
+            @endforeach --}}
+            <div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0">
+                <article class="vertical-item content-padding with_background bottom_color_border text-center">
+                    <div class="item-media">
+                        <img src="http://localhost:8400/img/img_22.jpeg" alt="">
+                        <div class="media-links">
+                            <a href="blog-single-right.html" class="abs-link"></a>
+                        </div>
+                    </div>
+                    <div class="item-content">
+                        <header class="entry-header">
+                            <span class="entry-date highlight lusitana">
+                                <time class="entry-date" datetime="2017-03-13T08:50:40+00:00">
+                                    March 16, 2017
+                                </time>
+                            </span>
+                            <h3 class="entry-title">
+                                <a href="blog-single-right.html">
+                        Is The Herbal Way...
+                    </a>
+                            </h3>
+                            <p>
+                    Filet mignon tongue kielbasa t-bone. Pork belly pork short loin, fatback pancetta corned beef tenderloin hamburger...
+                </p>
+                            <p>
+                    <a class="social-icon theme-color-icon soc-facebook" href="index.html#" title="Facebook"></a>
+                    <a class="social-icon theme-color-icon soc-twitter" href="index.html#" title="Twitter"></a>
+                    <a class="social-icon theme-color-icon soc-google" href="index.html#" title="Google"></a>
+                </p>
+                        </header>
+
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="casting" class="ds ms parallax page_contact section_padding_top_100 section_padding_bottom_65 columns_padding_25 columns_margin_bottom_20">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h2 class="section_header">Contact Us</h2>
+                <p class="small-text highlight lusitana">For a chance to join us</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="fontsize_20">
+        Do you want to be a famous supermodel of the best model agency in the world?
+    </p>
+                <p>
+        Chicken meatball tail t-bone. Rump sirloin turkey meatball. Spare ribs frankfurter beef brisket ribeye tongue bacon kevin fatback swine meatloaf ball tip rump corned beef. Swine sirloin turducken kielbasa ground round porchetta sausage doner filet mignon landjaeger. Bresaola porchetta sirloin.
+    </p>
+                <ul class="list2">
+                    <li>Vestibulum ac diam sit amet quam vehicula</li>
+                    <li>Quisque velit nisi, pretium ut lacinia in</li>
+                    <li>Nulla quis lorem ut libero malesuada feugiat</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+
+                <form class="contact-form row columns_padding_10 columns_margin_bottom_10" method="post" action="./">
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="name">Full Name
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" aria-required="true" size="30" value="" name="name" id="name" class="form-control with_icon" placeholder="Name">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="country">Country
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" aria-required="true" size="30" value="" name="country" id="country" class="form-control with_icon" placeholder="Country">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="phone">Phone number
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" aria-required="true" size="30" value="" name="phone" id="phone" class="form-control with_icon" placeholder="Phone number">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="email">Email address
+                                <span class="required">*</span>
+                            </label>
+                            <input type="email" aria-required="true" size="30" value="" name="email" id="email" class="form-control with_icon" placeholder="Email Address">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+
+                        <div class="form-group">
+                            <label for="message">Your Resume</label>
+                            <textarea aria-required="true" rows="7" cols="45" name="message" id="message" class="form-control with_icon" placeholder="Your resume"></textarea>
+                            <i class="fa fa-folder-open" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 text-center">
+
+                        <div class="contact-form-submit topmargin_20">
+                            <button type="submit" id="contact_form_submit" name="contact_submit" class="theme_button color2">Submit</button>
+                            <button type="reset" id="contact_form_reset" name="contact_reset" class="theme_button inverse">Clear</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 @endsection
 
 @section('script')
-	
+
 @endsection

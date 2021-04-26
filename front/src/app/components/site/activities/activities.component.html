@@ -1,0 +1,366 @@
+<app-navbar></app-navbar>
+
+<section class="page_breadcrumbs ds parallax section_padding_75" style="background-image: url('{{ app_url }}/images/baners/img_8.jpeg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2>Our Activities</h2>
+        <ol class="breadcrumb greylinks">
+          <li>
+            <a href="index.html">
+        Home
+      </a>
+          </li>
+          <li>
+            <a href="blog-right.html#">Talent</a>
+          </li>
+          <li class="active">All Activities</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="ds section_padding_top_100 section_padding_bottom_100 columns_padding_25">
+  <div class="container">
+    <div class="row">
+
+
+      <div class="col-sm-12">
+        <div class="intro_section ds ms blog_slider bottommargin_50">
+          <div class="flexslider" data-nav="false">
+            <ul class="slides">
+
+              <li>
+                <img src="assets/images/gallery/08.jpg" alt="">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-12 text-center">
+                      <div class="slide_description_wrapper">
+                        <div class="slide_description">
+                          <div class="intro-layer" data-animation="fadeInUp">
+                            <h3 class="text-uppercase margin_0">
+                              Get your best top
+                              <br> model today
+                            </h3>
+                          </div>
+                        </div>
+                        <!-- eof .slide_description -->
+                      </div>
+                      <!-- eof .slide_description_wrapper -->
+                    </div>
+                    <!-- eof .col-* -->
+                  </div>
+                  <!-- eof .row -->
+                </div>
+                <!-- eof .container -->
+              </li>
+
+              <li>
+                <img src="assets/images/gallery/09.jpg" alt="">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-12 text-center">
+                      <div class="slide_description_wrapper">
+                        <div class="slide_description">
+                          <div class="intro-layer" data-animation="fadeInUp">
+                            <h3 class="text-uppercase margin_0">
+                              Get your best top
+                              <br> model today
+                            </h3>
+                          </div>
+                        </div>
+                        <!-- eof .slide_description -->
+                      </div>
+                      <!-- eof .slide_description_wrapper -->
+                    </div>
+                    <!-- eof .col-* -->
+                  </div>
+                  <!-- eof .row -->
+                </div>
+                <!-- eof .container -->
+              </li>
+
+              <li>
+                <img src="assets/images/gallery/10.jpg" alt="">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-12 text-center">
+                      <div class="slide_description_wrapper">
+                        <div class="slide_description">
+                          <div class="intro-layer" data-animation="fadeInUp">
+                            <h3 class="text-uppercase margin_0">
+                              Get your best top
+                              <br> model today
+                            </h3>
+                          </div>
+                        </div>
+                        <!-- eof .slide_description -->
+                      </div>
+                      <!-- eof .slide_description_wrapper -->
+                    </div>
+                    <!-- eof .col-* -->
+                  </div>
+                  <!-- eof .row -->
+                </div>
+                <!-- eof .container -->
+              </li>
+
+            </ul>
+          </div>
+          <!-- eof flexslider -->
+        </div>
+      </div>
+
+      <div class="col-sm-7 col-md-8 col-lg-8">
+
+        <article class="vertical-item content-padding big-padding post format-standard with_background bottom_color_border" *ngFor="let activity of activities">
+
+          <div class="item-media entry-thumbnail" style="overflow: hidden;  width: 750px; height: 450px;">
+            <img class="crop" src="{{ app_url }}/images/activities/{{ activity.image }}" alt="">
+          </div>
+
+          <div class="item-content entry-content">
+            <header class="entry-header">
+
+              <div class="entry-meta item-meta">
+                <span class="content-justify small-text lusitana">
+                  <span class="entry-date greylinks">
+                    <a [routerLink]="['/activity', 1]" rel="bookmark">
+                      <time class="entry-date" datetime="2017-03-13T08:50:40+00:00">
+                        March 13, 2017
+                      </time>
+                    </a>
+                  </span>
+                  <span class="categories-links highlightlinks">
+                    <a href="blog-right.html#">Fashion</a>
+                  </span>
+                </span>
+              </div>
+              <!-- .entry-meta -->
+
+              <h3 class="entry-title">
+                <a [routerLink]="['/activity', 1]" rel="bookmark">{{ activity.tittle }}</a>
+              </h3>
+
+
+              <!-- .entry-meta -->
+
+            </header>
+            <!-- .entry-header -->
+
+            <p>{{ activity.content | slice:0:150 }}...</p>
+
+          </div>
+          <!-- .item-content.entry-content -->
+        </article>
+        <!-- .post -->
+
+        <div class="row topmargin_60">
+          <div class="col-sm-12 text-center">
+            <ul class="pagination">
+              <li><a href="blog-right.html#">Prev</a></li>
+              <li class="active"><a href="blog-right.html#">1</a></li>
+              <li><a href="blog-right.html#">2</a></li>
+              <li><a href="blog-right.html#">3</a></li>
+              <li><a href="blog-right.html#">4</a></li>
+              <li><a href="blog-right.html#">5</a></li>
+              <li><a href="blog-right.html#">Next</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <!--eof .col-sm-8 (main content)-->
+
+      <!-- sidebar -->
+      <aside class="col-sm-5 col-md-4 col-lg-4">
+
+
+        <div class="widget widget_apsc_widget">
+          <h3 class="widget-title">Get In Touch</h3>
+          <div class="apsc-icons-wrapper clearfix apsc-theme-4">
+            <div class="apsc-each-profile">
+              <a class="apsc-facebook-icon clearfix" href="blog-right.html#">
+                <div class="apsc-inner-block">
+                  <span class="social-icon">
+                    <i class="fa fa-facebook apsc-facebook"></i>
+                    <span class="media-name">Facebook</span>
+                  </span>
+                  <span class="apsc-count">9.8K</span>
+                  <span class="apsc-media-type">Fans</span>
+                </div>
+              </a>
+            </div>
+            <div class="apsc-each-profile">
+              <a class="apsc-twitter-icon clearfix" href="blog-right.html#">
+                <div class="apsc-inner-block">
+                  <span class="social-icon">
+                    <i class="fa fa-twitter apsc-twitter"></i>
+                    <span class="media-name">Twitter</span>
+                  </span>
+                  <span class="apsc-count">4.9K</span>
+                  <span class="apsc-media-type">Followers</span>
+                </div>
+              </a>
+            </div>
+            <div class="apsc-each-profile">
+              <a class="apsc-google-plus-icon clearfix" href="blog-right.html#">
+                <div class="apsc-inner-block">
+                  <span class="social-icon">
+                    <i class="apsc-googlePlus fa fa-google-plus"></i>
+                    <span class="media-name">google+</span>
+                  </span>
+                  <span class="apsc-count">10.1M</span>
+                  <span class="apsc-media-type">Followers</span>
+                </div>
+              </a>
+            </div>
+            <div class="apsc-each-profile">
+              <a class="apsc-instagram-icon clearfix" href="blog-right.html#">
+                <div class="apsc-inner-block">
+                  <span class="social-icon">
+                    <i class="apsc-instagram fa fa-instagram"></i>
+                    <span class="media-name">Instagram</span>
+                  </span>
+                  <span class="apsc-count">4</span>
+                  <span class="apsc-media-type">Followers</span>
+                </div>
+              </a>
+            </div>
+            <div class="apsc-each-profile">
+              <a class="apsc-youtube-icon clearfix" href="blog-right.html#">
+                <div class="apsc-inner-block">
+                  <span class="social-icon">
+                    <i class="apsc-youtube fa fa-youtube"></i>
+                    <span class="media-name">Youtube</span>
+                  </span>
+                  <span class="apsc-count">2.2K</span>
+                  <span class="apsc-media-type">Subscriber</span>
+                </div>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="widget widget_mailchimp">
+
+          <h3 class="widget-title">Newsletter</h3>
+
+          <form class="signup form-inline" action="./" method="get">
+            <div class="form-group">
+              <input name="email" type="email" class="mailchimp_email form-control" placeholder="Email Address">
+            </div>
+            <button type="submit" class="theme_button">Send</button>
+            <div class="response"></div>
+          </form>
+
+          <p>
+  Subscribe to our Newsletter right now to be updated. We promice not to spam!
+</p>
+
+        </div>
+
+        <div class="widget widget_flickr">
+
+          <h3 class="widget-title">Flickr Widget</h3>
+          <ul id="flickr"></ul>
+        </div>
+
+        <div class="widget widget_archive">
+
+          <h3 class="widget-title">Archive</h3>
+          <ul class="greylinks">
+            <li>
+              <a [routerLink]="['/activity', 1]">November 2017</a>
+            </li>
+            <li>
+              <a [routerLink]="['/activity', 1]">December 2017</a>
+            </li>
+            <li>
+              <a [routerLink]="['/activity', 1]">January 2017</a>
+            </li>
+            <li>
+              <a [routerLink]="['/activity', 1]">February 2017</a>
+            </li>
+            <li>
+              <a [routerLink]="['/activity', 1]">March 2017</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="widget widget_recent_posts">
+
+          <h3 class="widget-title">Recent Posts</h3>
+          <ul class="media-list darklinks">
+            <li class="media">
+              <a class="media-left media-middle" [routerLink]="['/activity', 1]">
+                <img src="assets/images/events/01.jpg" alt="">
+              </a>
+              <div class="media-body media-middle">
+                <h4>
+                  <a [routerLink]="['/activity', 1]">Bresaola pork loin swine picanha salami biltong pork chop</a>
+                </h4>
+                <p class="item-meta small-text lusitana">
+          Jan 18, 2017
+        </p>
+              </div>
+            </li>
+
+            <li class="media">
+              <a class="media-left media-middle" [routerLink]="['/activity', 1]">
+                <img src="assets/images/events/02.jpg" alt="">
+              </a>
+              <div class="media-body media-middle">
+                <h4>
+                  <a [routerLink]="['/activity', 1]">Jowl boudin tongue pork corned beef drumstick ham kielbasa</a>
+                </h4>
+                <p class="item-meta small-text lusitana">
+          Jan 18, 2017
+        </p>
+
+              </div>
+            </li>
+
+            <li class="media">
+              <a class="media-left media-middle" [routerLink]="['/activity', 1]">
+                <img src="assets/images/events/03.jpg" alt="">
+              </a>
+              <div class="media-body media-middle">
+                <h4>
+                  <a [routerLink]="['/activity', 1]">Pork belly t-bone brisket jowl, ground round</a>
+                </h4>
+                <p class="item-meta small-text lusitana">
+          Jan 18, 2017
+        </p>
+
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="widget widget_search">
+          <h3 class="widget-title">Search on Website</h3>
+          <form method="get" class="searchform form-inline" action="./">
+            <div class="form-group">
+              <label class="screen-reader-text" for="widget-search">Search for:</label>
+              <input id="widget-search" type="text" value="" name="search" class="form-control" placeholder="type keyword here">
+            </div>
+            <button type="submit" class="theme_button color1">Search</button>
+          </form>
+        </div>
+
+
+      </aside>
+      <!-- eof aside sidebar -->
+
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

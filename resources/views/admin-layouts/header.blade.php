@@ -16,31 +16,31 @@
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 						@csrf
 					</form>
-			
-					
+
+
 				@else
 
-			
+
 
 					@if (Route::has('register'))
-					
+
 						<div class="header-register">
 							<a href="#" class="btn btn-link">Register</a>
 							<div>
-							
+
 							</div>
-						</div> 
+						</div>
 
 					@endif
 
-						
+
 				<div class="header-login">
 					<a href="#" class="btn btn-link">Login</a>
 					<div>
 					<form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                       
+
                         </div>
 
                                 <div class="form-check">
@@ -50,7 +50,7 @@
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
-                    
+
                                 <button type="submit" class="btn btn-default">
                                     {{ __('Login') }}
                                 </button>
@@ -60,14 +60,14 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                           
+
                     </form>
 					</div>
-				</div> 					
+				</div>
 				@endauth
-				@endif 
+				@endif
 	</header>  -->
-	
+
 
 
 	    <!-- Start Left menu area -->
@@ -86,7 +86,7 @@
 								   <span class="mini-click-non">Admin Panel</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-								<li><a title="Dashboard v.1" href="{{url('home/')}}"><span class="mini-sub-pro">Dashboard</span></a></li> 
+								<li><a title="Dashboard v.1" href="{{url('home/')}}"><span class="mini-sub-pro">Dashboard</span></a></li>
 								<!-- <li><a title="Dashboard v.1" href="{{url('myprofile/')}}"><span class="mini-sub-pro">My Profile</span></a></li>                              -->
                             </ul>
                         </li>
@@ -98,7 +98,7 @@
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Professors" href="{{url('guests/')}}"><span class="mini-sub-pro">Guest</span></a></li>
                                 <li><a title="Add Professor" href="{{url('admin-talents/')}}"><span class="mini-sub-pro">Talents</span></a></li>
-                                <li><a title="Edit Professor" href="{{url('investors/')}}"><span class="mini-sub-pro">Investors</span></a></li>                               
+                                <li><a title="Edit Professor" href="{{url('investors/')}}"><span class="mini-sub-pro">Investors</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -136,8 +136,8 @@
         </nav>
     </div>
     <!-- End Left menu area -->
-	
-	
+
+
 <div class="all-content-wrapper">
 	<div class="container-fluid">
             <div class="row">
@@ -171,8 +171,8 @@
                                                 </li>
 												<li class="nav-item"><a href="{{ url('activity/') }}" class="nav-link">Activities</a></li>
 												<li class="nav-item"><a href="{{ url('candidate/') }}" class="nav-link">Candidates</a></li>
-												<li class="nav-item"><a href="{{ url('partners/') }}" class="nav-link">Investors</a></li>												   
-												<li class="nav-item"><a href="{{ url('about/') }}" class="nav-link">About Us</a></li>                                            
+												<li class="nav-item"><a href="{{ url('partners/') }}" class="nav-link">Investors</a></li>
+												<li class="nav-item"><a href="{{ url('about/') }}" class="nav-link">About Us</a></li>
                                                 <li class="nav-item"><a href="#" class="nav-link">Support</a>
                                                 </li>
                                             </ul>
@@ -304,7 +304,7 @@
 												</li> -->
 												     <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															<img src="http://localhost/fob/public/upload/{{ Auth::user()->image }}" alt="" />
+															<img src="{{ asset('upload') }}/{{ Auth::user()->image }}}}" alt="" />
 															<span class="admin-name">{{ Auth::user()->name }}</span>
 															<i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
 														</a>
@@ -313,18 +313,18 @@
                                                         </li> -->
                                                         <li><a href="{{ url('myprofile/') }}"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
                                                         </li>
-                                                        
+
                                                         <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
                                                         </li>
                                                         <li><a class="edu-icon edu-locked author-log-ic" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a>
 														</li>
-														
+
 														<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 															@csrf
 														</form>
                                                     </ul>
                                                 </li>
-               
+
                                             </ul>
                                         </div>
                                     </div>

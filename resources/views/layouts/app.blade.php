@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-       
-       <title>{{ config('app.name', 'Laravel') }}</title>
-       
+
+       <title>{{ config('app.name', 'FOB') }}</title>
+
            @include('layouts.head')
        </head>
 <body>
     <div id="app">
     @include('layouts.header')
-           
+
         <main class="py-4">
            @include('includes.messages')
             @yield('content')
         </main>
     </div>
 
-    @include('layouts.footer')    
-    @include('layouts.footer-script') 
+    @include('layouts.footer')
+    @include('layouts.footer-script')
 
     @yield('script')
 
@@ -38,7 +38,7 @@
         }else{
             type=2;
         }
-       
+
 // alert(text)
 
 
@@ -50,20 +50,20 @@
         success:function(response){
             console.log(response);
             console.log(type)
-            $("#"+h).text(response); 
-            
+            $("#"+h).text(response);
+
              if (type==1) {
                  $("#like1_"+pid).css({"background-color": "#1a75ff","color": "white"});
-                        $("#like1_"+pid).attr("id", "like2_"+pid); 
+                        $("#like1_"+pid).attr("id", "like2_"+pid);
             }
             if (type==2) {
                  $("#like2_"+pid).css({"background-color": "#d9d9d9"});
                        $("#like2_"+pid).attr("id", "like1_"+pid);
 
             }
-           
-           
-             
+
+
+
            }
         });
         });
@@ -86,7 +86,7 @@
         }else{
             status=2;
         }
-       
+
 // alert(status)
 
 
@@ -98,28 +98,28 @@
         success:function(response){
             console.log(response);
             console.log(status)
-            // $("#"+h).text(response); 
+            // $("#"+h).text(response);
             // alert(status);
              if (status==1) {
                  $("#fav1_"+pid).css({"background-color": "#1a75ff","color": "white"});
-                        $("#fav1_"+pid).attr("id", "fav2_"+pid); 
+                        $("#fav1_"+pid).attr("id", "fav2_"+pid);
             }
             if (status==2) {
                  $("#fav2_"+pid).css({"background-color": "#d9d9d9","color": "black"});
                        $("#fav2_"+pid).attr("id", "fav1_"+pid);
 
             }
-           
-           
-             
+
+
+
            }
         });
         });
 
 
-     
+
     </script>
-  
+
 </body>
 </html>
 

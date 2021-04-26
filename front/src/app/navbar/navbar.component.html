@@ -1,0 +1,87 @@
+<!-- <nav class="navbar navbar-light bg-light">
+       <a class="navbar-brand" routerLink="login">Navbar</a>
+    <div>
+       <a class="navbar-brand" routerLink="login" *ngIf="!loggedIn">Login</a>
+       <a class="navbar-brand" href="#" (click)=logout($event)  *ngIf="loggedIn">Logout</a>
+       <a class="navbar-brand" routerLink="profile" *ngIf="loggedIn">Profile</a>
+    </div>
+  </nav> -->
+
+
+  <section class="page_toplogo table_section ds">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 text-center text-sm-left">
+          <span class="logo-meta">
+            <strong class="grey">{{ appPhone }}</strong>
+            <span>
+              {{ support_mail }}
+            </span>
+          </span>
+        </div>
+
+        <div class="col-sm-4 text-center">
+          <a href="home" class="logo top_logo">
+            <img class="foglogo" src="{{ app_url }}/images/logos/{{ logo }}" alt="">
+          </a>
+        </div>
+
+        <div class="col-sm-4 text-center text-sm-right">
+          <a href="https://twitter.com/{{ twitter }}" class="social-icon color-icon border-icon rounded-icon soc-twitter"></a>
+          <a href="https://www.facebook.com/{{ facebook }}" class="social-icon color-icon border-icon rounded-icon soc-facebook"></a>
+          <a href="https://www.google.com/{{ gmail }}" class="social-icon color-icon border-icon rounded-icon soc-google"></a>
+          <a href="https://www.instagram.com/{{ instagram }}" class="social-icon color-icon border-icon rounded-icon soc-instagram"></a>
+          <a href="javascript::void(0)" [routerLink]="['/dashboard']" *ngIf="loggedIn" class="social-icon color-icon border-icon soc-persona"></a>
+          <a href="javascript::void(0)" (click)=logout($event)  *ngIf="loggedIn" class="social-icon color-icon border-icon rt-icon2-lock"></a>
+          <a href="javascript::void(0)" href="login" *ngIf="!loggedIn" class="social-icon color-icon border-icon  rt-icon2-key2"></a>
+
+        </div>
+
+
+        <!-- header toggler -->
+        <span class="toggle_menu">
+          <span></span>
+        </span>
+
+      </div>
+    </div>
+
+  </section>
+
+  <header class="page_header header_gradient bordered_items">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <!-- main nav start -->
+          <nav class="mainmenu_wrapper">
+            <ul class="mainmenu nav sf-menu">
+              <li class="active">
+                <a href="home">Home</a>
+              </li>
+              <li>
+                <a [routerLink]="['/talents']">Talents</a>
+              </li>
+              <li>
+                <a href="galleries">Gallery</a>
+              </li>
+              <li>
+                <a href="activities">Activities</a>
+              </li>
+              <li>
+                  <a href="investors">Investors</a>
+              </li>
+              <li>
+                  <a href="about">About Us</a>
+                  <!-- <ul>
+                      <li><a [routerLink]="['/']">Partners</a></li>
+                  </ul> -->
+              </li>
+
+              </ul>
+          </nav>
+          <!-- eof main nav -->
+        </div>
+      </div>
+    </div>
+  </header>

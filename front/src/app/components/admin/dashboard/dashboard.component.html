@@ -1,0 +1,68 @@
+<app-admin-nav></app-admin-nav>
+
+
+<div *ngIf="role == 1 && ErrMsg == 'Active'">
+  <app-admindash></app-admindash>
+</div>
+<div *ngIf="role == 2 && ErrMsg == 'Active'">
+  <app-talentdash></app-talentdash>
+</div>
+<div *ngIf="role == 3 && ErrMsg == 'New'">
+  <app-guest></app-guest>
+</div>
+<div *ngIf="role == 4 && ErrMsg == 'Active'">
+  <app-investordash></app-investordash>
+</div>
+
+<div *ngIf="role == 2 && ErrMsg == 'Inactive'">
+
+<section class="ls section_padding_top_50 section_padding_bottom_50 columns_padding_10">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>User
+          <small>profile</small>
+        </h3>
+      </div>
+    </div>
+    <!-- .row -->
+
+
+    <div class="row">
+      <div class="col-md-9">
+
+
+        <div class="row">
+          <!-- User Bio -->
+          <div class="col-xs-12 col-sm-12">
+
+            <div class="with_border with_padding">
+              <div class="media big-left-media">
+                <div class="media-left">
+                  <img src="{{ app_url }}/images/talents/{{ profile.image }}" alt="...">
+                </div>
+                <div class="media-body">
+                  <h3>Welcome Back </h3>
+                  <h4>{{profile.firstname}} {{profile.lastname}} </h4>
+                  <small>Talent</small>
+                  <p>An Activation code have been sent to your Email, Visit your email and click on the link "Activate my accout "  </p>
+                </div>
+              </div>
+            </div>
+            <!-- .with_border -->
+          </div>
+          <!-- .col-* -->
+
+        </div>
+      </div>
+      <!-- .col-* right column -->
+    </div>
+    <!-- .row main columns -->
+  </div>
+  <!-- .container -->
+</section>
+
+</div>
+
+<app-adminfooter></app-adminfooter>

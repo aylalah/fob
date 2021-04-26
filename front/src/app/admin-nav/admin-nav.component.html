@@ -1,0 +1,126 @@
+<!-- <header class="page_header header_darkgrey"> -->
+			<section class="ds with_bottom_border">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<ol class="breadcrumb darklinks">
+								<li>
+									<a [routerLink]="['/dashboad']" routerLinkActive="router-link-active" >Dashboard</a>
+								</li>
+                <li class="active"><a [routerLink]="['/Profile']" >Profile</a>
+                </li>
+                <li>
+                  <a href="home" >Home</a>
+                </li>
+							</ol>
+						</div>
+						<!-- .col-* -->
+						<div class="col-md-6 text-md-right">
+							<span class="dashboard-daterangepicker">
+								<!-- <i class="fa fa-calendar"></i>
+								<span></span>
+                <i class="caret"></i> -->
+
+                <ol class="breadcrumb darklinks">
+
+
+                  <li class="dropdown header-notes-dropdown">
+                    <a class="header-button" data-target="#" href="index.html" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                      <i class="fa fa-bell-o grey"></i>
+                      <!-- <span class="header-button-text">Messages</span> -->
+                      <span class="header-dropdown-number">
+                        0
+                      </span>
+                    </a>
+
+                    <div class="dropdown-menu ls">
+                      <div class="dropdwon-menu-title with_background">
+                        <!-- <strong>12 Pending</strong> Notifications -->
+
+                        <div class="pull-right darklinks">
+                          <a href="admin_profile.html#">View All</a>
+                        </div>
+
+                      </div>
+                      <ul class="list-unstyled">
+
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="dropdown header-notes-dropdown">
+                    <a class="header-button" data-target="#" href="index.html" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                      <i class="fa fa-envelope-o grey"></i>
+                      <!-- <span class="header-button-text">Inbox</span> -->
+                      <span class="header-dropdown-number">
+                        0
+                      </span>
+                    </a>
+
+                    <div class="dropdown-menu ls">
+                      <div class="dropdwon-menu-title with_background">
+                        <strong>0 New</strong> Messages
+
+                        <div class="pull-right darklinks">
+                          <a href="admin_profile.html#">View All</a>
+                        </div>
+
+                      </div>
+                      <ul class="list1 no-bullets no-top-border no-bottom-border">
+
+                      </ul>
+                    </div>
+                  </li>
+
+                <li class="dropdown user-dropdown-menu">
+                  <a class="header-button" id="user-dropdown-menu" data-target="#" href="./" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                    <i class="fa fa-user grey"></i> <span class="header-button-text"></span>
+                  </a>
+                  <div class="dropdown-menu ls " style="background-color: black;">
+                    <ul class="nav darklinks">
+                      <li>
+
+                          <a class="" routerLink="login" *ngIf="!loggedIn">Login</a>
+                          <a class="" (click)=logout($event)  *ngIf="loggedIn">Logout</a>
+                          <a class="" routerLink="profile" *ngIf="loggedIn">Profile</a>
+
+                      </li>
+                    </ul>
+
+                  </div>
+
+                </li>
+
+
+
+                  <li class="dropdown visible-xs-inline-block">
+                    <a href="admin_profile.html#" class="search_modal_button header-button">
+                      <i class="fa fa-search grey"></i>
+                      <span class="header-button-text">Search</span>
+                    </a>
+                  </li>
+                </ol>
+							</span>
+						</div>
+						<!-- .col-* -->
+					</div>
+					<!-- .row -->
+				</div>
+        <!-- .container -->
+<!--
+        <div class="widget widget_search">
+        <form method="get" class="searchform form-inline" action="./">
+          <div class="form-group">
+            <label class="screen-reader-text" for="widget-search-header">Search for:</label>
+            <input id="widget-search-header" type="text" value="" name="search" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="theme_button">Search</button>
+        </form>
+      </div> -->
+
+
+      <!-- <div class="pull-right big-header-buttons">
+
+      </div> -->
+    </section>
+<!-- </header> -->

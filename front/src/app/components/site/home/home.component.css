@@ -1,0 +1,25 @@
+[nz-carousel-content] {
+  text-align: center;
+  height: 300px;
+  line-height: 160px;
+  background: #364d79;
+  color: #fff;
+  overflow: hidden;
+}
+
+h3 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.crop {
+  width: 350px;
+  height: 230px;
+  overflow: hidden;
+}
+
+.crop img {
+  /* width: 780px;
+  height: 780px;
+  margin: -25px 0 0 -100px; */
+}

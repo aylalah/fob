@@ -29,10 +29,10 @@ use App\CompanyCategory;
 Route::get('/', function () {
 
     $getApp= DB::table('app_setup')->where('app_setup.id','=', 1)->select('app_setup.app_url2')->get();
-  
+
 
     $cand=Talent_Profile::orderBy('id','desc')->join('users','talent__profiles.user_id','=','users.id')
-            ->select('talent__profiles.*', 'users.name', 'users.image','users.address_1','users.email','users.count_f')->take(6)->get(); 
+            ->select('talent__profiles.*', 'users.name', 'users.image','users.address_1','users.email','users.count_f')->take(6)->get();
      $invest=Investor_Profile::join('users','investor__profiles.user_id','=','users.id')
             ->select('investor__profiles.*', 'users.name', 'users.image','users.email','users.count_f')->take(9)->get();
     $activities=Activities::orderBy('id','desc')->join('company_categories','activities.category_id','=','company_categories.id')->select('activities.*','company_categories.category_name')->where('activities.status','=','active')->take(9)->get();
@@ -96,7 +96,12 @@ Route::get('/register-investor', function () {
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home2');
 
-// Route::get('/register-user', 'HomeController@getTalentCat');
+Route::get('/userReg', function () {
+    return view('auth.userReg');
+});
+
+Route::POST('/regUser', 'HomeController@regUser');
+
 Route::POST('/register-user', 'HomeController@registeruser');
 
 Route::POST('/register-sponsor', 'HomeController@registerstore');
